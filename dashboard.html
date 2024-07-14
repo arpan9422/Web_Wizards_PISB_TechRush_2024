@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                inter: ['Inter', 'sans-serif']
+              },
+              colors: {
+                // Add custom colors here
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body class="m-0 p-0 bg-gray-100">
+    <nav class="flex justify-between bg-white w-full  p-3 shadow-md md:px-10 sm:px-5 sticky top-0">
+        <div class="flex gap-1 items-center">
+          <img src="./img/Logo.png" alt="">
+          <h2 class="text-xl font-inter font-bold">Finatic</h2>
+        </div>
+        <div class="flex xl:gap-12 lg:gap-8">
+          <h1 class="text-md font-inter font-medium bg-slate-200 p-3 rounded-md text-blue-800 md:block sm:hidden min-[320px]:hidden">Dashboard</h1>
+          <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">Transactions</h1>
+          <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">Analytics</h1>
+          <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">Goals</h1>
+          <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">Profile</h1>
+        </div>
+        <div class="flex items-center">
+         <a href="login.html"><button class="font-inter font-medium text-gray-600 bg-slate-200 p-2 px-6 rounded-md hover:bg-blue-500 hover:text-slate-100 md:block sm:hidden min-[320px]:hidden">Login</button></a> 
+          <img src="" alt="">
+          <button class="hamburger">
+            <img src="./img/hamburger.png" alt="" class="xl:hidden md:hidden sm:block min-[320px]:block h-6 px-4 ">
+          </button>
+        </div>
+      </nav>
+  
+      <!-- dropdown -->
+  
+      <div class="dropdown hidden">
+        <div class="absolute top-10 right-1 bg-white w-auto p-4 flex flex-col items-center justify-center gap-3 rounded-md border-2 border-double border-slate-600">
+          <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">Dashboard</h1>
+          <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">Transactions</h1>
+          <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">Analytics</h1>
+          <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">Goals</h1>
+          <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">Profile</h1>
+         </div>
+      </div>
+     
+      <script src="./js/nav.js"></script>
+
+    <header class="mx-12 my-6">
+        <div class="flex items-center w-full">
+            <h1 class="text-4xl font-inter font-semibold text-black w-6/12 ">Hello, Username!</h1>
+            <div class="w-6/12 flex">
+                <div class="flex items-center w-12/12 h-11 bg-white border border-gray-200 rounded-md">
+                    <div class="text-lg font-medium bg-blue-50 py-1.5 px-4 rounded-s-md text-blue-800 border-r border-gray-200">
+                        <h4>This month</h4>
+                    </div>
+                    <div class="text-lg font-medium hover:bg-blue-50 py-1.5 px-4 hover:text-blue-800 border-r border-gray-200">
+                        <h4>Last month</h4>
+                    </div>
+                    <div class="text-lg font-medium hover:bg-blue-50 py-1.5 px-4 rounded-e-md hover:text-blue-800"">
+                        <h4>Last Year</h4>
+                    </div>
+                </div>
+                <div class="h-11 bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-10 flex items-center">
+                    <img src="./img/Frame.svg" alt="Calendar" class="pr-2">
+                    <h4>Select Month</h4>
+                </div
+            </div>
+        </div>
+    </header>
+
+    <!-- Displaying Data with add expense/income -->
+    <div class="mt-8 flex w-full justify-center items-center">
+        <div class=" w-3/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Balance</h3>
+            <h1 class="text-3xl text-blue-600 pt-4 font-semibold">Rs. 5,502.45</h1>
+        </div>
+        <div class=" w-3/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Incomes</h3>
+            <h1 class="text-3xl pt-4 font-semibold">Rs. 9,450.00</h1>
+        </div>
+        <div class=" w-3/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses</h3>
+            <h1 class="text-3xl pt-4 font-semibold">Rs. 3,945.55</h1>
+        </div>
+    </div>
+    <div class="mt-8 flex w-full justify-center items-center">
+        <div class="flex w-3/12 h-20 p-6 bg-white mx-4 hover:bg-blue-50  hover:text-blue-800 rounded-xl border border-gray-200">
+            <img src="./img/Add_inc.svg" alt="add_income">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium ">Add Income</h3>
+        </div>
+        <div class="flex w-3/12 h-20 p-6 bg-white mx-4 rounded-xl border border-gray-200 hover:bg-blue-50  hover:text-blue-800">
+            <img src="./img/Add_exp.svg" alt="add_expense">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Add Expense</h3>
+        </div>
+        <div class="flex w-3/12 h-20 p-6 bg-white mx-4 rounded-xl border border-gray-200 hover:bg-blue-50  hover:text-blue-800">
+            <img src="./img/Transfer_mon.svg" alt="transfer_money">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Tranfer Money</h3>
+        </div>
+    </div>
+
+    <!-- Pie chart and transaction list -->
+    <div class="mt-8 flex w-full justify-center items-start">
+        <div class="w-4/12 h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <div class="px-6">
+                <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
+            </div>
+            <div id="chart"></div>
+            <script>
+              
+              var options = {
+                chart: {
+                  type: 'donut',
+                  expandOnClick: true,
+                },
+                series: [41.35, 21.51, 13.47, 9.97, 3.35],
+                labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
+                colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD','#F04438' ],
+                plotOptions: {
+                  pie: {
+                    expandOnClick: true,
+                    donut: {
+                      size: '50%',
+                    }
+                  }
+                },
+                dataLabels: {
+                  enabled: false // Show or hide data labels
+                },
+                legend: {
+                  show: true,// Show or hide the legend
+                  position: 'bottom' 
+                },
+                tooltip: {
+                  enabled: true // Show or hide tooltips
+                }
+                
+              };
+          
+              var chart = new ApexCharts(document.querySelector("#chart"), options);
+              chart.render();
+            </script>
+        </div>
+
+        <div class="flex flex-col w-6/12 h-80 bg-white mx-4 rounded-xl border border-gray-200 ">
+            <div class="border-b p-6 border-gray-200 w-full">
+                <h3 class="font-bold text-lg">Last Transactions</h3>
+                <h4 class="text-gray-600">Check Your Last Transactions</h4>
+            </div>
+
+            <div class="px-6 flex w-full bg-gray-100 items-center">
+                <h3 class="w-5/12 text-base font-semibold text-gray-600">Description</h3>
+                <h3 class="w-3/12 text-base font-semibold text-gray-600">Method</h3>
+                <h3 class="w-2/12 text-base font-semibold text-gray-600">Date</h3>
+                <h3 class="w-2/12 text-base font-semibold text-gray-600">Amount</h3>
+            </div>
+
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
+
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
+
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
+
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
