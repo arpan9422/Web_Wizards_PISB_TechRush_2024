@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                inter: ['Inter', 'sans-serif']
+              },
+              colors: {
+                // Add custom colors here
+              }
+            }
+          }
+        }
+      </script>
+</head>
+<body class="m-0 p-0 bg-gray-100">
+    <nav class="flex justify-between bg-white w-full  p-3 shadow-md px-10">
+      <div class="flex gap-1 items-center">
+        <img src="./img/Logo.png" alt="">
+        <h2 class="text-xl font-inter font-bold">Finatic</h2>
+      </div>
+      <div class="flex gap-12">
+        <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800">Dashboard</h1>
+        <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800">Transactions</h1>
+        <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800">Analytics</h1>
+        <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800">Goals</h1>
+        <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800">Accounts</h1>
+      </div>
+      <div class="flex items-center">
+       <a href="login.html"><button class="font-inter font-medium text-gray-600 bg-slate-200 p-2 px-6 rounded-md hover:bg-blue-500 hover:text-slate-100">Login</button></a> 
+        <img src="mm" alt="">
+      </div>
+    </nav>
+</body>
+</html>
