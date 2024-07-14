@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                    },
+
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="m-0 p-0 bg-gray-100 relative">
+
+    <!-- navbar -->
+
+    <nav class="flex justify-between bg-white w-full  p-3 shadow-md md:px-10 sm:px-5 sticky top-0">
+        <div class="flex gap-1 items-center">
+            <img src="./img/Logo.png" alt="">
+            <h2 class="text-xl font-inter font-bold">Finatic</h2>
+        </div>
+        <div class="flex xl:gap-12 lg:gap-8">
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                Dashboard</h1>
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                Transactions</h1>
+            <a href="analytics.html"><h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                Analytics</h1></a>
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                Goals</h1>
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                Profile</h1>
+        </div>
+        <div class="flex items-center">
+            <a href="login.html"><button
+                    class="font-inter font-medium text-gray-600 bg-slate-200 p-2 px-6 rounded-md hover:bg-blue-500 hover:text-slate-100 md:block sm:hidden min-[320px]:hidden">Login</button></a>
+            <img src="" alt="">
+            <button class="hamburger">
+                <img src="./img/hamburger.png" alt="" class="xl:hidden md:hidden sm:block min-[320px]:block h-6 px-4 ">
+            </button>
+        </div>
+    </nav>
+
+    <!-- dropdown -->
+
+    <div class="dropdown hidden">
+        <div
+            class="absolute top-10 right-1 bg-white w-auto p-4 flex flex-col items-center justify-center gap-3 rounded-md border-2 border-double border-slate-600">
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                Dashboard</h1>
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                Transactions</h1>
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                Analytics</h1>
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                Goals</h1>
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                Profile</h1>
+        </div>
+    </div>
+
+    <div></div>
+
+    <script src="./js/nav.js"></script>
+</body>
+
+</html>
