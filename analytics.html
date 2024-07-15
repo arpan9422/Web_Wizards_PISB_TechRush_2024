@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <script src=""></script>
 
   <script>
     tailwind.config = {
@@ -29,7 +30,7 @@
 
   <!-- navbar -->
 
-  <nav class="flex justify-between bg-white w-full  p-3 shadow-md md:px-10 sm:px-5 sticky top-0">
+  <nav class="flex justify-between bg-white w-full  p-3 shadow-md md:px-10 sm:px-5 sticky top-0 z-50">
     <div class="flex gap-1 items-center">
       <img src="./img/Logo.png" alt="">
       <h2 class="text-xl font-inter font-bold">Finatic</h2>
@@ -78,86 +79,83 @@
         Profile</h1>
     </div>
   </div>
-  <h1 class="w-full text-3xl font-inter font-semibold text-gray-800 text-center p-5">Analytics</h1>
+
+  <!-- analytic page -->
+
+  <div class="pb-8 pt-4 flex flex-col justify-center items-center ">
+    <h1 class="w-full xl:text-5xl min-[320px]:text-3xl font-inter font-semibold text-gray-800 text-center p-3">Analytics</h1>
+    <div class="w-[60%] h-1 bg-slate-300"></div>
+  </div>
   <div class="flex justify-center gap-5 xl:flex-row min-[320px]:flex-col">
     <div class="flex flex-col items-center gap-5">
-      <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw]  bg-white rounded-md shadow-sm h-[45vh] ">
+      <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw]  bg-white rounded-md shadow-sm  ">
         <div class="p-1 px-9 pt-3">
           <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">Year 2024</h1>
           <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Monthly Expenses</h1>
+          <div class="w-full  h-[1px] bg-slate-200"></div>
+
         </div>
-        <div id="chart">
+        <div id="chart1">
         </div>
       </div>
-      <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm h-[45vh] ">
+      <div
+        class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm flex flex-col items-center xl:gap-[3vh] min-[320px]:gap-[2vh]">
+        <div class="p-1 px-9 pt-3 w-[100%]">
+          <h1 class="p-1 text-sm font-inter font-extralight text-gray-600 text-start ">STATS</h1>
+          <h1 class="p-1 pt-0 pb-3 text-xl font-inter font-semibold text-black text-start">Top Spending Categories</h1>
+          <div class="w-full  h-[1px] bg-slate-200"></div>
+        </div>
+        <div class="flex justify-between w-3/4 items-center ">
+          <div
+            class="bg-blue-500 text-white font-inter xl:text-3xl min-[320px]:text-xl font-bold rounded-full xl:h-40 xl:w-40 min-[320px]:h-24  min-[320px]:w-24   flex justify-center items-center hover:scale-105 transition-all 1s">
+            5.3k</div>
+          <div
+            class="bg-purple-500 text-white font-inter xl:text-3xl min-[320px]:text-sm  font-bold rounded-full xl:h-28 xl:w-28  min-[320px]:h-20  min-[320px]:w-20  flex justify-center items-center hover:scale-105 transition-all 1s">
+            2.3k</div>
+          <div
+            class="bg-gray-800 text-white font-inter xl:text-3xl min-[320px]:text-sm  font-bold rounded-full xl:h-20 xl:w-20  min-[320px]:h-16  min-[320px]:w-16  flex justify-center items-center hover:scale-105 transition-all 1s">
+            1.1k</div>
+        </div>
+        <div class="flex justify-between items-center w px-7">
+          <div class="flex gap-1 items-center p-4">
+            <div class="h-2 w-2 rounded-full bg-blue-500"></div>
+            <div class="font-inter xl:text-xl  text-gray-500 min-[320px]:text-sm  font-medium">Grocery</div>
+          </div>
+          <div class="flex gap-1 items-center p-4"">
+            <div class=" h-2 w-2 rounded-full bg-purple-500"></div>
+          <div class="font-inter xl:text-xl  text-gray-500 min-[320px]:text-sm  font-medium">Transport</div>
+        </div>
+        <div class="flex gap-1 items-center p-4"">
+            <div class=" h-2 w-2 rounded-full bg-gray-500"></div>
+        <div class="font-inter xl:text-xl  text-gray-500 min-[320px]:text-sm  font-medium">Electricity</div>
       </div>
     </div>
-    <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw]  bg-white rounded-md shadow-sm "></div>
+  </div>
+  </div>
+  <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] justify-center items-center bg-white rounded-md shadow-sm ">
+    <div class="flex flex-col gap-1">
+      <div class="flex items-center p-3">
+        <div class="px-9 pt-3 w-[100%]">
+          <h1 class=" xl:text-sm min-[320px]:text-[10px] font-inter font-extralight text-gray-600 text-start ">STATS</h1>
+          <h1 class=" xl:text-xl min-[320px]:text-[12px] font-inter font-semibold text-black text-start">Category-wise Expense</h1>
+
+        </div>
+        <div class="flex items-center p-2 px-2 gap-2 bg-slate-100 rounded-xl xl:scale-100 sm:scale-75 min-[320px]:scale-75">
+          <button class="text-sm font-inter font-extralight rounded-xl px-7 p-3 text-gray-600">Monthly</button>
+          <button class="text-sm font-inter font-extralight rounded-xl px-7 bg-black text-white p-3">Annually</button>
+        </div>
+      </div>
+
+      <div class="flex justify-center items-center">
+        <div class="w-[90%] h-[1px] bg-slate-200"></div>
+      </div>
+    </div>
+    <div id="chart2" class="p-4 pt-6"></div>
+  </div>
   </div>
 
   <script src="./js/nav.js"></script>
-  <script>
-    var options = {
-  chart: {
-    height: 280,
-    type: "area",
-    toolbar: {
-      show: false
-    }
-  },
-  colors: ['#4A3AFF'], // Light blue color
-  dataLabels: {
-    enabled: false
-  },
-  series: [
-    {
-      name: "Series 1",
-      data: [45, 52, 87, 95, 87, 57, 57, 77, 89, 56, 23] // Changed data to numerical values
-    }
-  ],
-  fill: {
-    type: "gradient",
-    gradient: {
-      shadeIntensity: 1,
-      opacityFrom: 0.4,
-      opacityTo: 0.9,
-      stops: [0, 90, 100]
-    }
-  },
-  xaxis: {
-    categories: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "June",
-      "July",
-      "Aug",
-      "Sept",
-      "Nov",
-      "Dec",
-    ]
-  },
-  yaxis: {
-    labels: {
-      formatter: function (value) {
-        return value + 'k';
-      }
-    }
-  },
-  grid: {
-    borderColor: '#e7e7e7',
-    strokeDashArray: 4,
-    opacity: 0.2 // Set opacity for grid lines
-  }
-};
-
-var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-chart.render();
-
-  </script>
+  <script src="./js/analytic.js"></script>
 </body>
 
 </html>
