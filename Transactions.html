@@ -32,9 +32,11 @@
             <h2 class="text-xl font-inter font-bold">Finatic</h2>
         </div>
         <div class="flex xl:gap-12 lg:gap-8">
-            <h1
-                class="text-md font-inter font-medium hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
-                Dashboard</h1>
+            <a href="./dashboard.html">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                    Dashboard</h1>
+            </a>
             <h1
                 class="text-md font-inter font-medium bg-slate-200 p-3 rounded-md text-blue-800 md:block sm:hidden min-[320px]:hidden">
                 Transactions</h1>
@@ -86,8 +88,9 @@
     <header class="mx-12 my-6">
         <div class="flex items-center w-full">
             <div class="w-6/12 flex justify-center">
-                <div class="w-11/12 flex bg-white border border-gray-200 rounded-md"">
-                    <div class="flex justify-center w-6/12 p-4 border-r border-gray-200 bg-blue-50 text-blue-800">
+                <div class="w-11/12 flex bg-white border border-gray-200 rounded-lg">
+                    <div
+                        class="flex shadow justify-center w-6/12 p-4 border-r rounded-s-lg border-gray-200 bg-blue-50 text-blue-800">
                         <h1 class="text-2xl font-inter font-semibold">Expense</h1>
                     </div>
                     <div class="flex justify-center w-6/12 p-4 hover:bg-slate-200 hover:text-blue-800">
@@ -98,15 +101,15 @@
             <div class="w-6/12 flex">
                 <div class="flex items-center w-12/12 h-11 bg-white border border-gray-200 rounded-md">
                     <div
-                        class="text-lg font-medium bg-blue-50 py-1.5 px-4 rounded-s-md text-blue-800 border-r border-gray-200">
+                        class="text-lg font-medium hover:bg-blue-50 py-1.5 px-4 rounded-s-md hover:text-blue-800 border-r border-gray-200">
                         <h4>This month</h4>
                     </div>
                     <div
                         class="text-lg font-medium hover:bg-blue-50 py-1.5 px-4 hover:text-blue-800 border-r border-gray-200">
                         <h4>Last month</h4>
                     </div>
-                    <div class="text-lg font-medium hover:bg-blue-50 py-1.5 px-4 rounded-e-md hover:text-blue-800"">
-                        <h4>Last Year</h4>
+                    <div class="text-lg shadow font-medium bg-blue-50 py-1.5 px-4 rounded-e-md text-blue-800">
+                        <h4>This Year</h4>
                     </div>
                 </div>
                 <div class=" h-11 bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-10 flex
@@ -117,175 +120,371 @@
                 </div>
     </header>
 
-    <!-- Displaying Data with add expense/income -->
-    <div class="mt-8 flex w-full justify-center items-center">
-        <div class=" w-3/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
-            <h3 class="text-base text-gray-600 pl-1 font-medium">This Month</h3>
-            <h1 class="text-3xl text-blue-600 pt-1 font-semibold">Rs. 3,502.45</h1>
-        </div>
-        <div class=" w-3/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
-            <h3 class="text-base text-gray-600 pl-1 font-medium">Last Month</h3>
-            <h1 class="text-3xl pt-1 font-semibold">Rs. 2,450.00</h1>
-        </div>
-        <div class=" w-3/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
-            <h3 class="text-base text-gray-600 pl-1 font-medium">This Year</h3>
-            <h1 class="text-3xl pt-1 font-semibold">Rs. 10,450.00</h1>
-        </div>
-    </div>
-
-    <!-- Pie chart and transaction list -->
-    <div class="mt-8 flex w-full justify-center items-start">
-        <div class="w-4/12 h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
-            <div class="px-6">
-                <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
+    <div class="hidden">
+        <!-- Displaying Data with add expense/income -->
+        <div class="mt-8 flex w-full justify-center items-center">
+            <div class=" w-3/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+                <h3 class="text-base text-gray-600 pl-1 font-medium">This Month</h3>
+                <h1 class="text-3xl text-blue-600 pt-1 font-semibold">Rs. 3,502.45</h1>
             </div>
-            <div id="chart"></div>
-            <script>
+            <div class=" w-3/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+                <h3 class="text-base text-gray-600 pl-1 font-medium">Last Month</h3>
+                <h1 class="text-3xl pt-1 font-semibold">Rs. 2,450.00</h1>
+            </div>
+            <div class=" w-3/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+                <h3 class="text-base text-gray-600 pl-1 font-medium">This Year</h3>
+                <h1 class="text-3xl pt-1 font-semibold">Rs. 10,450.00</h1>
+            </div>
+        </div>
 
-                var options = {
-                    chart: {
-                        type: 'donut',
-                        expandOnClick: true,
-                    },
-                    series: [41.35, 21.51, 13.47, 9.97, 3.35],
-                    labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
-                    colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'],
-                    plotOptions: {
-                        pie: {
+        <!-- Pie chart and transaction list -->
+        <div class="mt-8 flex w-full justify-center items-start">
+            <div class="w-4/12 h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
+                <div class="px-6">
+                    <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
+                </div>
+                <div id="chart"></div>
+                <script>
+
+                    var options = {
+                        chart: {
+                            type: 'donut',
                             expandOnClick: true,
-                            donut: {
-                                size: '50%',
+                        },
+                        series: [41.35, 21.51, 13.47, 9.97, 3.35],
+                        labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
+                        colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'],
+                        plotOptions: {
+                            pie: {
+                                expandOnClick: true,
+                                donut: {
+                                    size: '50%',
+                                }
                             }
+                        },
+                        dataLabels: {
+                            enabled: false // Show or hide data labels
+                        },
+                        legend: {
+                            show: true,// Show or hide the legend
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            enabled: true // Show or hide tooltips
                         }
-                    },
-                    dataLabels: {
-                        enabled: false // Show or hide data labels
-                    },
-                    legend: {
-                        show: true,// Show or hide the legend
-                        position: 'bottom'
-                    },
-                    tooltip: {
-                        enabled: true // Show or hide tooltips
-                    }
 
-                };
+                    };
 
-                var chart = new ApexCharts(document.querySelector("#chart"), options);
-                chart.render();
-            </script>
+                    var chart = new ApexCharts(document.querySelector("#chart"), options);
+                    chart.render();
+                </script>
+            </div>
+
+            <div class="flex flex-col w-6/12 h-80 bg-white mx-4 rounded-xl border border-gray-200 ">
+                <div class="border-b p-6 border-gray-200 w-full">
+                    <h3 class="font-bold text-lg">Last Transactions</h3>
+                    <h4 class="text-gray-600">Check Your Last Transactions</h4>
+                </div>
+
+                <div class="px-6 flex w-full bg-gray-100 items-center">
+                    <h3 class="w-5/12 text-base font-semibold text-gray-600">Description</h3>
+                    <h3 class="w-3/12 text-base font-semibold text-gray-600">Method</h3>
+                    <h3 class="w-2/12 text-base font-semibold text-gray-600">Date</h3>
+                    <h3 class="w-2/12 text-base font-semibold text-gray-600">Amount</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+            </div>
         </div>
+        <div class="w-full flex justify-center mt-6 ">
+            <div id="chart_line" class="w-10/12 p-6 bg-white rounded-md border border-gray-200">
+                <script>
+                    var options = {
+                        chart: {
+                            height: 280,
+                            type: "area"
+                        },
+                        dataLabels: {
+                            enabled: false
+                        },
+                        series: [
+                            {
+                                name: "Series 1",
+                                data: [45, 52, 38, 100, 190, 34, 210, 420, 20, 950, 105, 84, 73, 2000, 643, 0, 30, 34, 29, 150, 390, 430, 365, 650, 30, 0, 38, 1200, 0, 50]
+                            }
+                        ],
+                        fill: {
+                            type: "gradient",
+                            gradient: {
+                                shadeIntensity: 1,
+                                opacityFrom: 0.7,
+                                opacityTo: 0.9,
+                                stops: [0, 90, 100]
+                            }
+                        },
+                        xaxis: {
+                            categories: [
+                                "01 June",
+                                "02 June",
+                                "03 June",
+                                "04 June",
+                                "05 June",
+                                "06 June",
+                                "07 June",
+                                "08 June",
+                                "09 June",
+                                "10 June",
+                                "11 June",
+                                "12 June",
+                                "13 June",
+                                "14 June",
+                                "15 June",
+                                "16 June",
+                                "17 June",
+                                "18 June",
+                                "19 June",
+                                "20 June",
+                                "21 June",
+                                "22 June",
+                                "23 June",
+                                "24 June",
+                                "26 June",
+                                "27 June",
+                                "28 June",
+                                "29 June",
+                                "30 June",
+                            ]
+                        }
+                    };
 
-        <div class="flex flex-col w-6/12 h-80 bg-white mx-4 rounded-xl border border-gray-200 ">
-            <div class="border-b p-6 border-gray-200 w-full">
-                <h3 class="font-bold text-lg">Last Transactions</h3>
-                <h4 class="text-gray-600">Check Your Last Transactions</h4>
-            </div>
+                    var chart = new ApexCharts(document.querySelector("#chart_line"), options);
 
-            <div class="px-6 flex w-full bg-gray-100 items-center">
-                <h3 class="w-5/12 text-base font-semibold text-gray-600">Description</h3>
-                <h3 class="w-3/12 text-base font-semibold text-gray-600">Method</h3>
-                <h3 class="w-2/12 text-base font-semibold text-gray-600">Date</h3>
-                <h3 class="w-2/12 text-base font-semibold text-gray-600">Amount</h3>
-            </div>
+                    chart.render();
 
-            <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
-                <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
-                <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
-                <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
-                <h3 class="w-2/12 text-base ">$750.00</h3>
-            </div>
 
-            <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
-                <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
-                <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
-                <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
-                <h3 class="w-2/12 text-base ">$750.00</h3>
-            </div>
 
-            <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
-                <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
-                <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
-                <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
-                <h3 class="w-2/12 text-base ">$750.00</h3>
-            </div>
-
-            <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
-                <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
-                <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
-                <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
-                <h3 class="w-2/12 text-base ">$750.00</h3>
+                </script>
             </div>
         </div>
     </div>
-    <div class="w-full flex justify-center mt-6 ">
-        <div id="chart_line" class="w-10/12 p-6 bg-white rounded-md border border-gray-200">
-            <script>
-                var options = {
-                    chart: {
-                        height: 280,
-                        type: "area"
-                    },
-                    dataLabels: {
-                        enabled: false
-                    },
-                    series: [
-                        {
-                            name: "Series 1",
-                            data: [45, 52, 38, 100, 190, 34, 210, 420, 20, 950, 105, 84, 73, 2000, 643, 0, 30, 34, 29, 150, 390, 430, 365, 650, 30, 0, 38, 1200, 0, 50]
+    <div class="">
+        <!-- Displaying Data -->
+        <div class="mt-8 flex w-full justify-center items-center">
+            <div class=" w-5/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+                <h3 class="text-base text-gray-600 pl-1 font-medium">This Year</h3>
+                <h1 class="text-3xl text-blue-600 pt-1 font-semibold">Rs. 3,502.45</h1>
+            </div>
+            <div class=" w-5/12 h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+                <h3 class="text-base text-gray-600 pl-1 font-medium">Last Year</h3>
+                <h1 class="text-3xl pt-1 font-semibold">Rs. 2,450.00</h1>
+            </div>
+        </div>
+
+        <!-- Pie chart and transaction list -->
+        <div class="mt-8 flex w-full justify-center items-start">
+            <div class="w-4/12 h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
+                <div class="px-6">
+                    <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
+                </div>
+                <div id="ty_chart"></div>
+                <script>
+
+                    var options = {
+                        chart: {
+                            type: 'donut',
+                            expandOnClick: true,
+                        },
+                        series: [41.35, 21.51, 13.47, 9.97, 3.35],
+                        labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
+                        colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'],
+                        plotOptions: {
+                            pie: {
+                                expandOnClick: true,
+                                donut: {
+                                    size: '50%',
+                                }
+                            }
+                        },
+                        dataLabels: {
+                            enabled: false // Show or hide data labels
+                        },
+                        legend: {
+                            show: true,// Show or hide the legend
+                            position: 'bottom'
+                        },
+                        tooltip: {
+                            enabled: true // Show or hide tooltips
                         }
-                    ],
-                    fill: {
-                        type: "gradient",
-                        gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.7,
-                            opacityTo: 0.9,
-                            stops: [0, 90, 100]
-                        }
-                    },
-                    xaxis: {
-                        categories: [
-                            "01 June",
-                            "02 June",
-                            "03 June",
-                            "04 June",
-                            "05 June",
-                            "06 June",
-                            "07 June",
-                            "08 June",
-                            "09 June",
-                            "10 June",
-                            "11 June",
-                            "12 June",
-                            "13 June",
-                            "14 June",
-                            "15 June",
-                            "16 June",
-                            "17 June",
-                            "18 June",
-                            "19 June",
-                            "20 June",
-                            "21 June",
-                            "22 June",
-                            "23 June",
-                            "24 June",
-                            "26 June",
-                            "27 June",
-                            "28 June",
-                            "29 June",
-                            "30 June",
-                        ]
-                    }
-                };
 
-                var chart = new ApexCharts(document.querySelector("#chart_line"), options);
+                    };
 
-                chart.render();
+                    var chart = new ApexCharts(document.querySelector("#ty_chart"), options);
+                    chart.render();
+                </script>
+            </div>
 
+            <div class="flex justify-center w-6/12 h-80 bg-white mx-4 rounded-xl border border-gray-200 ">
+                <div id="ty_chart_line" class="w-10/12 p-6 bg-white">
+                    <script>
+                        var options = {
+                            chart: {
+                                height: 280,
+                                type: "area"
+                            },
+                            dataLabels: {
+                                enabled: false
+                            },
+                            series: [
+                                {
+                                    name: "Series 1",
+                                    data: [2612, 2700, 2796, 3130, 3326, 3080 , 1528 ]
+                                }
+                            ],
+                            fill: {
+                                type: "gradient",
+                                gradient: {
+                                    shadeIntensity: 1,
+                                    opacityFrom: 0.7,
+                                    opacityTo: 0.9,
+                                    stops: [0, 90, 100]
+                                }
+                            },
+                            xaxis: {
+                                categories: [
+                                    "Jan",
+                                    "Feb",
+                                    "Mar",
+                                    "Apr",
+                                    "May",
+                                    "Jun",
+                                    "Jul",
+                                    "Aug",
+                                    "Sep",
+                                    "Oct",
+                                    "Nov",
+                                    "Dec",
+                                ]
+                            }
+                        };
+    
+                        var chart = new ApexCharts(document.querySelector("#ty_chart_line"), options);
+    
+                        chart.render(); 
+    
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex border justify-center mt-6 ">
+            <div class="flex flex-col w-5/12 h-80 bg-white mx-4 rounded-xl border border-gray-200 ">
+                <div class="border-b p-6 border-gray-200 w-full">
+                    <h3 class="font-bold text-lg">JAN 2024</h3>
+                <h4 class="text-gray-600">Check Your Transactions</h4>
+                </div>
 
+                <div class="px-6 flex w-full bg-gray-100 items-center">
+                    <h3 class="w-5/12 text-base font-semibold text-gray-600">Description</h3>
+                    <h3 class="w-3/12 text-base font-semibold text-gray-600">Method</h3>
+                    <h3 class="w-2/12 text-base font-semibold text-gray-600">Date</h3>
+                    <h3 class="w-2/12 text-base font-semibold text-gray-600">Amount</h3>
+                </div>
 
-            </script>
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+            </div>
+
+            <div class="flex flex-col w-5/12 h-80 bg-white mx-4 rounded-xl border border-gray-200 ">
+                <div class="border-b p-6 border-gray-200 w-full">
+                    <h3 class="font-bold text-lg">FEB 2024</h3>
+                <h4 class="text-gray-600">Check Your Transactions</h4>
+                </div>
+
+                <div class="px-6 flex w-full bg-gray-100 items-center">
+                    <h3 class="w-5/12 text-base font-semibold text-gray-600">Description</h3>
+                    <h3 class="w-3/12 text-base font-semibold text-gray-600">Method</h3>
+                    <h3 class="w-2/12 text-base font-semibold text-gray-600">Date</h3>
+                    <h3 class="w-2/12 text-base font-semibold text-gray-600">Amount</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+
+                <div class="px-6 flex w-full border-b border-gray-200 items-center h-10">
+                    <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+                    <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+                    <h3 class="w-2/12 text-base  text-gray-600">2024/04/01</h3>
+                    <h3 class="w-2/12 text-base ">$750.00</h3>
+                </div>
+            </div>
         </div>
     </div>
 </body>
