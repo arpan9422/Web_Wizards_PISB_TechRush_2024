@@ -102,7 +102,7 @@ var options = {
       offsetY: -30,
       
       style: {
-        fontFamily: 'Arial, sans-serif',
+        fontFamily: 'Inter, sans-serif',
         fontSize: '16px',
         fontWeight: 'light',
         colors: ["#615E83"]
@@ -184,3 +184,105 @@ var options = {
   
   var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
   chart2.render();
+
+  // -------------------------------------------------------------------------------------
+
+  // graph3
+
+  var options = {
+  chart: {
+    type: 'donut',
+    width: 450, // Adjust width as needed
+    height: 450, // Adjust height as needed
+    expandOnClick: true,
+  },
+  series: [41.35, 21.51, 13.47, 9.97, 3.35],
+  labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
+  colors: ['#BBC3DD', '#ADBBF0', '#95AAFE', '#2D5BFF', '#4A3AFF'],
+  plotOptions: {
+    pie: {
+      expandOnClick: true,
+      donut: {
+        size: '0%',
+      }
+    }
+  },
+  dataLabels: {
+    enabled: false // Show or hide data labels
+  },
+  legend: {
+    show: true, // Show or hide the legend
+    position: 'bottom',
+    fontSize: '16px',
+    fontFamily: 'Inter, sans-serif',
+  },
+  tooltip: {
+    enabled: true // Show or hide tooltips
+  }
+};
+
+var chart3 = new ApexCharts(document.querySelector("#chart3"), options);
+chart3.render();
+
+// -------------------------------------------------------------------------------------
+
+  // graph4
+
+  var options = {
+    chart: {
+      height: 400,
+      type: "radialBar",
+    },
+    series: [80],
+    colors: ["#20E647"],
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          margin: 0,
+          size: "60%",
+          background: "#293450"
+        },
+        track: {
+          dropShadow: {
+            enabled: true,
+            top: 2,
+            left: 0,
+            blur: 4,
+            opacity: 0.15
+          }
+        },
+        dataLabels: {
+          name: {
+            offsetY: -10,
+            color: "#fff",
+            fontSize: "13px"
+          },
+          value: {
+            formatter: function() {
+              return "Rs.13,245"; // Display the value here
+            },
+            color: "#fff",
+            fontSize: "30px",
+            show: true
+          }
+        }
+      }
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shade: "dark",
+        type: "vertical",
+        gradientToColors: ["#4A3AFF"],
+        stops: [0, 100]
+      }
+    },
+    stroke: {
+      lineCap: "round"
+    },
+    labels: ["Total Saving"]
+  };
+  
+  var chart4 = new ApexCharts(document.querySelector("#chart4"), options);
+  
+  chart4.render();
