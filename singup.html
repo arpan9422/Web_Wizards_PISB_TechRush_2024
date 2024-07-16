@@ -89,7 +89,7 @@
           </div>
         </div>
         <div>
-          <form action="#" class="flex flex-col justify-between items-center h-80">
+          <form action="" id="signup-form" class="flex flex-col justify-between items-center h-80">
             <div class="flex flex-col justify-between gap-5">
               <div class="input-group flex p-4 bg-slate-200 rounded-md justify-between items-center  w-80">
                 <input class="bg-slate-200 w-full" type="text" id="username" name="username" placeholder="Username" required>
@@ -105,16 +105,15 @@
                 </div>
               </div>
               <div class="input-group flex p-4 bg-slate-200 rounded-md justify-between items-center  w-80">
-                <input class="bg-slate-200 w-full" type="password" id="password" name="password" placeholder="Confirm Password"
-                  required>
+                <input class="bg-slate-200 w-full" type="password" id="password-confirm" name="password" placeholder="Confirm Password"
+                       required>
                 <div class="icon">
                   <img src="./img/lock.png" alt="Password Icon">
                 </div>
               </div>
             </div>
 
-            <button class="p-3 bg-blue-600 w-80 rounded-md text-white text-lg font-inter shadow-md" type="submit"
-              class="next-button">Next ></button>
+            <button class="p-3 bg-blue-600 w-80 rounded-md text-white text-lg font-inter shadow-md" type="submit" class="next-button">Next ></button>
           </form>
           <div class="flex justify-center items-center gap-1 p-4">
             <h1 class="text-sm font-inter font-thin text-black">Already a Member? </h1>
@@ -129,6 +128,7 @@
     </div>
   </div>
   <script src="./js/nav.js"></script>
+  <script src="./js/signup.js"></script>
 </body>
 
 </html>
