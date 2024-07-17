@@ -136,33 +136,34 @@
   </div>
   </div>
   <div class="xl:w-[45vw] min-[320px]:w-full flex justify-center">
-  <div
-    class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] justify-center items-center bg-white rounded-md shadow-sm ">
-    <div class="flex flex-col gap-1">
-      <div class="flex items-center">
-        <div class="px-9 pt-3 w-[100%]">
-          <h1 class=" xl:text-sm min-[320px]:text-[10px] font-inter font-extralight text-gray-600 text-start ">STATS
-          </h1>
-          <h1 class=" xl:text-xl min-[320px]:text-[12px] font-inter font-semibold text-black text-start">Category-wise
-            Expense</h1>
+    <div
+      class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] justify-center items-center bg-white rounded-md shadow-sm ">
+      <div class="flex flex-col gap-1">
+        <div class="flex items-center">
+          <div class="px-9 pt-3 w-[100%]">
+            <h1 class=" xl:text-sm min-[320px]:text-[10px] font-inter font-extralight text-gray-600 text-start ">STATS
+            </h1>
+            <h1 class=" xl:text-xl min-[320px]:text-[12px] font-inter font-semibold text-black text-start">Category-wise
+              Expense</h1>
 
+          </div>
+          <div
+            class="flex items-center p-2 px-2 gap-2 bg-slate-100 rounded-xl  sm:scale-75 min-[320px]:scale-75">
+            <button class="text-sm font-inter font-extralight rounded-xl px-7 p-3 text-gray-600" id=" monthly" onclick="updateChart(data.monthly, 10);">Monthly</button>
+            <button class="text-sm font-inter font-extralight rounded-xl px-7 bg-black text-white p-3" id="annually" onclick="updateChart(data.annually, 80);">Annually</button>
+          </div>
         </div>
-        <div
-          class="flex items-center p-2 px-2 gap-2 bg-slate-100 rounded-xl xl:scale-100 sm:scale-75 min-[320px]:scale-75">
-          <button class="text-sm font-inter font-extralight rounded-xl px-7 p-3 text-gray-600">Monthly</button>
-          <button class="text-sm font-inter font-extralight rounded-xl px-7 bg-black text-white p-3">Annually</button>
+
+        <div class="flex justify-center items-center">
+          <div class="w-[90%] h-[1px] bg-slate-200"></div>
         </div>
       </div>
-
-      <div class="flex justify-center items-center">
-        <div class="w-[90%] h-[1px] bg-slate-200"></div>
-      </div>
+      <div id="chart2" class="p-4 pt-6"></div>
     </div>
-    <div id="chart2" class="p-4 pt-6"></div>
   </div>
   </div>
-</div>
 
+  <div class="xl:w-full min-[320px]:w-full flex justify-center items-center">
   <div class="flex justify-center gap-5 xl:flex-row min-[320px]:flex-col pt-6 ">
     <div
       class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm flex flex-col items-center justify-center">
@@ -189,12 +190,19 @@
       </div>
     </div>
   </div>
-
-  <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm"></div>
+</div>
+<div class="w-full flex justify-center p-5">
+<div class="w-[95vw]  flex flex-col justify-center p-3 bg-white rounded-md shadow-sm">
+  <div class="p-3 w-full">
+    <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
+    <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Budget Vs Expenses</h1>
+    <div class="w-full h-[1px] bg-slate-200"></div>
+  </div>
+  <div id="chart5"></div>
+</div>
+</div>
   <script>
-
-
-
+    
   </script>
   <script src="./js/nav.js"></script>
   <script src="./js/analytic.js"></script>
