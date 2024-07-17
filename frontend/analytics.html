@@ -33,23 +33,25 @@
   <nav class="flex justify-between bg-white w-full  p-3 shadow-md md:px-10 sm:px-5 sticky top-0 z-50">
     <div class="flex gap-1 items-center">
       <img src="./img/Logo.png" alt="">
-      <h2 class="text-xl font-inter font-bold">Finatic</h2>
+      <a href="">
+        <h2 class="text-xl font-inter font-bold">Finatic</h2>
+      </a>
     </div>
     <div class="flex xl:gap-12 lg:gap-8">
       <h1
-        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
         Dashboard</h1>
       <h1
-        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
         Transactions</h1>
       <h1
-        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
         Analytics</h1>
       <h1
-        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
         Goals</h1>
       <h1
-        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
         Profile</h1>
     </div>
     <div class="flex items-center">
@@ -83,7 +85,8 @@
   <!-- analytic page -->
 
   <div class="pb-8 pt-4 flex flex-col justify-center items-center ">
-    <h1 class="w-full xl:text-5xl min-[320px]:text-3xl font-inter font-semibold text-gray-800 text-center p-3">Analytics</h1>
+    <h1 class="w-full xl:text-5xl min-[320px]:text-3xl font-inter font-semibold text-gray-800 text-center p-3">Analytics
+    </h1>
     <div class="w-[60%] h-1 bg-slate-300"></div>
   </div>
   <div class="flex justify-center gap-5 xl:flex-row min-[320px]:flex-col">
@@ -99,7 +102,7 @@
         </div>
       </div>
       <div
-        class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm flex flex-col items-center xl:gap-[3vh] min-[320px]:gap-[2vh]">
+        class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm flex flex-col justify-center items-center xl:gap-[3vh] min-[320px]:gap-[2vh]">
         <div class="p-1 px-9 pt-3 w-[100%]">
           <h1 class="p-1 text-sm font-inter font-extralight text-gray-600 text-start ">STATS</h1>
           <h1 class="p-1 pt-0 pb-3 text-xl font-inter font-semibold text-black text-start">Top Spending Categories</h1>
@@ -132,28 +135,75 @@
     </div>
   </div>
   </div>
-  <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] justify-center items-center bg-white rounded-md shadow-sm ">
-    <div class="flex flex-col gap-1">
-      <div class="flex items-center p-3">
-        <div class="px-9 pt-3 w-[100%]">
-          <h1 class=" xl:text-sm min-[320px]:text-[10px] font-inter font-extralight text-gray-600 text-start ">STATS</h1>
-          <h1 class=" xl:text-xl min-[320px]:text-[12px] font-inter font-semibold text-black text-start">Category-wise Expense</h1>
+  <div class="xl:w-[45vw] min-[320px]:w-full flex justify-center">
+    <div
+      class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] justify-center items-center bg-white rounded-md shadow-sm ">
+      <div class="flex flex-col gap-1">
+        <div class="flex items-center">
+          <div class="px-9 pt-3 w-[100%]">
+            <h1 class=" xl:text-sm min-[320px]:text-[10px] font-inter font-extralight text-gray-600 text-start ">STATS
+            </h1>
+            <h1 class=" xl:text-xl min-[320px]:text-[12px] font-inter font-semibold text-black text-start">Category-wise
+              Expense</h1>
 
+          </div>
+          <div
+            class="flex items-center p-2 px-2 gap-2 bg-slate-100 rounded-xl  sm:scale-75 min-[320px]:scale-75">
+            <button class="text-sm font-inter font-extralight rounded-xl px-7 p-3 text-gray-600" id=" monthly" onclick="updateChart(data.monthly, 10);">Monthly</button>
+            <button class="text-sm font-inter font-extralight rounded-xl px-7 bg-black text-white p-3" id="annually" onclick="updateChart(data.annually, 80);">Annually</button>
+          </div>
         </div>
-        <div class="flex items-center p-2 px-2 gap-2 bg-slate-100 rounded-xl xl:scale-100 sm:scale-75 min-[320px]:scale-75">
-          <button class="text-sm font-inter font-extralight rounded-xl px-7 p-3 text-gray-600">Monthly</button>
-          <button class="text-sm font-inter font-extralight rounded-xl px-7 bg-black text-white p-3">Annually</button>
+
+        <div class="flex justify-center items-center">
+          <div class="w-[90%] h-[1px] bg-slate-200"></div>
         </div>
       </div>
+      <div id="chart2" class="p-4 pt-6"></div>
+    </div>
+  </div>
+  </div>
 
-      <div class="flex justify-center items-center">
-        <div class="w-[90%] h-[1px] bg-slate-200"></div>
+  <div class="xl:w-full min-[320px]:w-full flex justify-center items-center">
+  <div class="flex justify-center gap-5 xl:flex-row min-[320px]:flex-col pt-6 ">
+    <div
+      class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm flex flex-col items-center justify-center">
+      <div class="p-1 px-9 pt-3 w-full">
+        <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
+        <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Income Source (in percentage)</h1>
+        <div class="w-full h-[1px] bg-slate-200"></div>
+      </div>
+      <div id="chart3" class="w-full flex justify-center items-center"></div>
+    </div>
+    <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm  ">
+      <div class="p-1 px-9 pt-3">
+        <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
+        <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Savings</h1>
+        <div class="w-full  h-[1px] bg-slate-200"></div>
+        <div id="chart4"></div>
+        <div class="flex items-center justify-center">
+          <h1
+            class="p-1 pt-0 xl:text-xl min-[320px]:text-[18px] pb-5 font-inter font-medium  text-center   text-green-800">
+            Rs. 2000/-</h1>
+          <h1 class="p-1 pt-0 xl:text-xl min-[320px]:text-[18px] pb-5 font-inter font-thin  text-center   text-black">to
+            complete this month's Goal</h1>
+        </div>
       </div>
     </div>
-    <div id="chart2" class="p-4 pt-6"></div>
   </div>
+</div>
+<div class="w-full flex justify-center p-5">
+<div class="w-[95vw]  flex flex-col justify-center p-3 bg-white rounded-md shadow-sm">
+  <div class="p-3 w-full">
+    <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
+    <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Budget Vs Expenses</h1>
+    <div class="w-full h-[1px] bg-slate-200"></div>
   </div>
-
+  <div id="chart5"></div>
+</div>
+</div>
+  <script>
+    
+  </script>
   <script src="./js/nav.js"></script>
   <script src="./js/analytic.js"></script>
 </body>

@@ -72,10 +72,14 @@ var options = {
 // -------------------------------------------------------------------------------------
 
   // graph2_1
+  const data = {
+    monthly: [4, 4, 4, 4, 5, 5, 6],
+    annually: [48, 51, 53, 56, 64, 69, 78]
+  };
 
   var options = {
     series: [{
-      data: [400, 430, 448, 470, 540, 580, 690,]
+      data: data.monthly
     }],
     chart: {
       type: 'bar',
@@ -102,14 +106,14 @@ var options = {
       offsetY: -30,
       
       style: {
-        fontFamily: 'Arial, sans-serif',
+        fontFamily: 'Inter, sans-serif',
         fontSize: '16px',
         fontWeight: 'light',
         colors: ["#615E83"]
       }
     },
     xaxis: {
-      categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',],
+      categories: ['Rent', 'Utilities', 'Groceries', 'Transport', 'Entertainment', 'Healthcare', 'Miscellaneous'],
       labels: {
         show: true,
         formatter: function (value) {
@@ -135,11 +139,16 @@ var options = {
       lines: {
         show: true,
         opacity: 0.1
-      }
+      },
+      min: 0,
+        max: 10
     },
     yaxis: {
       labels: {
         show: false,
+        formatter: function (value) {
+          return value + 'k';
+        },
         style: {
           fontSize: '14px',
           colors: ['#000']
@@ -184,3 +193,192 @@ var options = {
   
   var chart2 = new ApexCharts(document.querySelector("#chart2"), options);
   chart2.render();
+
+  
+
+  // -------------------------------------------------------------------------------------
+
+  // graph3
+
+  var options = {
+  chart: {
+    type: 'donut',
+    width: 450, // Adjust width as needed
+    height: 450, // Adjust height as needed
+    expandOnClick: true,
+  },
+  series: [41.35, 21.51, 13.47, 9.97, 3.35],
+  labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
+  colors: ['#BBC3DD', '#ADBBF0', '#95AAFE', '#2D5BFF', '#4A3AFF'],
+  plotOptions: {
+    pie: {
+      expandOnClick: true,
+      donut: {
+        size: '0%',
+      }
+    }
+  },
+  dataLabels: {
+    enabled: false // Show or hide data labels
+  },
+  legend: {
+    show: true, // Show or hide the legend
+    position: 'bottom',
+    fontSize: '14px',
+    fontFamily: 'Inter, sans-serif',
+  },
+  tooltip: {
+    enabled: true // Show or hide tooltips
+  }
+};
+
+var chart3 = new ApexCharts(document.querySelector("#chart3"), options);
+chart3.render();
+
+// -------------------------------------------------------------------------------------
+
+  // graph4
+
+  var options = {
+    chart: {
+      height: 400,
+      type: "radialBar",
+    },
+    series: [80],
+    colors: ["#20E647"],
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          margin: 0,
+          size: "60%",
+          background: "#293450"
+        },
+        track: {
+          dropShadow: {
+            enabled: true,
+            top: 2,
+            left: 0,
+            blur: 4,
+            opacity: 0.15
+          }
+        },
+        dataLabels: {
+          name: {
+            offsetY: -10,
+            color: "#fff",
+            fontSize: "13px"
+          },
+          value: {
+            formatter: function() {
+              return "Rs.13,245"; // Display the value here
+            },
+            color: "#fff",
+            fontSize: "30px",
+            show: true
+          }
+        }
+      }
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shade: "dark",
+        type: "vertical",
+        gradientToColors: ["#4A3AFF"],
+        stops: [0, 100]
+      }
+    },
+    stroke: {
+      lineCap: "round"
+    },
+    labels: ["Total Saving"]
+  };
+  
+  var chart4 = new ApexCharts(document.querySelector("#chart4"), options);
+  
+  chart4.render();
+
+
+//-----------------------------------------
+// graph5
+
+
+  var options = {
+    chart: {
+      height: 600,
+      type: 'line',
+    },
+    series: [
+      {
+        name: 'Expenses',
+        type: 'column',
+        data: [1500, 1200, 800, 1300, 900, 1400, 1000]
+      },
+      {
+        name: 'Budget',
+        type: 'line',
+        data: [1000, 1100, 900, 1200, 800, 1100, 900]
+      }
+    ],
+    xaxis: {
+      categories: ['Rent', 'Utilities', 'Groceries', 'Transport', 'Entertainment', 'Healthcare', 'Miscellaneous']
+    },
+    yaxis: [
+      {
+        title: {
+          text: 'Expenses ($)'
+        }
+      },
+      {
+        opposite: true,
+        title: {
+          text: 'Budget ($)'
+        }
+      }
+    ],
+    tooltip: {
+      shared: true,
+      intersect: false
+    },
+    plotOptions: {
+      bar: {
+        horizontal: false
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth'
+    },
+    legend: {
+      position: 'top'
+    }
+  };
+
+  var chart5 = new ApexCharts(document.querySelector("#chart5"), options);
+  chart5.render();
+
+
+
+
+  //monthly and anuual button changing js
+ 
+
+  document.getElementById('annually').addEventListener('click', () => {
+    
+  });
+
+  function updateChart(data, max) {
+    chart2.updateOptions({
+      series: [{
+        data: data
+      }],
+      xaxis: {
+        min: 0,
+        max: max
+      }
+    });
+  }
+
+  
