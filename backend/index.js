@@ -8,10 +8,13 @@ const PORT = process.env.PORT || 3000;
 const bodyparser = require('body-parser');
 const cors = require("cors");
 const dotenv = require('dotenv');
+const cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 
 dotenv.config();
 app.use(bodyparser.json());
 app.use(cors());
+app.use(cookieParser());
 
 app.use(express.static(process.cwd() + '/../frontend')); 
 
@@ -30,6 +33,34 @@ async function connectDB() {
     }
 }
 
+function check_auth_tok(req)
+{
+    const token = req.cookies['auth_tok'];
+    
+    try {
+	var decoded = jwt.verify(token, process.env.SECRETS);
+	// if no error is thrown, then return true
+	return true;
+    } catch(err) {
+	if (err['name'] == 'TokenExpiredError')
+	{
+	    return false;
+	}
+    }
+}
+
+function redirect_check_auth(req, res, url)
+{
+    if (check_auth_tok(req))
+    {
+	res.sendFile(path.join(__dirname, url));
+    }
+    else
+    {
+	res.sendFile(path.join(__dirname, '../frontend/login.html'));
+    }
+}
+
 connectDB();
 
 app.use('/user', signupRouter);
@@ -45,6 +76,16 @@ app.get('/signup', (req, res) => {
     // Send the HTML file as the response
     res.sendFile(path.join(__dirname, '../frontend/singup.html'));
 });
+
+app.get('/dashboard', (req, res) => redirect_check_auth(req, res, '../frontend/dashboard.html'));
+app.get('/transactions', (req, res) => redirect_check_auth(req, res, '../frontend/Transactions.html'));
+app.get('/analytics', (req, res) => redirect_check_auth(req, res, '../frontend/analytics.html'));
+app.get('/profile', (req, res) => redirect_check_auth(req, res, '../frontend/profile.html'));
+
+// redirect_check_auth('/dashboard', '../frontend/dashboard.html');
+// redirect_check_auth('/transactions', '../frontend/Transactions.html');
+// redirect_check_auth('/analytics', '../frontend/analytics.html');
+// redirect_check_auth('/profile', '../frontend/profile.html');
 
 // http://localhost:3000/user/signup
 app.listen(PORT, () => {
