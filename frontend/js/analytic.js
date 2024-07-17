@@ -365,9 +365,7 @@ chart3.render();
   //monthly and anuual button changing js
  
 
-  document.getElementById('annually').addEventListener('click', () => {
-    
-  });
+  
 
   function updateChart(data, max) {
     chart2.updateOptions({
@@ -380,5 +378,8 @@ chart3.render();
       }
     });
   }
+
+ 
+  
 
   
