@@ -144,12 +144,12 @@
           <img src="./img/Add_inc.svg" alt="add_income">
           <h3 class="text-xl text-gray-600 pl-2 font-medium ">Add Income</h3>
         </div>
-        <div
+        <div id="addExpensesBtn"
           class="flex mt-2 lg:mt-0 shadow items-center w-auto h-auto lg:w-3/12 lg:h-20 p-6 bg-white mx-2 lg:mx-4 rounded-xl border border-gray-200 hover:bg-blue-50  hover:text-blue-800">
           <img src="./img/Add_exp.svg" alt="add_expense">
           <h3 class="text-xl text-gray-600 pl-2 font-medium">Add Expense</h3>
         </div>
-        <div
+        <div id="addTransferBtn"
           class="flex mt-2 lg:mt-0 shadow items-center w-auto h-auto lg:w-3/12 lg:h-20 p-6 bg-white mx-2 lg:mx-4 rounded-xl border border-gray-200 hover:bg-blue-50  hover:text-blue-800">
           <img src="./img/Transfer_mon.svg" alt="transfer_money">
           <h3 class="text-xl text-gray-600 pl-2 font-medium">Tranfer Money</h3>
@@ -546,6 +546,83 @@
   
   </div>
 
+  <!-- income_popup -->
+  <div id="addIncomeModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden z-30">
+    <div class="bg-white p-8 rounded shadow-lg w-11/12 md:w-1/2 lg:w-1/3">
+      <span class="closeBtnIncome text-gray-500 text-2xl cursor-pointer float-right"><img class="h-8"
+          src="./img/cancel.png" alt=""></span>
+      <h2 class="text-xl font-semibold mb-4">Add Income</h2>
+      <form>
+        <div class="mb-4">
+          <label for="incomeName" class="block text-gray-700">income Name:</label>
+          <input type="text" id="incomeName" name="incomeName" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="incomeAmount" class="block text-gray-700">Amount:</label>
+          <input type="number" id="incomeAmount" name="incomeAmount" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="incomeDate" class="block text-gray-700">Date:</label>
+          <input type="date" id="incomeDate" name="incomeDate" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Income</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- expense popup -->
+  <div id="addExpensesModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden">
+    <div class="bg-white p-8 rounded shadow-lg w-11/12 md:w-1/2 lg:w-1/3">
+      <span class="closeBtnExpenses text-gray-500 text-2xl cursor-pointer float-right"><img class="h-8"
+          src="./img/cancel.png" alt=""></span>
+      <h2 class="text-xl font-semibold mb-4">Add Expense</h2>
+      <form>
+        <div class="mb-4">
+          <label for="expenseName" class="block text-gray-700">Expense Name:</label>
+          <input type="text" id="expenseName" name="expenseName" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="expenseAmount" class="block text-gray-700">Amount:</label>
+          <input type="number" id="expenseAmount" name="expenseAmount" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <div class="mb-4">
+          <label for="expenseDate" class="block text-gray-700">Date:</label>
+          <input type="date" id="expenseDate" name="expenseDate" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Expense</button>
+      </form>
+    </div>
+  </div>
+
+
+    <!-- Transfer popup -->
+    <div id="addTransferModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden">
+      <div class="bg-white p-8 rounded shadow-lg w-11/12 md:w-1/2 lg:w-1/3">
+        <span class="closeBtnTransfer text-gray-500 text-2xl cursor-pointer float-right"><img class="h-8"
+            src="./img/cancel.png" alt=""></span>
+        <h2 class="text-xl font-semibold mb-4">Add Transfer</h2>
+        <form>
+          <div class="mb-4">
+            <label for="transferName" class="block text-gray-700">transfer Name:</label>
+            <input type="text" id="transferName" name="transferName" class="w-full px-3 py-2 border rounded" required>
+          </div>
+          <div class="mb-4">
+            <label for="transferAmount" class="block text-gray-700">Amount:</label>
+            <input type="number" id="transferAmount" name="transferAmount" class="w-full px-3 py-2 border rounded"
+              required>
+          </div>
+          <div class="mb-4">
+            <label for="transferDate" class="block text-gray-700">Date:</label>
+            <input type="date" id="transferDate" name="transferDate" class="w-full px-3 py-2 border rounded" required>
+          </div>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Transfer</button>
+        </form>
+      </div>
+    </div>
+    <div id="footer"></div>
+
+    <script src="./js/footer.js"></script>
+  <script src="./js/dashboardPopup.js"></script>
 </body>
 
 <script>
@@ -577,6 +654,8 @@
           section3.classList.remove('hidden');
       }
   }
+
+
 </script>
 
 </html>

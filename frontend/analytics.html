@@ -149,8 +149,8 @@
           </div>
           <div
             class="flex items-center p-2 px-2 gap-2 bg-slate-100 rounded-xl  sm:scale-75 min-[320px]:scale-75">
-            <button class="text-sm font-inter font-extralight rounded-xl px-7 p-3 text-gray-600" id=" monthly" onclick="updateChart(data.monthly, 10);">Monthly</button>
-            <button class="text-sm font-inter font-extralight rounded-xl px-7 bg-black text-white p-3" id="annually" onclick="updateChart(data.annually, 80);">Annually</button>
+            <button id="monthly" class="text-sm font-inter font-extralight rounded-xl px-7 p-3  bg-black text-white shadow-md "  onclick="updateChart(data.monthly, 10); monthly_colour()" >Monthly</button>
+            <button id="annually" class="text-sm font-inter font-extralight rounded-xl px-7 text-black p-3 shadow-md "  onclick="updateChart(data.annually, 80); annual_colour()" >Annually</button>
           </div>
         </div>
 
@@ -201,9 +201,33 @@
   <div id="chart5"></div>
 </div>
 </div>
+<div id="footer"></div>
+
   <script>
     
+    document.addEventListener('DOMContentLoaded', function() {
+            const annually = document.getElementById('annually');
+            const monthly = document.getElementById('monthly');
+
+            console.log(annually);
+            console.log(monthly);
+
+            window.annual_colour = function() {
+                annually.style.backgroundColor = 'black';
+                annually.style.color = 'white';
+                monthly.style.backgroundColor = 'white';
+                monthly.style.color = 'black';
+            }
+
+            window.monthly_colour = function() {
+                monthly.style.backgroundColor = 'black';
+                monthly.style.color = 'white';
+                annually.style.backgroundColor = 'transparent';
+                annually.style.color = 'black';
+            }
+        });
   </script>
+  <script src="./js/footer.js"></script>
   <script src="./js/nav.js"></script>
   <script src="./js/analytic.js"></script>
 </body>
