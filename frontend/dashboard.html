@@ -139,8 +139,8 @@
       </div>
 
       <div class="mt-8 flex flex-col min-[636px]:flex-row w-full justify-center items-center">
-        <div id="addIncomeBtn"
-          class="flex shadow items-center w-auto h-auto lg:w-3/12 lg:h-20 p-6 bg-white mx-2 lg:mx-4 hover:bg-blue-50  hover:text-blue-800 rounded-xl border border-gray-200">
+        <div id="add-income-button"
+             class="flex shadow items-center w-auto h-auto lg:w-3/12 lg:h-20 p-6 bg-white mx-2 lg:mx-4 hover:bg-blue-50  hover:text-blue-800 rounded-xl border border-gray-200">
           <img src="./img/Add_inc.svg" alt="add_income">
           <h3 class="text-xl text-gray-600 pl-2 font-medium ">Add Income</h3>
         </div>
@@ -165,40 +165,7 @@
           <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
         </div>
         <div id="tm_chart"></div>
-        <script>
-
-          var options = {
-            chart: {
-              type: 'donut',
-              expandOnClick: true,
-            },
-            series: [41.35, 21.51, 13.47, 9.97, 3.35],
-            labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
-            colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'],
-            plotOptions: {
-              pie: {
-                expandOnClick: true,
-                donut: {
-                  size: '50%',
-                }
-              }
-            },
-            dataLabels: {
-              enabled: false // Show or hide data labels
-            },
-            legend: {
-              show: true,// Show or hide the legend
-              position: 'bottom'
-            },
-            tooltip: {
-              enabled: true // Show or hide tooltips
-            }
-
-          };
-
-          var chart = new ApexCharts(document.querySelector("#tm_chart"), options);
-          chart.render();
-        </script>
+        <script src="./js/dashboard.js"></script>
       </div>
 
       <div class="flex flex-col w-full lg:w-6/12 h-80 mt-3 lg:mt-0 bg-white mx-4 rounded-xl border border-gray-200 ">
