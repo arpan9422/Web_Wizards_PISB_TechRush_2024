@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Add INCOME
     var popup_income = document.getElementById("addIncomeModal")
-    var btn_income = document.getElementById("addIncomeBtn")
+    var btn_income = document.getElementById("add-income-button")
     var span1 = document.getElementsByClassName("closeBtnIncome")[0];
 
     btn_income.onclick = function () {
