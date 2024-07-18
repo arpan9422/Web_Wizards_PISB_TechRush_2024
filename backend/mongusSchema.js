@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const TransactionSchema = new mongoose.Schema({
     date: Date,
     delta: Number,
+    name: String,
     recipient: String,
     method: String,
     tags: [String]

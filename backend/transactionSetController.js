@@ -23,13 +23,14 @@ function check_auth_tok(req)
     }
 }
 
-async function add_transaction(userid, delta, recipient, method, tags)
+async function add_transaction(userid, delta, date, name, recipient, method, tags)
 {
     const user = await User.findOne({ _id : userid });
 
     const transaction = new Transaction({
-	date: new Date(),
+	date: date,
 	delta: delta,
+	name: name,
 	recipient: recipient,
 	method: method,
 	tags: tags
@@ -54,7 +55,14 @@ async function set_transactions(req, res) {
 	switch (req.body["operation"])
 	{
 	    case "add":
-	    await add_transaction(userid, Number(req.body["delta"]), req.body["recipient"], req.body["method"], req.body["tags"]);
+	    await add_transaction(userid,
+				  Number(
+				      req.body["delta"]),
+				  req.body["date"],
+				  req.body["name"],
+				  req.body["recipient"],
+				  req.body["method"],
+				  req.body["tags"]);
 	    break;
 	    case "del":
 	    console.log("delete transaction requested");
