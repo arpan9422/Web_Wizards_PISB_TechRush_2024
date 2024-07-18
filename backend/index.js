@@ -20,6 +20,9 @@ app.use(express.static(process.cwd() + '/../frontend'));
 
 const signupRouter = require('./signupController.js'); 
 const loginRouter = require('./LoginControler.js')
+const transactionFetchRouter = require('./transactionFetchController.js')
+const transactionSetRouter = require('./transactionSetController.js')
+
 async function connectDB() {
     try {
 	const MONGO_URI = process.env.MONGO_URI; 
@@ -38,7 +41,7 @@ function check_auth_tok(req)
     const token = req.cookies['auth_tok'];
     
     try {
-	var decoded = jwt.verify(token, process.env.SECRETS);
+	jwt.verify(token, process.env.SECRETS);
 	// if no error is thrown, then return true
 	return true;
     } catch(err) {
@@ -65,15 +68,31 @@ connectDB();
 
 app.use('/user', signupRouter);
 app.use('/user', loginRouter);
+app.use('/user', transactionFetchRouter);
+app.use('/user', transactionSetRouter);
 
 app.get('/login', (req, res) => {
-    // Send the HTML file as the response
+    
+    // if already logged in, go to dashboard
+    if (check_auth_tok(req))
+    {	
+	res.sendFile(path.join(__dirname, '../frontend/dashboard.html'));
+	return;
+    }
+    
     var options = {'root':'../frontend'};
     res.sendFile('login.html',options);
 });
 
 app.get('/signup', (req, res) => {
-    // Send the HTML file as the response
+    
+    // if already logged in, goto to the dashboard
+    if (check_auth_tok(req))
+    {	
+	res.sendFile(path.join(__dirname, '../frontend/dashboard.html'));
+	return;
+    }
+    
     res.sendFile(path.join(__dirname, '../frontend/singup.html'));
 });
 

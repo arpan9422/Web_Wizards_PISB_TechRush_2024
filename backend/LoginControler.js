@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const { loginRouterSchema } = require('./zod.js'); // Import the Zod schemas
-const User = require("./mongusSchema.js");
+const { User } = require("./mongusSchema.js");
 dotenv.config(); // Initialize environment variables
 
 const saltRounds = 10;
