@@ -32,7 +32,7 @@ async function login(req, res) {
 	// check password
 	const validPassword = bcrypt.compareSync(password, user.password);
 	if (!validPassword) {
-	    return res.status(400).send('Invalid email or password.');
+	    return res.status(400).send('{ "error":"Invalid email" }');
 	}
 
 	// Generate JWT
