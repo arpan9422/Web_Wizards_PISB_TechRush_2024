@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        // Add custom colors here
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="w-full relative">
+        <header class="sticky w-full border-b bg-white pb-4 " id="alert">
+            <div class="rounded-md border-l-4 border-black bg-gray-100 p-4 shadow-lg ">
+                <div class="flex items-center justify-between space-x-4">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="h-6 w-6">
+
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium">
+                            Login / Signup for accessing the website dashboard and other Component
+                        </p>
+                    </div>
+                    <div>
+                        <svg id="close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="h-6 w-6 cursor-pointer">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+        <div class="relative w-full bg-white">
+            <div class="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
+                <div class="relative lg:col-span-5 lg:-mr-8 xl:col-span-6 p-4 xl:hidden min-[320px]:block">
+                    <img class=" bg-white  object-cover  hover:scale-105 transition-all 1s" src="./img/landing_page.png"
+                        alt="" />
+                </div>
+                <div
+                    class="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
+                    
+                    <h1
+                        class="xl:mt-8 min-[320px]:mt-0 text-3xl font-bold min-[320px]:text-center xl:text-left font-inter text-black md:text-4xl lg:text-6xl">
+                        Empower Your Financial Future
+                    </h1>
+                    <p class="mt-8 text-lg min-[320px]:text-center xl:text-left text-gray-700 font-inter">
+                        Unlock insights, manage expenses, and achieve your financial goals with <spa
+                            class="text-2xl font-inter text-blue-600 font-bold "> Finatic. </span>
+                    </p>
+                    <div class="xl:w-[25vw] min-[320px]:w-screen flex justify-center pr-3">
+                    <div class="flex justify-center items-center m-10 gap-5 xl:w-3/4 min-[320px]:w-[100vw]">
+                        <a href="login.html"><button
+                                class="text-xl font-semibold bg-slate-400 p-4 w-40 rounded-md shadow-md hover:bg-black hover:text-white ">Login</button></a>
+                        <a href="singup.html"><button
+                                class="text-xl font-semibold bg-slate-400 p-4 w-40 rounded-md shadow-md hover:bg-black hover:text-white ">Signup</button></a>
+                    </div>
+                </div>
+                </div>
+                <div class="relative lg:col-span-5 lg:-mr-8 xl:col-span-6 p-4 xl:block min-[320px]:hidden">
+                    <img class="aspect-[3/2] bg-white  object-cover lg:aspect-[4/3] lg:h-[700px] xl:aspect-[16/9] hover:scale-105 transition-all 1s"
+                        src="./img/landing_page.png" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="mx-auto my-3 max-w-7xl px-2 lg:px-8 pb-6 scale-110">
+            <h1
+                class="mt-8 text-2xl w-full text-center pb-7 font-bold min-[320px]:text-center xl:text-center font-inter text-black md:text-2xl lg:text-2xl">
+                Why to choose <span class="text-blue-500"> FINATIC ? </span>
+            </h1>
+            <div class=" text-center flex xl:justify-center min-[320px]:justify-center">
+                <div>
+
+                    <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-blue-100">
+                        <img class="h-10" src="./img/expense.png" alt="">
+                    </div>
+                    <h3 class="mt-8 text-lg font-semibold text-black ">Expense Tracking</h3>
+                    <p class="mt-4 text-sm text-gray-600 xl:block min-[320px]:hidden">
+                        Easily track and categorize your expenses to gain a clear understanding of where your money
+                        goes.
+                    </p>
+                </div>
+                <div>
+                    <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-orange-100">
+                        <img class="h-10" src="./img/budget.png" alt="">
+                    </div>
+                    <h3 class="mt-8 text-lg font-semibold text-black">
+                        Budgeting Tools
+                    </h3>
+                    <p class="mt-4 text-sm text-gray-600 xl:block min-[320px]:hidden">
+                        Set budgets, monitor your spending, and stay on track to achieve your financial goals.
+                    </p>
+                </div>
+                <div>
+                    <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-green-100">
+                        <svg class="h-9 w-9 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="mt-8 text-lg font-semibold text-black">
+                        Financial Insights
+                    </h3>
+                    <p class="mt-4 text-sm text-gray-600 xl:block min-[320px]:hidden">
+                        Get personalized insights and recommendations to optimize your finances.
+                    </p>
+                </div>
+
+            </div>
+            <h1 class="mt-24 text-2xl w-full text-center pb-7 font-bold font-inter text-black md:text-2xl lg:text-2xl">
+                How Finatic <span class="text-blue-500"> Works ? </span>
+            </h1>
+
+        </div>
+
+        <div id="footer"></div>
+        <script src="./js/footer.js"></script>
+        <script src="./js/landing.js"></script>
+
+</body>
+
+</html>
