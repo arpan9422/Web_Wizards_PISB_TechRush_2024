@@ -20,12 +20,34 @@ async function add_transaction(amt, date, name, recipient="You", method="", tags
     });
 }
 
-function add_transaction_entry(parent_elem, amt, date, name, recipient, method)
+async function get_transactions()
 {
+    let result =  await fetch("/user/fetchTransactions", {
+	method: "POST",
+	
+	headers: {
+	    "Content-Type": "application/json"
+	},
+    });
+
+    let json_body = await result.json();
+
+    return json_body["transactions"];
+}
+
+function add_transaction_entry(parent_elem, transaction)
+{
+    console.log(transaction);
+    
+    let name = transaction["name"];
+    let amt = transaction["delta"];
+    let date = transaction["date"];
+    let method = "Bank A/c";//transaction["method"];
+    
     let div_elem = document.createElement("div");
     div_elem.setAttribute("class", "px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10");
 
-    let date_string = date.toLocaleDateString('en-GB');
+    let date_string = (new Date(date)).toLocaleDateString('en-GB');
     
     div_elem.innerHTML = `
           <h3 class="w-5/12 text-base ">${name}</h3>
@@ -36,13 +58,30 @@ function add_transaction_entry(parent_elem, amt, date, name, recipient, method)
     parent_elem.appendChild(div_elem);
 }
 
-function refresh_transactions()
+async function refresh_transactions()
 {
-    let transactions_div = document.getElementById("");
+    let t_div = document.getElementById("transactionList");
+    t_div.innerHTML = "";	// clear previous transactions
+
+    
+    let transactions = await get_transactions();
+
+    let rev_transactions = transactions.reverse();
+
+    let no_of_entries = 5;
+    if (rev_transactions.length < 5)
+	no_of_entries = rev_transactions.length;
+    
+    for (let i=0;i<no_of_entries;i++)
+    {
+	add_transaction_entry(t_div, rev_transactions[i]);
+    }
 }
 
 //Add EXPENSES
 document.addEventListener("DOMContentLoaded", function () {
+
+    refresh_transactions();	// refresh transactions on load
     
     var popup_expense = document.getElementById("addExpensesModal");
     var btn_expense = document.getElementById("addExpensesBtn");
@@ -65,6 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	popup_expense.classList.add("hidden");
 	expense_form.reset();
+
+	refresh_transactions();
     }
     
     
@@ -104,6 +145,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	popup_income.classList.add("hidden");
 	income_form.reset();
+
+	refresh_transactions();
     }
 
     btn_income.onclick = function () {
@@ -141,6 +184,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	popup_transfer.classList.add("hidden");
 	transfer_form.reset();
+
+	refresh_transactions();
     }
     
 

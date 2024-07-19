@@ -38,21 +38,29 @@
       </a>
     </div>
     <div class="flex xl:gap-12 lg:gap-8">
-      <h1
-        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
-        Dashboard</h1>
-      <h1
-        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
-        Transactions</h1>
+      <a href="./dashboard.html">
+        <h1
+          class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+          Dashboard</h1>
+      </a>
+      <a href="./Transactions.html">
+        <h1
+          class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+          Transactions</h1>
+      </a>
       <h1
         class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
         Analytics</h1>
-      <h1
-        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
-        Goals</h1>
-      <h1
-        class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
-        Profile</h1>
+      <a href="./goals.html">
+        <h1
+          class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+          Goals</h1>
+      </a>
+      <a href="./profile.html">
+        <h1
+          class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+          Profile</h1>
+      </a>
     </div>
     <div class="flex items-center">
       <a href="login"><button
@@ -147,10 +155,12 @@
               Expense</h1>
 
           </div>
-          <div
-            class="flex items-center p-2 px-2 gap-2 bg-slate-100 rounded-xl  sm:scale-75 min-[320px]:scale-75">
-            <button id="monthly" class="text-sm font-inter font-extralight rounded-xl px-7 p-3  bg-black text-white shadow-md "  onclick="updateChart(data.monthly, 10); monthly_colour()" >Monthly</button>
-            <button id="annually" class="text-sm font-inter font-extralight rounded-xl px-7 text-black p-3 shadow-md "  onclick="updateChart(data.annually, 80); annual_colour()" >Annually</button>
+          <div class="flex items-center p-2 px-2 gap-2 bg-slate-100 rounded-xl  sm:scale-75 min-[320px]:scale-75">
+            <button id="monthly"
+              class="text-sm font-inter font-extralight rounded-xl px-7 p-3  bg-black text-white shadow-md "
+              onclick="updateChart(data.monthly, 10); monthly_colour()">Monthly</button>
+            <button id="annually" class="text-sm font-inter font-extralight rounded-xl px-7 text-black p-3 shadow-md "
+              onclick="updateChart(data.annually, 80); annual_colour()">Annually</button>
           </div>
         </div>
 
@@ -164,68 +174,69 @@
   </div>
 
   <div class="xl:w-full min-[320px]:w-full flex justify-center items-center">
-  <div class="flex justify-center gap-5 xl:flex-row min-[320px]:flex-col pt-6 ">
-    <div
-      class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm flex flex-col items-center justify-center">
-      <div class="p-1 px-9 pt-3 w-full">
-        <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
-        <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Income Source (in percentage)</h1>
-        <div class="w-full h-[1px] bg-slate-200"></div>
+    <div class="flex justify-center gap-5 xl:flex-row min-[320px]:flex-col pt-6 ">
+      <div
+        class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm flex flex-col items-center justify-center">
+        <div class="p-1 px-9 pt-3 w-full">
+          <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
+          <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Income Source (in percentage)</h1>
+          <div class="w-full h-[1px] bg-slate-200"></div>
+        </div>
+        <div id="chart3" class="w-full flex justify-center items-center"></div>
       </div>
-      <div id="chart3" class="w-full flex justify-center items-center"></div>
-    </div>
-    <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm  ">
-      <div class="p-1 px-9 pt-3">
-        <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
-        <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Savings</h1>
-        <div class="w-full  h-[1px] bg-slate-200"></div>
-        <div id="chart4"></div>
-        <div class="flex items-center justify-center">
-          <h1
-            class="p-1 pt-0 xl:text-xl min-[320px]:text-[18px] pb-5 font-inter font-medium  text-center   text-green-800">
-            Rs. 2000/-</h1>
-          <h1 class="p-1 pt-0 xl:text-xl min-[320px]:text-[18px] pb-5 font-inter font-thin  text-center   text-black">to
-            complete this month's Goal</h1>
+      <div class="xl:w-[45vw] md:w-[60vw] sm:w-[70vw] min-[320px]:w-[85vw] bg-white rounded-md shadow-sm  ">
+        <div class="p-1 px-9 pt-3">
+          <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
+          <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Savings</h1>
+          <div class="w-full  h-[1px] bg-slate-200"></div>
+          <div id="chart4"></div>
+          <div class="flex items-center justify-center">
+            <h1
+              class="p-1 pt-0 xl:text-xl min-[320px]:text-[18px] pb-5 font-inter font-medium  text-center   text-green-800">
+              Rs. 2000/-</h1>
+            <h1 class="p-1 pt-0 xl:text-xl min-[320px]:text-[18px] pb-5 font-inter font-thin  text-center   text-black">
+              to
+              complete this month's Goal</h1>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<div class="w-full flex justify-center p-5">
-<div class="w-[95vw]  flex flex-col justify-center p-3 bg-white rounded-md shadow-sm">
-  <div class="p-3 w-full">
-    <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
-    <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Budget Vs Expenses</h1>
-    <div class="w-full h-[1px] bg-slate-200"></div>
+  <div class="w-full flex justify-center p-5">
+    <div class="w-[95vw]  flex flex-col justify-center p-3 bg-white rounded-md shadow-sm">
+      <div class="p-3 w-full">
+        <h1 class="p-1 text-sm font-inter font-extralight text-gray-600">STATS</h1>
+        <h1 class="p-1 pt-0 text-xl font-inter font-semibold text-black">Budget Vs Expenses</h1>
+        <div class="w-full h-[1px] bg-slate-200"></div>
+      </div>
+      <div id="chart5"></div>
+    </div>
   </div>
-  <div id="chart5"></div>
-</div>
-</div>
-<div id="footer"></div>
+  <div id="footer"></div>
 
   <script>
-    
-    document.addEventListener('DOMContentLoaded', function() {
-            const annually = document.getElementById('annually');
-            const monthly = document.getElementById('monthly');
 
-            console.log(annually);
-            console.log(monthly);
+    document.addEventListener('DOMContentLoaded', function () {
+      const annually = document.getElementById('annually');
+      const monthly = document.getElementById('monthly');
 
-            window.annual_colour = function() {
-                annually.style.backgroundColor = 'black';
-                annually.style.color = 'white';
-                monthly.style.backgroundColor = 'white';
-                monthly.style.color = 'black';
-            }
+      console.log(annually);
+      console.log(monthly);
 
-            window.monthly_colour = function() {
-                monthly.style.backgroundColor = 'black';
-                monthly.style.color = 'white';
-                annually.style.backgroundColor = 'transparent';
-                annually.style.color = 'black';
-            }
-        });
+      window.annual_colour = function () {
+        annually.style.backgroundColor = 'black';
+        annually.style.color = 'white';
+        monthly.style.backgroundColor = 'white';
+        monthly.style.color = 'black';
+      }
+
+      window.monthly_colour = function () {
+        monthly.style.backgroundColor = 'black';
+        monthly.style.color = 'white';
+        annually.style.backgroundColor = 'transparent';
+        annually.style.color = 'black';
+      }
+    });
   </script>
   <script src="./js/footer.js"></script>
   <script src="./js/nav.js"></script>
