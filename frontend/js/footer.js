@@ -1,5 +1,5 @@
 document.getElementById("footer").innerHTML = `
-<footer class="ps-12 border-t-2 border-gray-200 bg-white">
+<footer class="ps-12 border-t-2 border-gray-200 bg-white z-0">
   <section class="relative overflow-hidden py-10">
     <div class="relative z-10 mx-auto max-w-7xl px-4">
       <div class="-m-6 flex flex-wrap">
