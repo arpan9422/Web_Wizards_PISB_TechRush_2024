@@ -162,3 +162,9 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function(){
     
 })
+
+
+
+document.getElementById("refresh").addEventListener('click', function(){
+    window.location.reload()
+})
