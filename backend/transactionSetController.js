@@ -35,7 +35,8 @@ async function add_transaction(userid, delta, date, name, recipient, method, tag
 	method: method,
 	tags: tags
     });
-    
+
+    user.transactions = user.transactions || [];
     user.transactions.push(transaction);
 
     await user.save();
