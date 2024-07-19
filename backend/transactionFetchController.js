@@ -1,11 +1,11 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
-const User = require("./mongusSchema.js");
+const { User } = require("./mongusSchema.js");
 dotenv.config(); // Initialize environment variables
 
 const transactionFetchRouter = express.Router();
-
+const NUM_TRANSACTION_TO_BE_SENT = process.env.NUM_TRANSACTIONS_TO_BE_SENT;
 
 function check_auth_tok(req)
 {
@@ -14,7 +14,7 @@ function check_auth_tok(req)
     try {
 	var decoded = jwt.verify(token, process.env.SECRETS);
 	// if no error is thrown, then return true
-	return decoded;
+	return decoded["id"];
     } catch(err) {
 	if (err['name'] == 'TokenExpiredError')
 	{
@@ -27,6 +27,7 @@ function check_auth_tok(req)
 async function fetch_transactions(req, res) {
 
     const userid = check_auth_tok(req);
+    console.log(userid);
 
     try {
 
@@ -39,9 +40,10 @@ async function fetch_transactions(req, res) {
 	const user = await User.findOne({ _id: userid });
 
 	// get transactions
+	user.transactions = user.transactions || [];
 	const transaction_list = user.transactions;
 	
-	return res.status(200).json({ transactions: transaction_list});
+	return res.status(200).json({ transactions: transaction_list.slice(-NUM_TRANSACTION_TO_BE_SENT)});
 	
     } catch (error) {
 	console.log('Error in login:', error);
