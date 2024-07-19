@@ -132,15 +132,15 @@
                 </div>
                 <div class="flex rounded-xl w-full">
                     <h2 class="text-lg font-inter">Total Amount Required:</h2>
-                    <h2 class="text-lg font-inter px-1 font-semibold">20,00,000.00</h2>
-                </div>
-                <div class="flex rounded-xl w-full">
-                    <h2 class="text-lg font-inter">Total Amount Gathered:</h2>
                     <h2 class="text-lg font-inter px-1 font-semibold">5,00,000.00</h2>
                 </div>
                 <div class="flex rounded-xl w-full">
+                    <h2 class="text-lg font-inter">Total Amount Provisioned:</h2>
+                    <h2 class="text-lg font-inter px-1 font-semibold">1,26,000.00</h2>
+                </div>
+                <div class="flex rounded-xl w-full">
                     <h2 class="text-lg font-inter">Net Amount Required:</h2>
-                    <h2 class="text-lg font-inter px-1 font-semibold">15,00,000.00</h2>
+                    <h2 class="text-lg font-inter px-1 font-semibold">3,74,000.00</h2>
                 </div>
                 <div class="w-full shadow h-auto py-6 bg-white my-2 rounded-xl border border-gray-200">
                     <div id="ty_chart"></div>
@@ -153,7 +153,7 @@
                                     data: [500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000]
                                 },
                                 {
-                                    name: "Amount Gathered",
+                                    name: "Amount Provisioned",
                                     data: [7500, 15000, 22500, 30000, 37500, 45000, 52500, 60000, 67500, 75000, 83500, 92000, 100500, 109000, 117500, 126000,]
                                 },
                             ],
@@ -276,8 +276,8 @@
                                     type: 'donut',
                                     expandOnClick: true,
                                 },
-                                series: [500000, 126000],
-                                labels: ['Net Amount Remaining', 'Amount Gathered'],
+                                series: [374000, 126000],
+                                labels: ['Net Amount Remaining', 'Amount Provisioned'],
                                 colors: ['#FF150F', '#7AFF47'],
                                 plotOptions: {
                                     pie: {
