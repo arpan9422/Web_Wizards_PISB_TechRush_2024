@@ -1,4 +1,3 @@
-S
 <!DOCTYPE html>
 <html lang="en">
 
@@ -160,13 +159,45 @@ S
       </div>
 
       <!-- Pie chart and transaction list -->
-      <div class="mt-8 flex flex-col lg:flex-row w-full justify-center items-center lg:items-start">
+      <div class="mt-8 flex flex-col lg:flex-row w-full justify-center items-center lg:items-start pb-8">
         <div class="lg:w-4/12 w-full h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
           <div class="px-6">
             <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
           </div>
           <div id="tm_chart"></div>
-          <script src="./js/dashboard.js"></script>
+          <script >
+            var options = {
+              chart: {
+                type: 'donut',
+                expandOnClick: true,
+              },
+              series: [21, 23, 13, 13, 10],
+              labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
+              colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'],
+              plotOptions: {
+                pie: {
+                  expandOnClick: true,
+                  donut: {
+                    size: '50%',
+                  }
+                }
+              },
+              dataLabels: {
+                enabled: false // Show or hide data labels
+              },
+              legend: {
+                show: true,// Show or hide the legend
+                position: 'bottom'
+              },
+              tooltip: {
+                enabled: true // Show or hide tooltips
+              }
+
+            };
+
+            var chart = new ApexCharts(document.querySelector("#tm_chart"), options);
+            chart.render();
+          </script>
         </div>
 
         <div class="flex flex-col w-full lg:w-6/12 h-80 mt-3 lg:mt-0 bg-white mx-4 rounded-xl border border-gray-200 ">
