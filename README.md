@@ -45,4 +45,4 @@ Welcome to the **Personal Finance Dashboard** project! This application is desig
 
 > Your contributions and feedback are always appreciated!
 
-![Contribute](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
+
