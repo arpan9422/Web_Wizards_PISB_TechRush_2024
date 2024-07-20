@@ -226,335 +226,335 @@
     </div>
   </div>
 
-  <!-- <div id="lm" class="hidden"> -->
+  <div id="lm" class="hidden">
 
-  <!--   <header class="mx-2 lg:mx-12 my-6"> -->
-  <!--     <div class="flex flex-col justify-center items-center w-full lg:flex-row lg:justify-start"> -->
-  <!--       <div class="w-full flex justify-center lg:w-6/12 lg:justify-start"> -->
-  <!--         <h1 class="text-4xl font-inter font-semibold text-black">Hello, Username!</h1> -->
-  <!--       </div> -->
-  <!--       <div class="w-full justify-center items-center lg:w-6/12 mt-3 lg:mt-0 lg:justify-start flex"> -->
-  <!--         <div class="flex items-center w-12/12 h-auto bg-white border border-gray-200 rounded-md"> -->
-  <!--           <div onclick="changeContent(1)" -->
-  <!--             class="text-lg text-center lg:text-left w-auto shadow font-medium hover:bg-blue-50 py-1.5 px-4 rounded-s-md hover:text-blue-800 border-r border-gray-200"> -->
-  <!--             <h4>This month</h4> -->
-  <!--           </div> -->
-  <!--           <div -->
-  <!--             class="text-lg text-center lg:text-left shadow font-medium bg-blue-50 py-1.5 px-4 text-blue-800 border-r border-gray-200"> -->
-  <!--             <h4>Last month</h4> -->
-  <!--           </div> -->
-  <!--           <div onclick="changeContent(3)" -->
-  <!--             class="text-lg text-center lg:text-left shadow font-medium hover:bg-blue-50 py-1.5 px-4 hover:shadow rounded-e-md hover:text-blue-800"> -->
-  <!--             <h4>This Year</h4> -->
-  <!--           </div> -->
-  <!--         </div> -->
-  <!--         <div class="hidden sm:block"> -->
-  <!--           <div class=" h-auto shadow bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex -->
-  <!-- 			  items-center"> -->
-  <!--             <img src="./img/Frame.svg" alt="Calendar" class="pr-2"> -->
-  <!--             <h4>Select Month</h4> -->
-  <!--           </div> -->
-  <!--         </div> -->
-  <!--         <div class="sm:hidden shadow h-10 bg-white border p-1 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex -->
-  <!-- 			items-center"> -->
-  <!--           <img src="./img/Frame.svg" alt="Calendar"> -->
-  <!--         </div> -->
-  <!--       </div> -->
-  <!--     </div> -->
-  <!--   </header> -->
+    <header class="mx-2 lg:mx-12 my-6">
+      <div class="flex flex-col justify-center items-center w-full lg:flex-row lg:justify-start">
+        <div class="w-full flex justify-center lg:w-6/12 lg:justify-start">
+          <h1 class="text-4xl font-inter font-semibold text-black">Hello, Username!</h1>
+        </div>
+        <div class="w-full justify-center items-center lg:w-6/12 mt-3 lg:mt-0 lg:justify-start flex">
+          <div class="flex items-center w-12/12 h-auto bg-white border border-gray-200 rounded-md">
+            <div onclick="changeContent(1)"
+              class="text-lg text-center lg:text-left w-auto shadow font-medium hover:bg-blue-50 py-1.5 px-4 rounded-s-md hover:text-blue-800 border-r border-gray-200">
+              <h4>This month</h4>
+            </div>
+            <div
+              class="text-lg text-center lg:text-left shadow font-medium bg-blue-50 py-1.5 px-4 text-blue-800 border-r border-gray-200">
+              <h4>Last month</h4>
+            </div>
+            <div onclick="changeContent(3)"
+              class="text-lg text-center lg:text-left shadow font-medium hover:bg-blue-50 py-1.5 px-4 hover:shadow rounded-e-md hover:text-blue-800">
+              <h4>This Year</h4>
+            </div>
+          </div>
+          <div class="hidden sm:block">
+            <div class=" h-auto shadow bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex
+			  items-center">
+              <img src="./img/Frame.svg" alt="Calendar" class="pr-2">
+              <h4>Select Month</h4>
+            </div>
+          </div>
+          <div class="sm:hidden shadow h-10 bg-white border p-1 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex
+			items-center">
+            <img src="./img/Frame.svg" alt="Calendar">
+          </div>
+        </div>
+      </div>
+    </header>
 
-  <!--   <\!-- Displaying Data with add expense/income -\-> -->
-  <!--   <div> -->
-  <!--     <div class="block"> -->
+    <!-- Displaying Data with add expense/income -->
+    <div>
+      <div class="block">
 
-  <!--       <div class="mt-8 flex flex-col md:flex-row w-full justify-center items-center"> -->
-  <!--         <div class="md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200"> -->
-  <!--           <h3 class="text-xl text-gray-600 pl-1 font-medium">Balance</h3> -->
-  <!--           <h1 class="text-3xl text-blue-600 pt-4 font-semibold">Rs. 5,502.45</h1> -->
-  <!--         </div> -->
-  <!--         <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200"> -->
-  <!--           <h3 class="text-xl text-gray-600 pl-1 font-medium">Incomes</h3> -->
-  <!--           <h1 class="text-3xl pt-4 font-semibold">Rs. 9,450.00</h1> -->
-  <!--         </div> -->
-  <!--         <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200"> -->
-  <!--           <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses</h3> -->
-  <!--           <h1 class="text-3xl pt-4 font-semibold">Rs. 3,945.55</h1> -->
-  <!--         </div> -->
-  <!--       </div> -->
-  <!--     </div> -->
+        <div class="mt-8 flex flex-col md:flex-row w-full justify-center items-center">
+          <div class="md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Balance</h3>
+            <h1 class="text-3xl text-blue-600 pt-4 font-semibold">Rs. 5,502.45</h1>
+          </div>
+          <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Incomes</h3>
+            <h1 class="text-3xl pt-4 font-semibold">Rs. 9,450.00</h1>
+          </div>
+          <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses</h3>
+            <h1 class="text-3xl pt-4 font-semibold">Rs. 3,945.55</h1>
+          </div>
+        </div>
+      </div>
 
-  <!--     <\!-- Pie chart and transaction list -\-> -->
-  <!--     <div class="mt-8 flex flex-col lg:flex-row w-full justify-center items-center lg:items-start"> -->
-  <!--       <div class="lg:w-4/12 w-full h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200"> -->
-  <!--         <div class="px-6"> -->
-  <!--           <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3> -->
-  <!--         </div> -->
-  <!--         <div id="lm_chart"></div> -->
-  <!--         <script> -->
+      <!-- Pie chart and transaction list -->
+      <div class="mt-8 flex flex-col lg:flex-row w-full justify-center items-center lg:items-start">
+        <div class="lg:w-4/12 w-full h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
+          <div class="px-6">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
+          </div>
+          <div id="lm_chart"></div>
+          <script>
 
-  <!--           var options = { -->
-  <!--             chart: { -->
-  <!--               type: 'donut', -->
-  <!--               expandOnClick: true, -->
-  <!--             }, -->
-  <!--             series: [41.35, 21.51, 13.47, 9.97, 3.35], -->
-  <!--             labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'], -->
-  <!--             colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'], -->
-  <!--             plotOptions: { -->
-  <!--               pie: { -->
-  <!--                 expandOnClick: true, -->
-  <!--                 donut: { -->
-  <!--                   size: '50%', -->
-  <!--                 } -->
-  <!--               } -->
-  <!--             }, -->
-  <!--             dataLabels: { -->
-  <!--               enabled: false // Show or hide data labels -->
-  <!--             }, -->
-  <!--             legend: { -->
-  <!--               show: true,// Show or hide the legend -->
-  <!--               position: 'bottom' -->
-  <!--             }, -->
-  <!--             tooltip: { -->
-  <!--               enabled: true // Show or hide tooltips -->
-  <!--             } -->
+            var options = {
+              chart: {
+                type: 'donut',
+                expandOnClick: true,
+              },
+              series: [41.35, 21.51, 13.47, 9.97, 3.35],
+              labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
+              colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'],
+              plotOptions: {
+                pie: {
+                  expandOnClick: true,
+                  donut: {
+                    size: '50%',
+                  }
+                }
+              },
+              dataLabels: {
+                enabled: false // Show or hide data labels
+              },
+              legend: {
+                show: true,// Show or hide the legend
+                position: 'bottom'
+              },
+              tooltip: {
+                enabled: true // Show or hide tooltips
+              }
 
-  <!--           }; -->
+            };
 
-  <!--           var chart = new ApexCharts(document.querySelector("#lm_chart"), options); -->
-  <!--           chart.render(); -->
-  <!--         </script> -->
-  <!--       </div> -->
+            var chart = new ApexCharts(document.querySelector("#lm_chart"), options);
+            chart.render();
+          </script>
+        </div>
 
-  <!--       <div class="flex flex-col w-full lg:w-6/12 h-80 mt-3 lg:mt-0 bg-white mx-4 rounded-xl border border-gray-200 "> -->
-  <!--         <div class="border-b p-6 border-gray-200 w-full flex justify-between"> -->
-  <!--           <div> -->
-  <!--             <h3 class="font-bold text-lg">Last Transactions</h3> -->
-  <!--             <h4 class="text-gray-600">Check Your Last Transactions</h4> -->
-  <!--           </div> -->
-  <!--           <button id="refresh"><img class="h-8" src="./img/refresh.png" alt=""></button> -->
-  <!--         </div> -->
+        <div class="flex flex-col w-full lg:w-6/12 h-80 mt-3 lg:mt-0 bg-white mx-4 rounded-xl border border-gray-200 ">
+          <div class="border-b p-6 border-gray-200 w-full flex justify-between">
+            <div>
+              <h3 class="font-bold text-lg">Last Transactions</h3>
+              <h4 class="text-gray-600">Check Your Last Transactions</h4>
+            </div>
+            <button id="refresh"><img class="h-8" src="./img/refresh.png" alt=""></button>
+          </div>
 
-  <!--         <div class="px-6 flex w-full bg-gray-100 items-center"> -->
-  <!--           <h3 class="w-5/12 text-base font-semibold text-gray-600">Description</h3> -->
-  <!--           <h3 class="w-3/12 text-base font-semibold text-gray-600">Method</h3> -->
-  <!--           <h3 class="w-2/12 text-base font-semibold text-gray-600">Date</h3> -->
-  <!--           <h3 class="w-2/12 text-base font-semibold text-gray-600">Amount</h3> -->
-  <!--         </div> -->
+          <div class="px-6 flex w-full bg-gray-100 items-center">
+            <h3 class="w-5/12 text-base font-semibold text-gray-600">Description</h3>
+            <h3 class="w-3/12 text-base font-semibold text-gray-600">Method</h3>
+            <h3 class="w-2/12 text-base font-semibold text-gray-600">Date</h3>
+            <h3 class="w-2/12 text-base font-semibold text-gray-600">Amount</h3>
+          </div>
 
-  <!--         <div class="overflow-y-auto"> -->
-  <!--           <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10"> -->
-  <!--             <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3> -->
-  <!--             <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3> -->
-  <!--             <h3 class="w-2/12 text-base  text-gray-600">04/01</h3> -->
-  <!--             <h3 class="w-2/12 text-base ">$750.00</h3> -->
-  <!--           </div> -->
+          <div class="overflow-y-auto">
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10">
+              <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+              <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+              <h3 class="w-2/12 text-base  text-gray-600">04/01</h3>
+              <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
 
-  <!--           <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10"> -->
-  <!--             <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3> -->
-  <!--             <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3> -->
-  <!--             <h3 class="w-2/12 text-base  text-gray-600">04/01</h3> -->
-  <!--             <h3 class="w-2/12 text-base ">$750.00</h3> -->
-  <!--           </div> -->
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10">
+              <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+              <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+              <h3 class="w-2/12 text-base  text-gray-600">04/01</h3>
+              <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
 
-  <!--           <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10"> -->
-  <!--             <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3> -->
-  <!--             <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3> -->
-  <!--             <h3 class="w-2/12 text-base  text-gray-600">04/01</h3> -->
-  <!--             <h3 class="w-2/12 text-base ">$750.00</h3> -->
-  <!--           </div> -->
-  <!--           <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10"> -->
-  <!--             <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3> -->
-  <!--             <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3> -->
-  <!--             <h3 class="w-2/12 text-base  text-gray-600">04/01</h3> -->
-  <!--             <h3 class="w-2/12 text-base ">$750.00</h3> -->
-  <!--           </div> -->
-  <!--           <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10"> -->
-  <!--             <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3> -->
-  <!--             <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3> -->
-  <!--             <h3 class="w-2/12 text-base  text-gray-600">04/01</h3> -->
-  <!--             <h3 class="w-2/12 text-base ">$750.00</h3> -->
-  <!--           </div> -->
-  <!--           <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10"> -->
-  <!--             <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3> -->
-  <!--             <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3> -->
-  <!--             <h3 class="w-2/12 text-base  text-gray-600">04/01</h3> -->
-  <!--             <h3 class="w-2/12 text-base ">$750.00</h3> -->
-  <!--           </div> -->
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10">
+              <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+              <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+              <h3 class="w-2/12 text-base  text-gray-600">04/01</h3>
+              <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10">
+              <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+              <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+              <h3 class="w-2/12 text-base  text-gray-600">04/01</h3>
+              <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10">
+              <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+              <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+              <h3 class="w-2/12 text-base  text-gray-600">04/01</h3>
+              <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10">
+              <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+              <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+              <h3 class="w-2/12 text-base  text-gray-600">04/01</h3>
+              <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
 
-  <!--           <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10"> -->
-  <!--             <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3> -->
-  <!--             <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3> -->
-  <!--             <h3 class="w-2/12 text-base  text-gray-600">04/01</h3> -->
-  <!--             <h3 class="w-2/12 text-base ">$750.00</h3> -->
-  <!--           </div> -->
-  <!--         </div> -->
-  <!--       </div> -->
-  <!--     </div> -->
-  <!--   </div> -->
+            <div class="px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10">
+              <h3 class="w-5/12 text-base ">Orlando Rofrigues</h3>
+              <h3 class="w-3/12 text-base  text-gray-600">Bank Account</h3>
+              <h3 class="w-2/12 text-base  text-gray-600">04/01</h3>
+              <h3 class="w-2/12 text-base ">$750.00</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <!-- </div> -->
+  </div>
 
-  <!-- <div id="ty" class="hidden"> -->
+  <div id="ty" class="hidden">
 
-  <!--   <header class="mx-2 lg:mx-12 my-6"> -->
-  <!--     <div class="flex flex-col justify-center items-center w-full lg:flex-row lg:justify-start"> -->
-  <!--       <div class="w-full flex justify-center lg:w-6/12 lg:justify-start"> -->
-  <!--         <h1 class="text-4xl font-inter font-semibold text-black">Hello, Username!</h1> -->
-  <!--       </div> -->
-  <!--       <div class="w-full justify-center items-center lg:w-6/12 mt-3 lg:mt-0 lg:justify-start flex"> -->
-  <!--         <div class="flex items-center w-12/12 h-auto bg-white border border-gray-200 rounded-md"> -->
-  <!--           <div onclick="changeContent(1)" -->
-  <!--             class="text-lg text-center lg:text-left w-auto shadow font-medium hover:bg-blue-50 py-1.5 px-4 rounded-s-md hover:text-blue-800 border-r border-gray-200"> -->
-  <!--             <h4>This month</h4> -->
-  <!--           </div> -->
-  <!--           <div onclick="changeContent(2)" -->
-  <!--             class="text-lg text-center lg:text-left shadow font-medium hover:bg-blue-50 py-1.5 px-4 hover:text-blue-800 border-r border-gray-200"> -->
-  <!--             <h4>Last month</h4> -->
-  <!--           </div> -->
-  <!--           <div -->
-  <!--             class="text-lg text-center lg:text-left shadow font-medium bg-blue-50 py-1.5 px-4 hover:shadow rounded-e-md text-blue-800"> -->
-  <!--             <h4>This Year</h4> -->
-  <!--           </div> -->
-  <!--         </div> -->
-  <!--         <div class="hidden sm:block"> -->
-  <!--           <div class=" h-auto shadow bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex -->
-  <!-- 			  items-center"> -->
-  <!--             <img src="./img/Frame.svg" alt="Calendar" class="pr-2"> -->
-  <!--             <h4>Select Month</h4> -->
-  <!--           </div> -->
-  <!--         </div> -->
-  <!--         <div class="sm:hidden shadow h-10 bg-white border p-1 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex -->
-  <!-- 			items-center"> -->
-  <!--           <img src="./img/Frame.svg" alt="Calendar"> -->
-  <!--         </div> -->
-  <!--       </div> -->
-  <!--     </div> -->
-  <!--   </header> -->
+    <header class="mx-2 lg:mx-12 my-6">
+      <div class="flex flex-col justify-center items-center w-full lg:flex-row lg:justify-start">
+        <div class="w-full flex justify-center lg:w-6/12 lg:justify-start">
+          <h1 class="text-4xl font-inter font-semibold text-black">Hello, Username!</h1>
+        </div>
+        <div class="w-full justify-center items-center lg:w-6/12 mt-3 lg:mt-0 lg:justify-start flex">
+          <div class="flex items-center w-12/12 h-auto bg-white border border-gray-200 rounded-md">
+            <div onclick="changeContent(1)"
+              class="text-lg text-center lg:text-left w-auto shadow font-medium hover:bg-blue-50 py-1.5 px-4 rounded-s-md hover:text-blue-800 border-r border-gray-200">
+              <h4>This month</h4>
+            </div>
+            <div onclick="changeContent(2)"
+              class="text-lg text-center lg:text-left shadow font-medium hover:bg-blue-50 py-1.5 px-4 hover:text-blue-800 border-r border-gray-200">
+              <h4>Last month</h4>
+            </div>
+            <div
+              class="text-lg text-center lg:text-left shadow font-medium bg-blue-50 py-1.5 px-4 hover:shadow rounded-e-md text-blue-800">
+              <h4>This Year</h4>
+            </div>
+          </div>
+          <div class="hidden sm:block">
+            <div class=" h-auto shadow bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex
+			  items-center">
+              <img src="./img/Frame.svg" alt="Calendar" class="pr-2">
+              <h4>Select Month</h4>
+            </div>
+          </div>
+          <div class="sm:hidden shadow h-10 bg-white border p-1 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex
+			items-center">
+            <img src="./img/Frame.svg" alt="Calendar">
+          </div>
+        </div>
+      </div>
+    </header>
 
-  <!--   <\!-- Displaying Data with add expense/income -\-> -->
-  <!--   <div> -->
-  <!--     <div class="block"> -->
+    <!-- Displaying Data with add expense/income -->
+    <div>
+      <div class="block">
 
-  <!--       <div class="mt-8 flex flex-col md:flex-row w-full justify-center items-center"> -->
-  <!--         <div class="md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200"> -->
-  <!--           <h3 class="text-xl text-gray-600 pl-1 font-medium">Balance</h3> -->
-  <!--           <h1 class="text-3xl text-blue-600 pt-4 font-semibold">Rs. 5,502.45</h1> -->
-  <!--         </div> -->
-  <!--         <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200"> -->
-  <!--           <h3 class="text-xl text-gray-600 pl-1 font-medium">Incomes</h3> -->
-  <!--           <h1 class="text-3xl pt-4 font-semibold">Rs. 9,450.00</h1> -->
-  <!--         </div> -->
-  <!--         <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200"> -->
-  <!--           <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses</h3> -->
-  <!--           <h1 class="text-3xl pt-4 font-semibold">Rs. 3,945.55</h1> -->
-  <!--         </div> -->
-  <!--       </div> -->
-  <!--     </div> -->
+        <div class="mt-8 flex flex-col md:flex-row w-full justify-center items-center">
+          <div class="md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Balance</h3>
+            <h1 class="text-3xl text-blue-600 pt-4 font-semibold">Rs. 5,502.45</h1>
+          </div>
+          <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Incomes</h3>
+            <h1 class="text-3xl pt-4 font-semibold">Rs. 9,450.00</h1>
+          </div>
+          <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses</h3>
+            <h1 class="text-3xl pt-4 font-semibold">Rs. 3,945.55</h1>
+          </div>
+        </div>
+      </div>
 
-  <!--     <\!-- Pie chart and transaction list -\-> -->
-  <!--     <div class="mt-8 flex flex-col lg:flex-row  justify-center items-center lg:items-start "> -->
-  <!--       <div class="xl:w-[80vw] min-[320px]:w-[95vw] h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200"> -->
-  <!--         <div id="ty_chart"></div> -->
-  <!--         <script> -->
+      <!-- Pie chart and transaction list -->
+      <div class="mt-8 flex flex-col lg:flex-row  justify-center items-center lg:items-start ">
+        <div class="xl:w-[80vw] min-[320px]:w-[95vw] h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
+          <div id="ty_chart"></div>
+          <script>
 
 
-  <!--           var options = { -->
-  <!--             series: [ -->
-  <!--               { -->
-  <!--                 name: "Income", -->
-  <!--                 data: [10000, 11000, 15000, 18000, 14000, 14000, 15000] -->
-  <!--               }, -->
-  <!--               { -->
-  <!--                 name: "Expense", -->
-  <!--                 data: [4000, 3500, 5000, 7000, 7500, 4500, 4500] -->
-  <!--               }, -->
-  <!--               { -->
-  <!--                 name: "Balance", -->
-  <!--                 data: [6000, 7500, 10000, 12000, 6500, 9500, 10500] -->
-  <!--               } -->
-  <!--             ], -->
-  <!--             chart: { -->
-  <!--               height: 350, -->
-  <!--               type: 'line', -->
-  <!--               dropShadow: { -->
-  <!--                 enabled: true, -->
-  <!--                 color: '#000', -->
-  <!--                 top: 18, -->
-  <!--                 left: 7, -->
-  <!--                 blur: 10, -->
-  <!--                 opacity: 0.2 -->
-  <!--               }, -->
-  <!--               zoom: { -->
-  <!--                 enabled: false -->
-  <!--               }, -->
-  <!--               toolbar: { -->
-  <!--                 show: false -->
-  <!--               }, -->
-  <!--               padding: { -->
-  <!--                 left: 10, // Adjust this value as needed -->
-  <!--                 right: 10, -->
-  <!--                 top: 10, -->
-  <!--                 bottom: 10 -->
-  <!--               } -->
-  <!--             }, -->
-  <!--             colors: ['#77B6EA', '#F00018', '#31EA2E'], -->
-  <!--             dataLabels: { -->
-  <!--               enabled: true, -->
-  <!--             }, -->
-  <!--             stroke: { -->
-  <!--               curve: 'smooth' -->
-  <!--             }, -->
-  <!--             title: { -->
-  <!--               text: 'Average High & Low Temperature', -->
-  <!--               align: 'left' -->
-  <!--             }, -->
-  <!--             grid: { -->
-  <!--               borderColor: '#e7e7e7', -->
-  <!--               row: { -->
-  <!--                 colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns -->
-  <!--                 opacity: 0.5 -->
-  <!--               }, -->
-  <!--             }, -->
-  <!--             markers: { -->
-  <!--               size: 1 -->
-  <!--             }, -->
-  <!--             xaxis: { -->
-  <!--               categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'], -->
-  <!--               title: { -->
-  <!--                 text: 'Month' -->
-  <!--               } -->
-  <!--             }, -->
-  <!--             yaxis: { -->
-  <!--               title: { -->
-  <!--                 text: 'Money (in Rs)', -->
-  <!--                 style: { -->
-  <!--                   fontSize: '0px' // Hide the title by reducing its size -->
-  <!--                 } -->
-  <!--               }, -->
-  <!--               min: 2000, -->
-  <!--               max: 20000, -->
-  <!--               labels: { -->
-  <!--                 offsetX: -15 // Adjust this value to control the space between y-axis labels and chart -->
-  <!--               } -->
-  <!--             }, -->
-  <!--             legend: { -->
-  <!--               position: 'top', -->
-  <!--               horizontalAlign: 'right', -->
-  <!--               floating: true, -->
-  <!--               offsetY: -25, -->
-  <!--               offsetX: -5 -->
-  <!--             } -->
-  <!--           }; -->
+            var options = {
+              series: [
+                {
+                  name: "Income",
+                  data: [10000, 11000, 15000, 18000, 14000, 14000, 15000]
+                },
+                {
+                  name: "Expense",
+                  data: [4000, 3500, 5000, 7000, 7500, 4500, 4500]
+                },
+                {
+                  name: "Balance",
+                  data: [6000, 7500, 10000, 12000, 6500, 9500, 10500]
+                }
+              ],
+              chart: {
+                height: 350,
+                type: 'line',
+                dropShadow: {
+                  enabled: true,
+                  color: '#000',
+                  top: 18,
+                  left: 7,
+                  blur: 10,
+                  opacity: 0.2
+                },
+                zoom: {
+                  enabled: false
+                },
+                toolbar: {
+                  show: false
+                },
+                padding: {
+                  left: 10, // Adjust this value as needed
+                  right: 10,
+                  top: 10,
+                  bottom: 10
+                }
+              },
+              colors: ['#77B6EA', '#F00018', '#31EA2E'],
+              dataLabels: {
+                enabled: true,
+              },
+              stroke: {
+                curve: 'smooth'
+              },
+              title: {
+                text: 'Average High & Low Temperature',
+                align: 'left'
+              },
+              grid: {
+                borderColor: '#e7e7e7',
+                row: {
+                  colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                  opacity: 0.5
+                },
+              },
+              markers: {
+                size: 1
+              },
+              xaxis: {
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                title: {
+                  text: 'Month'
+                }
+              },
+              yaxis: {
+                title: {
+                  text: 'Money (in Rs)',
+                  style: {
+                    fontSize: '0px' // Hide the title by reducing its size
+                  }
+                },
+                min: 2000,
+                max: 20000,
+                labels: {
+                  offsetX: -15 // Adjust this value to control the space between y-axis labels and chart
+                }
+              },
+              legend: {
+                position: 'top',
+                horizontalAlign: 'right',
+                floating: true,
+                offsetY: -25,
+                offsetX: -5
+              }
+            };
 
-  <!--           var chart = new ApexCharts(document.querySelector("#ty_chart"), options); -->
-  <!--           chart.render(); -->
-  <!--         </script> -->
-  <!--       </div> -->
-  <!--     </div> -->
-  <!--   </div> -->
+            var chart = new ApexCharts(document.querySelector("#ty_chart"), options);
+            chart.render();
+          </script>
+        </div>
+      </div>
+    </div>
 
-  <!-- </div> -->
+  </div>
 
   <!-- income_popup -->
   <div id="addIncomeModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden z-30">
