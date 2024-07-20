@@ -16,8 +16,10 @@ Welcome to the **Personal Finance Dashboard** project! This application is desig
 ## Technology Stack
 
 ### Frontend
+- **Figma**: For UI/UX Design of webpages
 - **JavaScript**: The core scripting language for dynamic content.
 - **Tailwind CSS**: For sleek and responsive styling.
+- **Apex Charts**: For building graphs and charts
 
 ### Backend
 - **Express.js**: A minimal and flexible Node.js web application framework.
