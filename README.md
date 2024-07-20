@@ -22,7 +22,7 @@ Welcome to the **Personal Finance Dashboard** project! This application is desig
 ### Backend
 - **Express.js**: A minimal and flexible Node.js web application framework.
 - **Node.js**: JavaScript runtime for executing backend code.
-- **MongoDB**: Mongodb for storing financial data.
+- **MongoDB**: Mongodb for storing user data.
 
 ## Usage
 
