@@ -23,14 +23,14 @@ async function signup(req, res) {
     try {
 	signupSchema.parse({ email, password });
     } catch (e) {
-	return res.status(400).json({ Api_Response: 400, message: e.errors });
+	return res.status(400).json({ status:"error", Api_Response: 400, message: e.errors });
     }
 
     try {
 
 	const user = await User.findOne({ email: email });
 	if (user) {
-	    return res.json({ Api_Response: 302, message: 'Email already exists' });
+	    return res.json({ status:"error", Api_Response: 302, message: 'Email already exists' });
 	}
 
 	// Hash the password
@@ -47,10 +47,10 @@ async function signup(req, res) {
 	// Generate JWT
 	const token = jwt.sign({ id: userCreated._id }, SECRET, { expiresIn: TOKEN_VALID_MINS * 60 });
 
-	return res.json({ user_id: userCreated._id, token: token });
+	return res.json({ status:"success", user_id: userCreated._id, token: token });
     } catch (error) {
 	console.log('Error in signup:', error);
-	return res.json({ Api_Response: 304, message: 'Error in signup backend' });
+	return res.json({ status:"error", Api_Response: 304, message: 'Error in signup backend' });
     }
 }
 
