@@ -56,9 +56,8 @@ Welcome to the **Personal Finance Dashboard** project! This application is desig
 
 
 2.Backend:
-Sure! Here’s the updated text for your README file, including the logout process:
 
----
+
 
 ### Authentication Process
 
