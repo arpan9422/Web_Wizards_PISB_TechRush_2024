@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Finatic-Goals</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -98,12 +98,12 @@
     <!-- goals page -->
 
     <div class="mb-2">
-        <div class="flex">
-            <div class="mx-8 my-4 w-6/12 flex items-center">
+        <div class="flex flex-col md:flex-row">
+            <div class="mx-8 my-4 w-[90] md:w-6/12 flex items-center">
                 <img class="w-14 rounded-xl mx-2 shadow-md border-2 border-blue-300" src="./img/goal_img.jpg" alt="">
                 <h1 class="text-4xl font-inter font-semibold text-black">My Goals</h1>
             </div>
-            <div class="mx-8 my-4 w-6/12 flex items-center justify-end">
+            <div class="md:mx-8 md:my-4 w-full md:w-6/12 flex items-center justify-center md:justify-end">
                 <button
                     class=" w-30 shadow-lg bg-slate-200 border-2 my-2 border-blue-200 text-blue-800 px-4 py-2 rounded-lg font-medium hover:bg-blue-300 hover:text-white">
                     + ADD GOAL
@@ -112,10 +112,18 @@
         </div>
 
         <div class="flex justify-center">
-            <div class="bg-white mt-4 flex flex-col border-2 border-gray-200 rounded-xl p-6 w-11/12 justify-center">
-                <div class="flex rounded-xl w-full items-center">
-                    <img class="w-14 border-2 border-red-300 rounded-xl shadow-md" src="./img/car.jpg" alt="car">
-                    <h2 class="font-semibold mb-2 text-3xl font-inter ml-2"> Car </h2>
+            <div class="bg-white my-4 flex flex-col border-2 border-gray-200 rounded-xl p-6 w-[95vw] lg:w-11/12 justify-center">
+                <div class="flex md:flex-row flex-col justify-center md:justify-start">
+                    <div class="flex w-[90vw] md:w-6/12 items-center">
+                        <img class="w-14 border-2 border-red-300 rounded-xl shadow-md" src="./img/car.jpg" alt="car">
+                        <h2 class="font-semibold mb-2 text-3xl font-inter ml-2"> Car </h2>
+                    </div>
+                    <div class="flex w-full md:w-6/12 md:justify-end items-center justify-center">
+                        <button
+                            class=" w-30 shadow-lg bg-slate-200 border-2 my-2 border-blue-200 text-blue-800 px-4 py-2 rounded-lg font-medium hover:bg-blue-300 hover:text-white">
+                            + Provision Money
+                        </button>
+                    </div>
                 </div>
                 <div class="flex rounded-xl w-full">
                     <h2 class="text-lg font-inter">Date of Creation:</h2>
@@ -223,9 +231,9 @@
                     </script>
                 </div>
 
-                <div class="flex">
+                <div class="flex flex-col justify-center md:justify-normal md:flex-row">
                     <!-- days remaining -->
-                    <div class="flex flex-col w-6/12 my-4">
+                    <div class="flex flex-col w-[90vw] md:w-6/12 my-4">
                         <div class="px-6">
                             <h3 class="text-xl text-gray-600 pl-1 font-medium">Days Remaining</h3>
                         </div>
@@ -265,11 +273,11 @@
                         </script>
                     </div>
                     <!-- Amount remaining -->
-                    <div class="flex flex-col w-6/12 my-4">
+                    <div class="flex flex-col h-auto w-95vw md:w-6/12 my-4">
                         <div class="px-6">
                             <h3 class="text-xl text-gray-600 pl-1 font-medium">Net Amount Remaining</h3>
                         </div>
-                        <div id="_chart"></div>
+                        <div id="_chart" class=""></div>
                         <script>
                             var options = {
                                 chart: {
