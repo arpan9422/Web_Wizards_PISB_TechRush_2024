@@ -31,7 +31,13 @@ Welcome to the **Personal Finance Dashboard** project! This application is desig
 3. **Start the application** and open your browser to view the dashboard.
 
 ## Demo Video
-//still do make vidio
+
+
+
+
+
+
+
 
 ## Details
 1.Frontend:
