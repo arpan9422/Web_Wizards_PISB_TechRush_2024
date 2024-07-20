@@ -1,5 +1,5 @@
 
-const {add_transaction,  refresh_transactions } = require("./transactions.js");
+import {add_transaction,  refresh_transactions } from "./transactions.mjs";
 
 async function get_username()
 {
