@@ -26,11 +26,11 @@ document.getElementById('addAccount').addEventListener('click',function(){
 
 //LogoutBTN
 
-document.getElementById('logoutBtn').addEventListener('click', function(){
-    alert('You will be logged out if clicked twice');
-})
+// document.getElementById('logoutBtn').addEventListener('click', function(){
+//     alert('You will be logged out if clicked twice');
+// })
 
 
-document.getElementById('logoutBtn').addEventListener('dblclick', function(){
-    alert('You will be logged out if clicked twice');
-})
+// document.getElementById('logoutBtn').addEventListener('dblclick', function(){
+//     alert('You will be logged out if clicked twice');
+// })
