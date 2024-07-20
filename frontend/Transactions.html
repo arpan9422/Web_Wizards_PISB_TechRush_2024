@@ -242,8 +242,11 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex justify-center mt-3 lg:mt-6 ">
-                <div id="chart_line" class="w-full lg:w-10/12 p-6 bg-white rounded-md border border-gray-200">
+            <div class="w-full flex flex-col items-center justify-center mt-3 mb-3 lg:mt-6 p-6 bg-white rounded-md border border-gray-200">
+                <div class="px-6">
+                    <h3 class="text-xl text-gray-600 pl-1 font-medium">Daily Expense</h3>
+                </div>
+                <div id="chart_line" class="w-full lg:w-10/12">
                     <script>
                         var options = {
                             chart: {
@@ -461,8 +464,11 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex justify-center mt-3 lg:mt-6 ">
-                <div id="lm_chart_line" class="w-full lg:w-10/12 p-6 bg-white rounded-md border border-gray-200">
+            <div class="w-full flex flex-col items-center justify-center mt-3 mb-3 lg:mt-6  p-6 bg-white rounded-md border border-gray-200 ">
+                <div class="px-6">
+                    <h3 class="text-xl text-gray-600 pl-1 font-medium">Daily Expense</h3>
+                </div>
+                <div id="lm_chart_line" class="w-full lg:w-10/12">
                     <script>
                         var options = {
                             chart: {
@@ -633,7 +639,10 @@
                 </div>
 
                 <div
-                    class="flex justify-center w-full lg:w-6/12 h-80 bg-white mx-0 lg:mx-4 rounded-xl border border-gray-200">
+                    class="flex flex-col justify-center items-center w-full p-6 lg:w-6/12 h-90 bg-white mx-0 lg:mx-4 rounded-xl border border-gray-200">
+                    <div class="px-6">
+                        <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Month</h3>
+                    </div>
                     <div id="ty_chart_line" class="w-full lg:w-10/12 p-6 bg-white rounded-xl">
                         <script>
                             var options = {
@@ -685,7 +694,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex flex-col lg:flex-row justify-center items-center lg:items-start mt-6 ">
+            <div class="w-full flex flex-col lg:flex-row justify-center items-center lg:items-start mb-3 mt-6 ">
                 <div class="flex flex-col w-full lg:w-5/12 h-80 bg-white mx-4 rounded-xl border border-gray-200 ">
                     <div class="border-b p-6 border-gray-200 w-full">
                         <h3 class="font-bold text-lg">JAN 2024</h3>
@@ -843,7 +852,7 @@
             <div class="mt-8 flex flex-col lg:flex-row w-full justify-center items-center lg:items-start">
                 <div class="lg:w-4/12 w-full h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
                     <div class="px-6">
-                        <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
+                        <h3 class="text-xl text-gray-600 pl-1 font-medium">Income by Category</h3>
                     </div>
                     <div id="itmchart"></div>
                     <script>
@@ -948,8 +957,11 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex justify-center mt-3 lg:mt-6 ">
-                <div id="itmchart_line" class="w-full lg:w-10/12 p-6 bg-white rounded-md border border-gray-200">
+            <div class="w-full flex flex-col items-center justify-center mt-3 lg:mt-6 mb-3 p-6 bg-white rounded-md border border-gray-200 ">
+                <div class="px-6">
+                    <h3 class="text-xl text-gray-600 pl-1 font-medium">Daily Income</h3>
+                </div>
+                <div id="itmchart_line" class="w-full lg:w-10/12">
                     <script>
                         var options = {
                             chart: {
@@ -1026,7 +1038,7 @@
                         <div
                             class="w-full justify-center lg:justify-start lg:w-11/12 flex bg-white border border-gray-200 rounded-lg">
                             <div onclick="changeCategory(1)"
-                                class="flex shadow justify-center w-6/12 p-4 border-r rounded-s-lg border-gray-200 bg-blue-50 text-blue-800">
+                                class="flex shadow justify-center w-6/12 p-4 border-r rounded-s-lg border-gray-200 hover:bg-blue-50 hover:text-blue-800">
                                 <h1 class="text-2xl font-inter font-semibold">Expense</h1>
                             </div>
                             <div
@@ -1085,7 +1097,7 @@
             <div class="mt-8 flex flex-col lg:flex-row w-full justify-center items-center lg:items-start">
                 <div class="lg:w-4/12 w-full h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
                     <div class="px-6">
-                        <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
+                        <h3 class="text-xl text-gray-600 pl-1 font-medium">Income by Category</h3>
                     </div>
                     <div id="ilm_chart"></div>
                     <script>
@@ -1167,8 +1179,11 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex justify-center mt-3 lg:mt-6 ">
-                <div id="ilm_chart_line" class="w-full lg:w-10/12 p-6 bg-white rounded-md border border-gray-200">
+            <div class="w-full flex flex-col items-center justify-center mt-3 mb-3 lg:mt-6 p-6 bg-white rounded-md border border-gray-200">
+                <div class="px-6">
+                    <h3 class="text-xl text-gray-600 pl-1 font-medium">Daily Income</h3>
+                </div>
+                <div id="ilm_chart_line" class="w-full lg:w-10/12">
                     <script>
                         var options = {
                             chart: {
@@ -1299,7 +1314,7 @@
             <div class="mt-8 flex flex-col lg:flex-row w-full justify-center lg:items-start items-start">
                 <div class="w-full lg:w-4/12 h-auto py-6 bg-white mx-0; lg:mx-4 rounded-xl border border-gray-200">
                     <div class="px-6">
-                        <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
+                        <h3 class="text-xl text-gray-600 pl-1 font-medium">Income by Category</h3>
                     </div>
                     <div id="ity_chart"></div>
                     <script>
@@ -1339,7 +1354,10 @@
                 </div>
 
                 <div
-                    class="flex justify-center w-full lg:w-6/12 h-80 bg-white mx-0 lg:mx-4 rounded-xl border border-gray-200">
+                    class="flex flex-col items-center justify-center w-full lg:w-6/12 h-90 p-6 bg-white mx-0 lg:mx-4 rounded-xl border border-gray-200">
+                    <div class="px-6">
+                        <h3 class="text-xl text-gray-600 pl-1 font-medium">Income by Month</h3>
+                    </div>
                     <div id="ity_chart_line" class="w-full lg:w-10/12 p-6 bg-white rounded-xl">
                         <script>
                             var options = {
@@ -1391,7 +1409,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full flex flex-col lg:flex-row justify-center items-center lg:items-start mt-6 ">
+            <div class="w-full flex flex-col lg:flex-row justify-center items-center lg:items-start mt-6 mb-3 ">
                 <div class="flex flex-col w-full lg:w-5/12 h-80 bg-white mx-4 rounded-xl border border-gray-200 ">
                     <div class="border-b p-6 border-gray-200 w-full">
                         <h3 class="font-bold text-lg">JAN 2024</h3>
