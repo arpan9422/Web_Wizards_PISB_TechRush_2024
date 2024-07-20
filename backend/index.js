@@ -22,6 +22,7 @@ const signupRouter = require('./signupController.js');
 const loginRouter = require('./LoginControler.js')
 const transactionFetchRouter = require('./transactionFetchController.js')
 const transactionSetRouter = require('./transactionSetController.js')
+const userdataFetchRouter = require('./transactionSetController.js')
 
 async function connectDB() {
     try {
@@ -70,6 +71,7 @@ app.use('/user', signupRouter);
 app.use('/user', loginRouter);
 app.use('/user', transactionFetchRouter);
 app.use('/user', transactionSetRouter);
+app.use('/user', userdataFetchRouter);
 
 app.get('/login', (req, res) => {
     
