@@ -34,9 +34,22 @@ Welcome to the **Personal Finance Dashboard** project! This application is desig
 //still do make vidio
 
 ## Details
-1.##Frontend:
+1.Frontend:
 
-2.##Backend:
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.Backend:
 Sure! Here’s the updated text for your README file, including the logout process:
 
 ---
