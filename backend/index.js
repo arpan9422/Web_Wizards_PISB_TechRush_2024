@@ -22,7 +22,7 @@ const signupRouter = require('./signupController.js');
 const loginRouter = require('./LoginControler.js')
 const transactionFetchRouter = require('./transactionFetchController.js')
 const transactionSetRouter = require('./transactionSetController.js')
-const userdataFetchRouter = require('./transactionSetController.js')
+const userdataFetchRouter = require('./userDataController.js')
 
 async function connectDB() {
     try {

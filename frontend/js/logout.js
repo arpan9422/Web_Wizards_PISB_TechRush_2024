@@ -1,6 +1,4 @@
 
-const logout = document.getElementById("logoutBtn");
-
 const server_addr = "http://localhost:3000/user/Logout"
 
 function logout() {
