@@ -16,7 +16,7 @@ var options = {
     series: [
       {
         name: "Series 1",
-        data: [45, 52, 87, 95, 87, 57, 57, 77, 89, 56, 23, 34] 
+        data: [45, 52, 87, 95, 87, 57, 34, 0, 0, 0, 0, 0] 
       }
     ],
     fill: {
@@ -113,7 +113,7 @@ var options = {
       }
     },
     xaxis: {
-      categories: ['Rent', 'Utilities', 'Groceries', 'Transport', 'Entertainment', 'Healthcare', 'Miscellaneous'],
+      categories: ['Household', 'Education', 'Transportation', 'Fashion & Entertainment', 'Health', 'Grocery', 'Miscellaneous'],
       labels: {
         show: true,
         formatter: function (value) {
@@ -207,8 +207,8 @@ var options = {
     height: 450, // Adjust height as needed
     expandOnClick: true,
   },
-  series: [41.35, 21.51, 13.47, 9.97, 3.35],
-  labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
+  series: [41.35, 2, 13.47, 9.97, 1.35],
+  labels: ['Salary', 'Rental', 'Bonus', 'Awards', 'Miscellaneous'],
   colors: ['#BBC3DD', '#ADBBF0', '#95AAFE', '#2D5BFF', '#4A3AFF'],
   plotOptions: {
     pie: {
@@ -312,7 +312,7 @@ chart3.render();
       {
         name: 'Expenses',
         type: 'column',
-        data: [1500, 1200, 800, 1300, 900, 1400, 1000]
+        data: [900, 1200, 800, 1300, 900, 1400, 1000]
       },
       {
         name: 'Budget',
@@ -321,7 +321,7 @@ chart3.render();
       }
     ],
     xaxis: {
-      categories: ['Rent', 'Utilities', 'Groceries', 'Transport', 'Entertainment', 'Healthcare', 'Miscellaneous']
+      categories: ['Household ', 'Education', 'Transportation', 'Fashion & Entertainment', 'Health', 'Grocery', 'Miscellaneous']
     },
     yaxis: [
       {

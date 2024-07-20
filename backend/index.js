@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const bodyparser = require('body-parser');
 const cors = require("cors");
-const dotenv = require('dotenv');
+const dotenv = require('mongodb://localhost:27017');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 
