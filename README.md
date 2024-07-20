@@ -26,9 +26,9 @@ Welcome to the **Personal Finance Dashboard** project! This application is desig
 
 ## Usage
 
-1. **Clone the repository** and navigate to the project directory.
-2. **Install dependencies** for both frontend and backend.
-3. **Start the application** and open your browser to view the dashboard.
+1. **Clone the repository** and navigate to the project directory. <br>
+2. **Install dependencies** for both frontend and backend.<br>
+3. **Start the application** and open your browser to view the dashboard.<br>
 
 ## Demo Video
 
