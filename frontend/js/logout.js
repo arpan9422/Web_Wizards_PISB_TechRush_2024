@@ -9,7 +9,7 @@ function logout() {
     sessionStorage.removeItem('auth_tok');
 
     // Redirect to the login page
-    window.location.href = '/login';
+    window.location.href = '/landing.html';
 }
 
 // Attach the logout function to a logout button
