@@ -539,6 +539,11 @@
           src="./img/cancel.png" alt=""></span>
       <h2 class="text-xl font-semibold mb-4">Add Income</h2>
       <form id="addIncomeForm">
+        <div class="mb-4">
+          <label for="incomeAmount" class="block text-gray-700">Description:</label>
+          <input type="name" id="incomeAmount" name="incomeAmount" class="w-full px-3 py-2 border rounded" required>
+        </div>
+        
         <div class="mb-4 flex  gap-3">
           <label for="income-type">Choose Category:</label>
 
@@ -547,16 +552,20 @@
             <option value="salary">Salary</option>
             <option value="rental">Rental</option>
             <option value="bonus">Bonus</option>
+            <option value="Awards">Awards</option>
             <option value="misc">Miscellaneous</option>
           </select>
         </div>
         <div class="mb-4">
+
+         
           <label for="income-method">Choose Method:</label>
 
           <select name="income-method" id="income-method" class="bg-slate-200" required>
-            <option value="transfer">Transfer</option>
-            <option value="bank-ac">Bank Account</option>
-            <option value="upi">UPI</option>
+            <option value="">Select</option>
+            <option value="Cash">Cash</option>
+            <option value="Savings">Savings</option>
+            <option value="Card">Card</option>  
 
           </select>
         </div>
