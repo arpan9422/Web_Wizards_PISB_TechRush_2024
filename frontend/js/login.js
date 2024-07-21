@@ -3,7 +3,7 @@ const form = document.getElementById("login-form");
 const username = document.getElementById("username");
 const pass = document.getElementById("password");
 
-const server_addr = "http://localhost:3000/user/Login"
+const server_addr = "http://localhost:10000/user/Login"
 
 function post_login_request(user, pass)
 {
