@@ -32,12 +32,12 @@ export function create_donut_chart(chart_name)
 
     };
 
-    var chart = new ApexCharts(document.querySelector(chart_name), options);
+    let chart = new ApexCharts(document.querySelector(chart_name), options);
 
     return chart;
 }
 
-export async function create_line_graph()
+export function create_line_graph()
 {
     var options = {
         chart: {
@@ -80,9 +80,82 @@ export async function create_line_graph()
         }
     };
 
-    var chart = new ApexCharts(document.querySelector("#ity_chart_line"), options);
+    let chart = new ApexCharts(document.querySelector("#ity_chart_line"), options);
 
-    chart.render();
+    return chart;
+}
+
+export function create_purple_line_graph()
+{
+    var options = {
+	chart: {
+	    height: 280,
+	    type: "area",
+	    toolbar: {
+		show: false
+	    }
+	},
+	colors: ['#4A3AFF'], 
+	dataLabels: {
+	    enabled: false
+	},
+	series: [
+	    {
+		name: "Series 1",
+		data: [45, 52, 87, 95, 87, 57, 34, 0, 0, 0, 0, 0] 
+	    }
+	],
+	fill: {
+	    type: "gradient",
+	    gradient: {
+		shadeIntensity: 1,
+		opacityFrom: 0.4,
+		opacityTo: 0.9,
+		stops: [0, 90, 100]
+	    }
+	},
+	xaxis: {
+	    categories: [
+		"Jan",
+		"Feb",
+		"Mar",
+		"Apr",
+		"May",
+		"June",
+		"July",
+		"Aug",
+		"Sept",
+		"Oct",
+		"Nov",
+		"Dec",
+	    ]
+	},
+	yaxis: {
+	    labels: {
+		formatter: function (value) {
+		    return value + 'k';
+		}
+	    },
+	    style: {
+		fontFamily: 'Arial, sans-serif', 
+		fontSize: '12px',
+		fontWeight: 'bold',
+		colors: '#333' 
+	    },
+	    tickAmount: 5
+	},
+	grid: {
+	    borderColor: '#e7e7e7',
+	    strokeDashArray: 4,
+	    opacity: 0.2 
+	}
+    };
+
+    let chart = new ApexCharts(document.querySelector("#monthly-expense-chart"), options);
+
+    //chart.render();
+
+    return chart;
 }
 
 export async function update_chart(chart, analytics, key)
@@ -95,6 +168,23 @@ export async function update_chart(chart, analytics, key)
     chart.updateOptions({
 	labels: keys,
 	series: values
+    });
+}
+
+export async function update_monthly_chart(chart, analytics, key)
+{
+    let values = [];
+    let keys = Object.keys(analytics);
+
+    console.log("keys " + keys);
+
+    keys.forEach((k) => values.push(analytics[k][key]));
+
+    console.log("vals " + values);
+    
+    chart.updateOptions({
+	xaxis: {categories: keys},
+	series: [{ name: "Series 1", data: values}]
     });
 }
 

@@ -1,7 +1,7 @@
 import { refresh_transactions } from "./transactions.mjs";
 
-import { get_analytics } from "./analytics.mjs";
-import { create_donut_chart, update_chart } from "./charts.mjs";
+import { get_analytics, get_monthly_analytics } from "./analytics.mjs";
+import { create_donut_chart, create_line_graph, update_chart, update_monthly_chart } from "./charts.mjs";
 
 var income_or_expense = "expense_fractions";
 var scope = { "type":"month", "range":new Date() };;
@@ -17,7 +17,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     refresh_transactions(t_div);	// refresh transactions on load
 
     chart = create_donut_chart("#chart");
+    console.log("chart: " + chart);
     chart.render();
+
+    let line_chart = create_line_graph("#ity_chart_line");
+    console.log(line_chart);
+    line_chart.render();
     
     let analytics = await get_analytics(scope);
     update_chart(chart, analytics, "expense_fractions");
@@ -89,9 +94,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     ty_btn.addEventListener("click", async () => {
 	scope = { "type":"year", "range":new Date() };
 	
-	let analytics = await get_analytics(scope);
+	let analytics = await get_monthly_analytics(scope);
 	
-	update_chart(chart, analytics, income_or_expense);
+	update_monthly_chart(line_chart, analytics, "balance");
 
 	monthly_graph_container.classList.remove("hidden");
 	transaction_view_container.classList.add("hidden");
