@@ -1,6 +1,7 @@
 
 import {add_transaction,  refresh_transactions } from "./transactions.mjs";
-import { update_analytics } from "./analytics.mjs";
+import { get_analytics } from "./analytics.mjs";
+import { create_donut_chart, update_chart } from "./charts.mjs";
 
 async function get_username()
 {
@@ -24,41 +25,28 @@ async function refresh_username()
     username_greet.innerText = `Hello ${username}!`;
 }
 
+var dashboard_scope = { "type":"month", "range":new Date() }
 
-function create_chart(chart_name)
+function set_scope(type, range)
 {
-    let options = {
-	chart: {
-            type: 'donut',
-            expandOnClick: true,
-	},
-	series: [],
-	labels: [],
-	colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'],
-	plotOptions: {
-	    pie: {
-		expandOnClick: true,
-		donut: {
-		    size: '50%',
-		}
-	    }
-	},
-	dataLabels: {
-	    enabled: false // Show or hide data labels
-	},
-	legend: {
-	    show: true,// Show or hide the legend
-	    position: 'bottom'
-	},
-	tooltip: {
-	    enabled: true // Show or hide tooltips
-	}
+    dashboard_scope = {"type":type, "range":range};
+}
 
-    };
+async function update_analytics(scope, chart, balance_text, income_text, expense_text)
+{
+    
+    let balance_elem = document.getElementById(balance_text);
+    let income_elem = document.getElementById(income_text);
+    let expense_elem = document.getElementById(expense_text);
 
-    var chart = new ApexCharts(document.querySelector(chart_name), options);
+    let analytics = await get_analytics(scope);
 
-    return chart;
+    balance_elem.innerText = analytics["balance"];
+    income_elem.innerText = analytics["income"];
+    expense_elem.innerText = analytics["expense"];
+
+    update_chart(chart, analytics, "expense_fractions");
+    //chart.render();
 }
 
 //Add EXPENSES
@@ -70,10 +58,31 @@ document.addEventListener("DOMContentLoaded", function () {
     refresh_transactions(t_div);	// refresh transactions on load
 
     // fetch and display analytics
-    chart = create_chart("#tm_chart");
+    chart = create_donut_chart("#tm_chart");
     chart.render();
-    let scope = { "type":"month", "range":new Date() }
-    update_analytics(scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
+    update_analytics(dashboard_scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
+
+    let tm_button = document.getElementById("this-month-button");
+    let lm_button = document.getElementById("last-month-button");
+    let ty_button = document.getElementById("this-year-button");
+
+    tm_button.addEventListener("click", () => {
+	set_scope("month", new Date());
+	console.log("tm");
+	update_analytics(dashboard_scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
+    });
+    
+    lm_button.addEventListener("click", () => {
+	set_scope("month", (new Date()).setDate(0));
+	console.log("lm");
+	update_analytics(dashboard_scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
+    });
+
+    ty_button.addEventListener("click", () => {
+	set_scope("year", new Date());
+	console.log("ty");
+	update_analytics(dashboard_scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
+    });
     
     var popup_expense = document.getElementById("addExpensesModal");
     var btn_expense = document.getElementById("addExpensesBtn");
@@ -98,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	expense_form.reset();
 
 	refresh_transactions(t_div);
-	update_analytics("this-month",  chart, "this-month-balance", "this-month-income", "this-month-expense");
+	update_analytics(dashboard_scope,  chart, "this-month-balance", "this-month-income", "this-month-expense");
     }
     
     
@@ -112,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.onclick = function (event) {
         if (event.target == popup_expense) {
-            popup_expense.classList.add("hidden");
+	    popup_expense.classList.add("hidden");
         }
     }
     
@@ -140,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	income_form.reset();
 
 	refresh_transactions(t_div);
-	update_analytics("this-month", chart, "this-month-balance", "this-month-income", "this-month-expense");
+	update_analytics(dashboard_scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
     }
 
     btn_income.onclick = function () {
@@ -153,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.onclick = function (event) {
         if (event.target == popup_income) {
-            popup_income.classList.add("hidden");
+	    popup_income.classList.add("hidden");
         }
     }
 
@@ -180,7 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	transfer_form.reset();
 
 	refresh_transactions(t_div);
-	update_analytics("this-month", chart, "this-month-balance", "this-month-income", "this-month-expense");
+	update_analytics(dashboard_scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
     }
     
 
@@ -194,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.onclick = function (event) {
         if (event.target == popup_transfer) {
-            popup_transfer.classList.add("hidden");
+	    popup_transfer.classList.add("hidden");
         }
     }
 });
