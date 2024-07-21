@@ -73,100 +73,112 @@
     <div class="dropdown hidden">
         <div
             class="absolute top-10 right-1 bg-white w-auto p-4 flex flex-col items-center justify-center gap-3 rounded-md border-2 border-double border-slate-600">
-            <h1
-                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
-                Dashboard</h1>
-            <h1
-                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
-                Transactions</h1>
-            <h1
-                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
-                Analytics</h1>
-            <h1
-                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
-                Goals</h1>
+            <a href="./dashboard.html">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                    Dashboard</h1>
+            </a>
+            <a href="./Transactions.html">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                    Transactions</h1>
+            </a>
+            <a href="./analytics.html">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                    Analytics</h1>
+            </a>
+            <a href="./goals.html">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                    Goals</h1>
+            </a>
             <h1
                 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
                 Profile</h1>
+
         </div>
     </div>
 
     <div></div>
 
     <script src="./js/nav.js"></script>
-<div class="flex flex-col justify-between h-screen">
-    <header class="mt-6 my-8 flex flex-col justify-center items-center md:flex-row md:items-start ">
+    <div class="flex flex-col justify-between h-screen">
+        <header class="mt-6 my-8 flex flex-col justify-center items-center md:flex-row md:items-start ">
 
-        <div class="w-10/12 md:w-3/12">
-            <div
-                class="bg-white w-full border-2 flex flex-col items-center p-4 justify-center border-gray-200 rounded-lg md:mx-8">
-                <img class="w-14 m-2 shadow-lg bg-slate-100 border-2 border-blue-300 rounded-full"
-                    src="./img/user_img.jpg" alt="">
-                <h1 class="text-4xl mb-4 font-inter font-semibold">User</h1>
-                <button id="logoutBtn"
-                    class="bg-slate-200 shadow-lg border-2 m-2 border-blue-200 text-blue-800 px-4 py-2 rounded-lg font-medium hover:bg-blue-300 hover:text-white">
-                    LOGOUT
-                </button>
-            </div>
-            <div class="w-full flex justify-center items-center md:mx-8">
-                <button id="addAccount"
-                    class=" w-full shadow-lg bg-slate-200 border-2 my-2 border-blue-200 text-blue-800 px-4 py-2 rounded-lg font-medium hover:bg-blue-300 hover:text-white">
-                    + ADD ACCOUNT
-                </button>
-            </div>
-        </div>
-
-        <div class="w-full flex flex-col items-center justify-center">
-
-            <div class="w-10/12 justify-center">
-                <h1 class="text-2xl mb-4 font-inter font-semibold text-black">Overall</h1>
-                <div class="bg-white flex rounded-xl p-6 border-2 border-gray-200">
-                    <h2 class="text-lg font-inter">Net Balance: Rs.</h2>
-                    <h2 class="text-lg font-inter px-1 font-semibold">5,000.00</h2>
+            <div class="w-10/12 md:w-3/12">
+                <div
+                    class="bg-white w-full border-2 flex flex-col items-center p-4 justify-center border-gray-200 rounded-lg md:mx-8">
+                    <img class="w-14 m-2 shadow-lg bg-slate-100 border-2 border-blue-300 rounded-full"
+                        src="./img/user_img.jpg" alt="">
+                    <h1 class="text-4xl mb-4 font-inter font-semibold">User</h1>
+                    <button id="logoutBtn"
+                        class="bg-slate-200 shadow-lg border-2 m-2 border-blue-200 text-blue-800 px-4 py-2 rounded-lg font-medium hover:bg-blue-300 hover:text-white">
+                        LOGOUT
+                    </button>
+                </div>
+                <div class="w-full flex justify-center items-center md:mx-8">
+                    <button id="addAccount"
+                        class=" w-full shadow-lg bg-slate-200 border-2 my-2 border-blue-200 text-blue-800 px-4 py-2 rounded-lg font-medium hover:bg-blue-300 hover:text-white">
+                        + ADD ACCOUNT
+                    </button>
                 </div>
             </div>
 
-            <div class="w-10/12 justify-center mt-8">
-                <h1 class="text-2xl font-inter font-semibold text-black">My Accounts</h1>
-                <div class="flex flex-wrap w-full justify-center items-center xl:flex-nowrap">
-                    <div
-                        class="bg-white mt-4 flex border-2 border-gray-200 flex-col rounded-xl w-72 p-6 mx-2  justify-center items-center">
-                        <img class="w-4/12 rounded-xl shadow-md border-2 border-blue-300" src="./img/card.jpg" alt="">
-                        <h2 class="text-lg font-semibold my-2 font-inter"> Card </h2>
-                        <div class="flex rounded-xl w-full justify-center  mx-2">
-                            <h2 class="text-lg font-inter">Balance: Rs.</h2>
-                            <h2 class="text-lg font-inter px-1 font-semibold">1,500.00</h2>
-                        </div>
+            <div class="w-full flex flex-col items-center justify-center">
+
+                <div class="w-10/12 justify-center">
+                    <h1 class="text-2xl mb-4 font-inter font-semibold text-black">Overall</h1>
+                    <div class="bg-white flex rounded-xl p-6 border-2 border-gray-200">
+                        <h2 class="text-lg font-inter">Net Balance: Rs.</h2>
+                        <h2 class="text-lg font-inter px-1 font-semibold">5,000.00</h2>
                     </div>
-                    <div
-                        class="bg-white mt-4 flex border-2 border-gray-200 flex-col rounded-xl w-72 p-6 mx-2  justify-center items-center">
-                        <img class="w-4/12 rounded-xl shadow-md border-2 border-green-200" src="./img/cash.png" alt="">
-                        <h2 class="text-lg font-semibold my-2 font-inter"> Cash </h2>
-                        <div class="flex rounded-xl w-full justify-center  mx-2">
-                            <h2 class="text-lg font-inter">Balance: Rs.</h2>
-                            <h2 class="text-lg font-inter px-1 font-semibold">1,000.00</h2>
+                </div>
+
+                <div class="w-10/12 justify-center mt-8">
+                    <h1 class="text-2xl font-inter font-semibold text-black">My Accounts</h1>
+                    <div class="flex flex-wrap w-full justify-center items-center xl:flex-nowrap">
+                        <div
+                            class="bg-white mt-4 flex border-2 border-gray-200 flex-col rounded-xl w-72 p-6 mx-2  justify-center items-center">
+                            <img class="w-4/12 rounded-xl shadow-md border-2 border-blue-300" src="./img/card.jpg"
+                                alt="">
+                            <h2 class="text-lg font-semibold my-2 font-inter"> Card </h2>
+                            <div class="flex rounded-xl w-full justify-center  mx-2">
+                                <h2 class="text-lg font-inter">Balance: Rs.</h2>
+                                <h2 class="text-lg font-inter px-1 font-semibold">1,500.00</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div
-                        class="bg-white mt-4 flex border-2 border-gray-200 flex-col rounded-xl w-72 p-6 mx-2  justify-center items-center">
-                        <img class="w-4/12 rounded-xl shadow-md border-2 border-pink-100" src="./img/savings.jpg"
-                            alt="">
-                        <h2 class="text-lg font-semibold my-2 font-inter"> Savings </h2>
-                        <div class="flex rounded-xl w-full justify-center  mx-2">
-                            <h2 class="text-lg font-inter">Balance: Rs.</h2>
-                            <h2 class="text-lg font-inter px-1 font-semibold">2,500.00</h2>
+                        <div
+                            class="bg-white mt-4 flex border-2 border-gray-200 flex-col rounded-xl w-72 p-6 mx-2  justify-center items-center">
+                            <img class="w-4/12 rounded-xl shadow-md border-2 border-green-200" src="./img/cash.png"
+                                alt="">
+                            <h2 class="text-lg font-semibold my-2 font-inter"> Cash </h2>
+                            <div class="flex rounded-xl w-full justify-center  mx-2">
+                                <h2 class="text-lg font-inter">Balance: Rs.</h2>
+                                <h2 class="text-lg font-inter px-1 font-semibold">1,000.00</h2>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-white mt-4 flex border-2 border-gray-200 flex-col rounded-xl w-72 p-6 mx-2  justify-center items-center">
+                            <img class="w-4/12 rounded-xl shadow-md border-2 border-pink-100" src="./img/savings.jpg"
+                                alt="">
+                            <h2 class="text-lg font-semibold my-2 font-inter"> Savings </h2>
+                            <div class="flex rounded-xl w-full justify-center  mx-2">
+                                <h2 class="text-lg font-inter">Balance: Rs.</h2>
+                                <h2 class="text-lg font-inter px-1 font-semibold">2,500.00</h2>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
-
-        </div>
-        
-    </header>
-    <div id="footer"></div>
-</div>
-    <div id="addAccountModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden z-50">
+        </header>
+        <div id="footer"></div>
+    </div>
+    <div id="addAccountModal"
+        class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 hidden z-50">
         <div class="bg-white p-8 rounded shadow-lg w-11/12 md:w-1/2 lg:w-1/3">
             <span class="closeBtnAccount text-gray-500 text-2xl cursor-pointer float-right"><img class="h-8"
                     src="./img/cancel.png" alt=""></span>
