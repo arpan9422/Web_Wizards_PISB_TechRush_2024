@@ -558,8 +558,8 @@
       <h2 class="text-xl font-semibold mb-4">Add Income</h2>
       <form id="addIncomeForm">
         <div class="mb-4">
-          <label for="incomeAmount" class="block text-gray-700">Description:</label>
-          <input type="name" id="incomeAmount" name="incomeAmount" class="w-full px-3 py-2 border rounded" required>
+          <label for="incomeDescription" class="block text-gray-700">Description:</label>
+          <input type="name" id="incomeDescription" name="incomeDescription" class="w-full px-3 py-2 border rounded" required>
         </div>
 
         <div class="mb-4 flex  gap-3">
@@ -607,18 +607,41 @@
           src="./img/cancel.png" alt=""></span>
       <h2 class="text-xl font-semibold mb-4">Add Expense</h2>
       <form id="addExpenseForm">
+
+        <div class="mb-4">
+          <label for="expenseDescription" class="block text-gray-700">Description:</label>
+          <input type="name" id="expenseDescription" name="expenseDescription" class="w-full px-3 py-2 border rounded" required>
+        </div>
+
         <div class="mb-4 flex  gap-3">
           <label for="expense-type">Choose Category:</label>
 
           <select name="expense-type" id="expense-type" class="bg-slate-200" required>
             <option value="">Select</option>
-            <option value="groceries">Groceries</option>
+            <option value="household">Household</option>
+            <option value="education">Education</option>
             <option value="transport">Transportation</option>
-            <option value="credit-card">Credit Card</option>
-            <option value="maintenance">Maintenance</option>
-            <option value="shopping">Shopping</option>
+            <option value="fashion&ent">Fashion & Entertainment</option>
+            <option value="healthcare">Healthcare</option>
+            <option value="grocery">Grocery</option>
+            <option value="miscellaneous">Miscellaneous</option>
           </select>
         </div>
+
+        <div class="mb-4">
+
+         
+          <label for="expense-method">Choose Method:</label>
+
+          <select name="expense-method" id="expense-method" class="bg-slate-200" required>
+            <option value="">Select</option>
+            <option value="Cash">Cash</option>
+            <option value="Savings">Savings</option>
+            <option value="Card">Card</option>  
+
+          </select>
+        </div>
+
         <div class="mb-4">
           <label for="expenseAmount" class="block text-gray-700">Amount:</label>
           <input type="number" id="expenseAmount" name="expenseAmount" class="w-full px-3 py-2 border rounded" required>
@@ -641,12 +664,29 @@
       <h2 class="text-xl font-semibold mb-4">Add Transfer</h2>
       <form id="addTransferForm">
         <div class="mb-4">
-          <label for="transferName" class="block text-gray-700">transferer's Name:</label>
-          <input type="text" id="transferName" name="transferName" class="w-full px-3 py-2 border rounded" required>
+         
+          <label for="from-account"></label>From Account:</label>
+
+          <select name="from-account" id="from-account" class="bg-slate-200" required>
+            <option value="">Select</option>
+            <option value="Cash">Cash</option>
+            <option value="Savings">Savings</option>
+            <option value="Card">Card</option>  
+
+          </select>
         </div>
         <div class="mb-4">
-          <label for="transferName" class="block text-gray-700">receiver's Name:</label>
-          <input type="text" id="transferName" name="transferName" class="w-full px-3 py-2 border rounded" required>
+
+         
+          <label for="to-account">To Account</label>
+
+          <select name="to-account" id="to-account" class="bg-slate-200" required>
+            <option value="">Select</option>
+            <option value="Cash">Cash</option>
+            <option value="Savings">Savings</option>
+            <option value="Card">Card</option>  
+
+          </select>
         </div>
         <div class="mb-4">
           <label for="transferAmount" class="block text-gray-700">Amount:</label>
