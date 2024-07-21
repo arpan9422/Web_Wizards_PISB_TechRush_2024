@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
@@ -25,7 +25,7 @@
   </script>
 </head>
 
-<body class="m-0 p-0 bg-gray-100">
+<body class="m-0 p-0 bg-gray-100 relative">
   <nav class="flex justify-between bg-white w-full z-50 p-3 shadow-md md:px-10 sm:px-5 sticky top-0">
     <div class="flex gap-1 items-center">
       <img src="./img/Logo.png" alt="">
@@ -117,7 +117,7 @@
             </div>
           </div>
           <div class="hidden sm:block">
-            <div class=" h-auto shadow bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex
+            <div id="dropdownHoverButton" class=" h-auto shadow bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex
 			  items-center">
               <img src="./img/Frame.svg" alt="Calendar" class="pr-2">
               <h4>Select Month</h4>
@@ -225,10 +225,28 @@
             </div>
           </div>
           <div class="hidden sm:block">
-            <div class=" h-auto shadow bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex
-			  items-center">
+            <div id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class=" h-auto shadow bg-white border py-1.5 px-4 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex
+			         items-center">
               <img src="./img/Frame.svg" alt="Calendar" class="pr-2">
               <h4>Select Month</h4>
+              <!-- Dropdown menu -->
+            </div>
+            <div id="dropdownHover"
+              class="z-10 hidden  divide-y divide-gray-100 rounded-lg shadow w-52 bg-slate-300">
+              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 flex flex-wrap justify-center" aria-labelledby="dropdownHoverButton">
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Jan</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Feb</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Mar</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Apr</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">May</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Jun</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Jul</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Aug</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Sep</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Oct</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Nov</li>
+                <li class="font-inter font-medium p-3 text-black hover:bg-slate-700 hover:text-white w-12 text-center rounded-sm">Dec</li>
+              </ul>
             </div>
           </div>
           <div class="sm:hidden shadow h-10 bg-white border p-1 border-gray-200 rounded-md text-lg font-medium ml-4 lg:ml-10 flex
@@ -543,7 +561,7 @@
           <label for="incomeAmount" class="block text-gray-700">Description:</label>
           <input type="name" id="incomeAmount" name="incomeAmount" class="w-full px-3 py-2 border rounded" required>
         </div>
-        
+
         <div class="mb-4 flex  gap-3">
           <label for="income-type">Choose Category:</label>
 
@@ -558,14 +576,14 @@
         </div>
         <div class="mb-4">
 
-         
+
           <label for="income-method">Choose Method:</label>
 
           <select name="income-method" id="income-method" class="bg-slate-200" required>
             <option value="">Select</option>
             <option value="Cash">Cash</option>
             <option value="Savings">Savings</option>
-            <option value="Card">Card</option>  
+            <option value="Card">Card</option>
 
           </select>
         </div>
@@ -643,10 +661,15 @@
       </form>
     </div>
   </div>
+
   <div id="footer"></div>
 
   <script src="./js/footer.js"></script>
   <script type="module" src="./js/dashboardPopup.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
+  <!-- Dropdown menu -->
+
 </body>
 
 <script>
@@ -681,5 +704,6 @@
 
 
 </script>
+
 
 </html>
