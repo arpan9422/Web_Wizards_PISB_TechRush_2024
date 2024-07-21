@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const bodyparser = require('body-parser');
 const cors = require("cors");
-const dotenv = require('mongodb://localhost:27017');
+const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 
@@ -23,6 +23,7 @@ const loginRouter = require('./LoginControler.js')
 const transactionFetchRouter = require('./transactionFetchController.js')
 const transactionSetRouter = require('./transactionSetController.js')
 const userdataFetchRouter = require('./userDataController.js')
+const analyticsFetchRouter = require('./analyticsController.js')
 
 async function connectDB() {
     try {
@@ -72,6 +73,7 @@ app.use('/user', loginRouter);
 app.use('/user', transactionFetchRouter);
 app.use('/user', transactionSetRouter);
 app.use('/user', userdataFetchRouter);
+app.use('/user', analyticsFetchRouter);
 
 app.get('/login', (req, res) => {
     

@@ -1,5 +1,6 @@
 
 import {add_transaction,  refresh_transactions } from "./transactions.mjs";
+import { update_analytics } from "./analytics.mjs";
 
 async function get_username()
 {
@@ -24,27 +25,69 @@ async function refresh_username()
 }
 
 
+function create_chart(chart_name)
+{
+    let options = {
+	chart: {
+            type: 'donut',
+            expandOnClick: true,
+	},
+	series: [],
+	labels: [],
+	colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'],
+	plotOptions: {
+	    pie: {
+		expandOnClick: true,
+		donut: {
+		    size: '50%',
+		}
+	    }
+	},
+	dataLabels: {
+	    enabled: false // Show or hide data labels
+	},
+	legend: {
+	    show: true,// Show or hide the legend
+	    position: 'bottom'
+	},
+	tooltip: {
+	    enabled: true // Show or hide tooltips
+	}
+
+    };
+
+    var chart = new ApexCharts(document.querySelector(chart_name), options);
+
+    return chart;
+}
+
 //Add EXPENSES
 document.addEventListener("DOMContentLoaded", function () {
 
     refresh_username();		// fetch and display username
-    
-    refresh_transactions();	// refresh transactions on load
+
+    let t_div = document.getElementById("transactionList");
+    refresh_transactions(t_div);	// refresh transactions on load
+
+    // fetch and display analytics
+    chart = create_chart("#tm_chart");
+    chart.render();
+    update_analytics("this-month", chart, "this-month-balance", "this-month-income", "this-month-expense");
     
     var popup_expense = document.getElementById("addExpensesModal");
     var btn_expense = document.getElementById("addExpensesBtn");
     var span_expense = document.getElementsByClassName("closeBtnExpenses")[0];
 
 
-    var expense_form = document.getElementById("addExpenseForm")
-    var expense_name = document.getElementById("expenseName")
-    var expense_amt = document.getElementById("expenseAmount")
+    var expense_form = document.getElementById("addExpenseForm");
+    var expense_type = document.getElementById("expense-type");
+    var expense_amt = document.getElementById("expenseAmount");
     var expense_date = document.getElementById("expenseDate");
 
     expense_form.onsubmit = async function (e) {
 	e.preventDefault();
 
-	const name = expense_name.value;
+	const name = expense_type.value;
 	const amt = Number(expense_amt.value);
 	const date = new Date(expense_date.value);
 
@@ -53,7 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	popup_expense.classList.add("hidden");
 	expense_form.reset();
 
-	refresh_transactions();
+	refresh_transactions(t_div);
+	update_analytics("this-month",  chart, "this-month-balance", "this-month-income", "this-month-expense");
     }
     
     
@@ -77,15 +121,15 @@ document.addEventListener("DOMContentLoaded", function () {
     var btn_income = document.getElementById("add-income-button")
     var span1 = document.getElementsByClassName("closeBtnIncome")[0];
 
-    var income_form = document.getElementById("addIncomeForm")
-    var income_name = document.getElementById("incomeName")
+    var income_form = document.getElementById("addIncomeForm");
+    var income_type = document.getElementById("income-type");
     var income_amt = document.getElementById("incomeAmount")
     var income_date = document.getElementById("incomeDate");
 
     income_form.onsubmit = async function (e) {
 	e.preventDefault();
 
-	const name = income_name.value;
+	const name = income_type.value;
 	const amt = Number(income_amt.value);
 	const date = new Date(income_date.value);
 
@@ -94,7 +138,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	popup_income.classList.add("hidden");
 	income_form.reset();
 
-	refresh_transactions();
+	refresh_transactions(t_div);
+	update_analytics("this-month", chart, "this-month-balance", "this-month-income", "this-month-expense");
     }
 
     btn_income.onclick = function () {
@@ -133,7 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	popup_transfer.classList.add("hidden");
 	transfer_form.reset();
 
-	refresh_transactions();
+	refresh_transactions(t_div);
+	update_analytics("this-month", chart, "this-month-balance", "this-month-income", "this-month-expense");
     }
     
 

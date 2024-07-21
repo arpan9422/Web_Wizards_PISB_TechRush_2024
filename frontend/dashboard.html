@@ -73,14 +73,22 @@
       class="absolute top-10 right-1 bg-white w-auto p-4 flex flex-col items-center justify-center gap-3 rounded-md border-2 border-double border-slate-600">
       <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
         Dashboard</h1>
-      <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
-        Transactions</h1>
-      <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
-        Analytics</h1>
-      <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
-        Goals</h1>
-      <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
-        Profile</h1>
+      <a href="./Transactions.html">
+        <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+          Transactions</h1>
+      </a>
+      <a href="./analytics.html">
+        <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+          Analytics</h1>
+      </a>
+      <a href="./goals.html">
+        <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+          Goals</h1>
+      </a>
+      <a href="./profile.html">
+        <h1 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+          Profile</h1>
+      </a>
     </div>
   </div>
 
@@ -130,15 +138,15 @@
         <div class="mt-8 flex flex-col md:flex-row w-full justify-center items-center">
           <div class="md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
             <h3 class="text-xl text-gray-600 pl-1 font-medium">Balance</h3>
-            <h1 class="text-3xl text-blue-600 pt-4 font-semibold">Rs. 5,502.45</h1>
+            <h1 id="this-month-balance" class="text-3xl text-blue-600 pt-4 font-semibold">Rs. 5,502.45</h1>
           </div>
           <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
             <h3 class="text-xl text-gray-600 pl-1 font-medium">Incomes</h3>
-            <h1 class="text-3xl pt-4 font-semibold">Rs. 9,450.00</h1>
+            <h1 id="this-month-income" class="text-3xl pt-4 font-semibold">Rs. 9,450.00</h1>
           </div>
           <div class=" md:w-3/12 w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
             <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses</h3>
-            <h1 class="text-3xl pt-4 font-semibold">Rs. 3,945.55</h1>
+            <h1 id="this-month-expense" class="text-3xl pt-4 font-semibold">Rs. 3,945.55</h1>
           </div>
         </div>
 
@@ -169,39 +177,7 @@
             <h3 class="text-xl text-gray-600 pl-1 font-medium">Expenses by Category</h3>
           </div>
           <div id="tm_chart"></div>
-          <script>
-            var options = {
-              chart: {
-                type: 'donut',
-                expandOnClick: true,
-              },
-              series: [21, 23, 13, 13, 10],
-              labels: ['House', 'Credit card', 'Transportation', 'Groceries', 'Shopping'],
-              colors: ['#6366F1', '#8B5CF6', '#A78BFA', '#C4B5FD', '#F04438'],
-              plotOptions: {
-                pie: {
-                  expandOnClick: true,
-                  donut: {
-                    size: '50%',
-                  }
-                }
-              },
-              dataLabels: {
-                enabled: false // Show or hide data labels
-              },
-              legend: {
-                show: true,// Show or hide the legend
-                position: 'bottom'
-              },
-              tooltip: {
-                enabled: true // Show or hide tooltips
-              }
-
-            };
-
-            var chart = new ApexCharts(document.querySelector("#tm_chart"), options);
-            chart.render();
-          </script>
+          <script type="module" src="./js/dashboardChart.js"></script>
         </div>
 
         <div class="flex flex-col w-full lg:w-6/12 h-80 mt-3 lg:mt-0 bg-white mx-4 rounded-xl border border-gray-200 ">
@@ -564,24 +540,24 @@
       <h2 class="text-xl font-semibold mb-4">Add Income</h2>
       <form id="addIncomeForm">
         <div class="mb-4 flex  gap-3">
-          <label for="cars">Choose Category:</label>
+          <label for="income-type">Choose Category:</label>
 
-          <select name="cars" id="cars" class="bg-slate-200" required>
+          <select name="income-type" id="income-type" class="bg-slate-200" required>
             <option value="">Select</option>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            <option value="salary">Salary</option>
+            <option value="rental">Rental</option>
+            <option value="bonus">Bonus</option>
+            <option value="misc">Miscellaneous</option>
           </select>
         </div>
         <div class="mb-4">
-          <label for="cars">Choose Method:</label>
+          <label for="income-method">Choose Method:</label>
 
-          <select name="cars" id="cars" class="bg-slate-200" required>
-            <option value="">Select</option>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            
+          <select name="income-method" id="income-method" class="bg-slate-200" required>
+            <option value="transfer">Transfer</option>
+            <option value="bank-ac">Bank Account</option>
+            <option value="upi">UPI</option>
+
           </select>
         </div>
         <div class="mb-4">
@@ -605,14 +581,15 @@
       <h2 class="text-xl font-semibold mb-4">Add Expense</h2>
       <form id="addExpenseForm">
         <div class="mb-4 flex  gap-3">
-          <label for="cars">Choose Category:</label>
+          <label for="expense-type">Choose Category:</label>
 
-          <select name="cars" id="cars" class="bg-slate-200" required>
+          <select name="expense-type" id="expense-type" class="bg-slate-200" required>
             <option value="">Select</option>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            <option value="groceries">Groceries</option>
+            <option value="transport">Transportation</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="shopping">Shopping</option>
           </select>
         </div>
         <div class="mb-4">

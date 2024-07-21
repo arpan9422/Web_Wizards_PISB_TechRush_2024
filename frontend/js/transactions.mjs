@@ -23,7 +23,7 @@ export function add_transaction_entry(parent_elem, transaction)
     let method = "Bank A/c";//transaction["method"];
     
     let div_elem = document.createElement("div");
-    div_elem.setAttribute("class", "px-6 flex w-full border-b border-gray-200 items-center h-auto lg:h-10");
+    div_elem.setAttribute("class", "px-6 flex w-full border-b border-gray-200 items-center h-10");
 
     let date_string = (new Date(date)).toLocaleDateString('en-GB');
     
@@ -36,9 +36,9 @@ export function add_transaction_entry(parent_elem, transaction)
     parent_elem.appendChild(div_elem);
 }
 
-export async function refresh_transactions()
+export async function refresh_transactions(t_div)
 {
-    let t_div = document.getElementById("transactionList");
+    
     t_div.innerHTML = "";	// clear previous transactions
 
     
