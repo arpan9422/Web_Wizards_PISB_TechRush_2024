@@ -100,7 +100,7 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/singup.html'));
 });
 
-app.get('/dashboard', (req, res) => res.sendFile('../frontend/dashboard.html'));
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../frontend/landing.html')));
 app.get('/dashboard', (req, res) => redirect_check_auth(req, res, '../frontend/dashboard.html'));
 app.get('/transactions', (req, res) => redirect_check_auth(req, res, '../frontend/Transactions.html'));
 app.get('/analytics', (req, res) => redirect_check_auth(req, res, '../frontend/analytics.html'));
