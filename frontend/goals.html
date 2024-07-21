@@ -339,19 +339,30 @@
                 <div class="mb-4 flex  gap-3">
                     <label for="cars">Choose Category:</label>
 
-                    <select name="cars" id="cars" class="bg-slate-200" required>
+                    <select name="goal" id="goal" class="bg-slate-200" required>
                         <option value="">Select</option>
-                        <option value="card">Card</option>
-                        <option value="cash">Cash</option>
-                        <option value="saving">Saving</option>
+                        <option value="car">Car</option>
+                        <option value="Home">Home</option>
+                        <option value="saving">Other</option>
 
                     </select>
                 </div>
+
                 <div class="mb-4">
-                    <label for="expenseAmount" class="block text-gray-700">Goal T:</label>
-                    <input type="name" id="expenseAmount" name="expenseAmount" class="w-full px-3 py-2 border rounded"
+                    <label for="goalDescription" class="block text-gray-700">Description:</label>
+                    <input type="name" id="goalDescription" name="goalDescription" class="w-full px-3 py-2 border rounded" required>
+                  </div>
+
+                <div class="mb-4">
+                    <label for="goalAmount" class="block text-gray-700">Goal Amount:</label>
+                    <input type="name" id="goalAmount" name="goalAmount" class="w-full px-3 py-2 border rounded"
                         required>
                 </div>
+
+                <div class="mb-4">
+                    <label for="tenureDate" class="block text-gray-700">Set Tenure Date:</label>
+                    <input type="date" id=tenureeDate" name="tenureDate" class="w-full px-3 py-2 border rounded" required>
+                  </div>
 
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add Finance Account</button>
             </form>
