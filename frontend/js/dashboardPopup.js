@@ -72,7 +72,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // fetch and display analytics
     chart = create_chart("#tm_chart");
     chart.render();
-    update_analytics("this-month", chart, "this-month-balance", "this-month-income", "this-month-expense");
+    let scope = { "type":"month", "range":new Date() }
+    update_analytics(scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
     
     var popup_expense = document.getElementById("addExpensesModal");
     var btn_expense = document.getElementById("addExpensesBtn");
