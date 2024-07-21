@@ -16,7 +16,7 @@ app.use(bodyparser.json());
 app.use(cors());
 app.use(cookieParser());
 
-app.use(express.static(process.cwd() + '/../frontend')); 
+app.use(express.static(process.cwd() + '/')); 
 
 const signupRouter = require('./signupController.js'); 
 const loginRouter = require('./LoginControler.js')
@@ -67,6 +67,8 @@ function redirect_check_auth(req, res, url)
 }
 
 connectDB();
+
+app.get('/favicon.ico', (req, res) => res.sendFile(path.join(__dirname, "../favicon.ico")));
 
 app.use('/user', signupRouter);
 app.use('/user', loginRouter);
