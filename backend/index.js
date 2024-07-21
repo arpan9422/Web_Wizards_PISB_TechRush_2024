@@ -4,7 +4,7 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 10000;
 const bodyparser = require('body-parser');
 const cors = require("cors");
 const dotenv = require('dotenv');
@@ -100,6 +100,7 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/singup.html'));
 });
 
+app.get('/dashboard', (req, res) => res.sendFile('../frontend/dashboard.html'));
 app.get('/dashboard', (req, res) => redirect_check_auth(req, res, '../frontend/dashboard.html'));
 app.get('/transactions', (req, res) => redirect_check_auth(req, res, '../frontend/Transactions.html'));
 app.get('/analytics', (req, res) => redirect_check_auth(req, res, '../frontend/analytics.html'));
