@@ -22,21 +22,30 @@ function check_auth_tok(req)
     }
 }
 
-function in_scope(current_date, date, scope)
+function in_scope(date, scope)
 {
-    if (scope == "this-year")
+    let scope_type = scope["type"];
+    let scope_range = new Date(scope["range"]); // a date object
+    if (scope_type == "year")
     {
-	return date.getYear() == current_date.getYear();
+	return date.getYear() == scope_range.getYear();
     }
-    else if (scope == "this-month")
+    else if (scope_type == "month")
     {
-	return date.getYear() == current_date.getYear() && date.getMonth() == current_date.getMonth();
+	return date.getYear() == scope_range.getYear() && date.getMonth() == scope_range.getMonth();
     }
+}
 
-    
-    let last_month = structuredClone(current_date).setDate(0).getMonth();
-    
-    return date.getYear() == current_date.getYear() && date.getMonth() == last_month;
+function add_safe(key, value, object)
+{
+    if (!(key in object))
+    {
+	object[key] = value;
+    }
+    else
+    {
+	object[key] = value;
+    }
 }
 
 async function get_data(user, scope)
@@ -45,39 +54,38 @@ async function get_data(user, scope)
 	income: 0,
 	expense: 0,
 	balance: 0,
-	expense_fractions: {}
+	expense_fractions: {},
+	income_fractions: {}
     };
-
-    let current_date = new Date();
     
     for (transaction of user.transactions)
     {
-	if (in_scope(current_date, transaction.date, scope))
+	if (in_scope(transaction.date, scope))
 	{
 	    result.balance += transaction.delta;
 	    
 	    if (transaction.delta > 0)
 	    {
 		result.income += transaction.delta;
+
+		add_safe(transaction.name, transaction.delta, result.income_fractions);
 	    }
 	    else
 	    {
 		result.expense -= transaction.delta;
 
-		if (!(transaction.name in result.expense_fractions))
-		{
-		    result.expense_fractions[transaction.name] = -transaction.delta;
-		}
-		else
-		{
-		    result.expense_fractions[transaction.name] -= transaction.delta;
-		}
+		add_safe(transaction.name, -transaction.delta, result.expense_fractions);
 	    }
 	}
     }
 
+    // convert the fractions into a percentage
     Object.keys(result.expense_fractions).forEach((key) => {
 	result.expense_fractions[key] /= (result.expense / 100);	
+    });
+
+    Object.keys(result.income_fractions).forEach((key) => {
+	result.income_fractions[key] /= (result.income / 100);	
     });
     
 
