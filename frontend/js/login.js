@@ -3,7 +3,7 @@ const form = document.getElementById("login-form");
 const username = document.getElementById("username");
 const pass = document.getElementById("password");
 
-const server_addr = "http://localhost:3000/user/Login"
+const server_addr = "https://localhost:10000/user/Login"
 
 function post_login_request(user, pass)
 {
@@ -19,8 +19,32 @@ function post_login_request(user, pass)
 	    password: pass
 	})
     })
-	.then((response) => response.json())
-	.then((json) => {alert("SUCCESS, userid: " + JSON.stringify(json));});
+	.then((response) => {
+	    if(response.status == 200)
+	    {
+		return response.json();
+	    }
+	    else if (response.status == 410)
+	    {
+		// replace with appropriate frontend code
+		alert("User not found");
+		return null;
+	    }
+	    else if (response.status == 411)
+	    {
+		// replace with appropriate frontend code
+		alert("Incorrect password");
+		return null;
+	    }
+	    return null;
+	})
+	.then((json) => {
+	    if (json)
+	    {
+		localStorage.setItem('token', json['token']);
+		window.location.href = "/dashboard";
+	    }
+	});
 }
 
 form.addEventListener('submit', (e) => {
