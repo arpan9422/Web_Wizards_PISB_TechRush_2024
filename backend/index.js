@@ -4,7 +4,7 @@ const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const PORT = 10000;
+const PORT = process.env.PORT || 3000;
 const bodyparser = require('body-parser');
 const cors = require("cors");
 const dotenv = require('dotenv');
@@ -16,7 +16,7 @@ app.use(bodyparser.json());
 app.use(cors());
 app.use(cookieParser());
 
-app.use(express.static(process.cwd() + '/')); 
+app.use(express.static(process.cwd() + '/../frontend')); 
 
 const signupRouter = require('./signupController.js'); 
 const loginRouter = require('./LoginControler.js')
@@ -68,8 +68,6 @@ function redirect_check_auth(req, res, url)
 
 connectDB();
 
-app.get('/favicon.ico', (req, res) => res.sendFile(path.join(__dirname, "../favicon.ico")));
-
 app.use('/user', signupRouter);
 app.use('/user', loginRouter);
 app.use('/user', transactionFetchRouter);
@@ -102,7 +100,6 @@ app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/singup.html'));
 });
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../frontend/landing.html')));
 app.get('/dashboard', (req, res) => redirect_check_auth(req, res, '../frontend/dashboard.html'));
 app.get('/transactions', (req, res) => redirect_check_auth(req, res, '../frontend/Transactions.html'));
 app.get('/analytics', (req, res) => redirect_check_auth(req, res, '../frontend/analytics.html'));
@@ -117,5 +114,4 @@ app.get('/profile', (req, res) => redirect_check_auth(req, res, '../frontend/pro
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-
 

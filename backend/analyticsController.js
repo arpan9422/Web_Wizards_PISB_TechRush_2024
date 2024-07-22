@@ -44,7 +44,7 @@ function add_safe(key, value, object)
     }
     else
     {
-	object[key] += value;
+	object[key] = value;
     }
 }
 
@@ -93,45 +93,6 @@ async function get_data(user, scope)
     
 }
 
-async function get_monthly_data(user, scope)
-{
-    let result = {
-	"Jan" : { income: 0, expense: 0, balance: 0},
-	"Feb" : { income: 0, expense: 0, balance: 0},
-	"Mar" : { income: 0, expense: 0, balance: 0},
-	"Apr" : { income: 0, expense: 0, balance: 0},
-	"May" : { income: 0, expense: 0, balance: 0},
-	"Jun" : { income: 0, expense: 0, balance: 0},
-	"Jul" : { income: 0, expense: 0, balance: 0},
-	"Aug" : { income: 0, expense: 0, balance: 0},
-	"Sep" : { income: 0, expense: 0, balance: 0},
-	"Oct" : { income: 0, expense: 0, balance: 0},
-	"Nov" : { income: 0, expense: 0, balance: 0},
-	"Dec" : { income: 0, expense: 0, balance: 0},
-    };
-    
-    for (transaction of user.transactions)
-    {
-	if (in_scope(transaction.date, scope))
-	{
-	    const month = transaction.date.toLocaleString('default', { month: 'short' });
-	    result[month].balance += transaction.delta;
-	    
-	    if (transaction.delta > 0)
-	    {
-		result[month].income += transaction.delta;
-	    }
-	    else
-	    {
-		result[month].expense -= transaction.delta;
-	    }
-	}
-    }
-
-    return result;
-    
-}
-
 // login function (code 400 : bad request, 410: user not found, 411: wrong password)
 async function fetch_analytics(req, res) {
 
@@ -158,32 +119,6 @@ async function fetch_analytics(req, res) {
     }
 }
 
-async function fetch_monthly_analytics(req, res) {
-
-    const userid = check_auth_tok(req);
-
-    try {
-
-	if (!userid)
-	{
-	    return res.status(403).send('{ "error":"Unauthorized" }');
-	}
-	
-	// see if user exists
-	const user = await User.findOne({ _id: userid });
-
-	// send email
-	let data = await get_monthly_data(user, req.body["scope"]);
-	
-	return res.status(200).json(data);
-	
-    } catch (error) {
-	console.log('Error in login:', error);
-	return res.status(410).json({ Api_Response: 304, message: 'Error user not found (see analyticsController.js)' });
-    }
-}
-
 analyticsFetchRouter.post('/fetchAnalytics', fetch_analytics);
-analyticsFetchRouter.post('/fetchMonthlyAnalytics', fetch_monthly_analytics);
 
 module.exports = analyticsFetchRouter;
