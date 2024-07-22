@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 const bodyparser = require('body-parser');
 const cors = require("cors");
 const dotenv = require('dotenv');
@@ -16,7 +16,7 @@ async function connectDB() {
   try {
     const MONGO_URI = process.env.MONGO_URI; 
     
-    await mongoose.connect(MONGO_URI);
+    await mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
     console.log('MongoDB connected');
   } catch (error) {
