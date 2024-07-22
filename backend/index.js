@@ -11,6 +11,7 @@ app.use(bodyparser.json());
 app.use(cors());
 const signupRouter = require('./signupController.js'); 
 const loginRouter = require('./LoginControler.js')
+const remenderRoute = require('./remenderRoute.js')
 async function connectDB() {
   try {
     const MONGO_URI = process.env.MONGO_URI; 
@@ -28,6 +29,7 @@ connectDB();
 
 app.use('/user', signupRouter);
 app.use('/user', loginRouter);
+app.use('/api/remainder', remenderRoute);
 // http://localhost:3000/user/signup
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
