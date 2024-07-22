@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var btn_income = document.getElementById("add-income-button")
     var btn_transfer = document.getElementById("addTransferBtn");
 
-    
+    let yearly_chart_container = document.getElementById("yearly-chart-container");
     
     tm_button.addEventListener("click", () => {
 	set_scope("month", new Date());
@@ -88,7 +88,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	btn_income.classList.remove("hidden");
 	btn_transfer.classList.remove("hidden");
 
-
+	yearly_chart_container.classList.add("hidden");
+	
     });
     
     lm_button.addEventListener("click", () => {
@@ -104,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	btn_income.classList.add("hidden");
 	btn_transfer.classList.add("hidden");
 
-
+	yearly_chart_container.classList.add("hidden");
 	
     });
 
@@ -116,11 +117,12 @@ document.addEventListener("DOMContentLoaded", function () {
 	tm_button.classList = deselected_class;
 	lm_button.classList = deselected_class;
 	ty_button.classList = selected_class;
-			
+	
 	btn_expense.classList.add("hidden");
 	btn_income.classList.add("hidden");
 	btn_transfer.classList.add("hidden");
 
+	yearly_chart_container.classList.remove("hidden");
 
     });
     

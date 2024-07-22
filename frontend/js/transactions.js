@@ -49,6 +49,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     var trans_disp_month = document.getElementById("trans-disp-month");
     var trans_disp_year = document.getElementById("trans-disp-year");
 
+    let daily_expense_container = document.getElementById("daily-expense-container");
+    let monthly_transactions = document.getElementById("monthly-transactions");
+
 
     {
 	let tm_analytics = await get_analytics({ "type":"month", "range":new Date() });
@@ -141,6 +144,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 	trans_tm.innerText = "Rs. " + tm_value;
 	trans_lm.innerText = "Rs. " + lm_value;
 	trans_ty.innerText = "Rs. " + ty_value;
+
+	daily_expense_container.classList.remove("hidden");
+	monthly_transactions.classList.add("hidden");
 	
     });
 
@@ -173,7 +179,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 	trans_tm.innerText = "Rs. " + tm_value;
 	trans_lm.innerText = "Rs. " + lm_value;
 	trans_ty.innerText = "Rs. " + ty_value;
-	
+
+	daily_expense_container.classList.remove("hidden");
+	monthly_transactions.classList.add("hidden");
     });
 
     ty_btn.addEventListener("click", async () => {
@@ -205,6 +213,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 	
 	trans_ly.innerText = "Rs. " + ly_value;
 	trans_ty_2.innerText = "Rs. " + ty_value;
+
+	daily_expense_container.classList.add("hidden");
+	monthly_transactions.classList.remove("hidden");
 	
     });
     

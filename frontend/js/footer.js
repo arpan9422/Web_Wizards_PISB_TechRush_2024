@@ -27,87 +27,50 @@ document.getElementById("footer").innerHTML = `
           </div>
         </div>
         <div class="w-full p-6 md:w-1/2 lg:w-2/12">
-          <div class="h-full">
-            <h3 class="tracking-px mb-9 text-xs font-semibold uppercase text-gray-500">
-              Company
-            </h3>
-            <ul>
-              <li class="mb-4">
-                <a
-                  class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="#"
-                >
-                  Features
-                </a>
-              </li>
-              <li class="mb-4">
-                <a
-                  class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="#"
-                >
-                  Pricing
-                </a>
-              </li>
-              <li class="mb-4">
-                <a
-                  class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="#"
-                >
-                  Affiliate Program
-                </a>
-              </li>
-              <li>
-                <a
-                  class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="#"
-                >
-                  Press Kit
-                </a>
-              </li>
-            </ul>
-          </div>
+         
         </div>
         <div class="w-full p-6 md:w-1/2 lg:w-2/12">
           <div class="h-full">
             <h3 class="tracking-px mb-9 text-xs font-semibold uppercase text-gray-500">
-              Support
+              Useful Links
             </h3>
             <ul>
               <li class="mb-4">
                 <a
                   class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="#"
+                  href="./dashboard.html"
                 >
-                  Account
+                  Dashboard
                 </a>
               </li>
               <li class="mb-4">
                 <a
                   class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="#"
+                  href="./Transactions.html"
                 >
-                  Help
+                  Transactions
                 </a>
               </li>
               <li class="mb-4">
                 <a
                   class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="#"
+                  href="./analytics.html"
                 >
-                  Contact Us
+                  Analytics
                 </a>
               </li>
               <li>
                 <a
                   class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="#"
+                  href="./goals.html"
                 >
-                  Customer Support
+                  Goals
                 </a>
               </li>
             </ul>
           </div>
         </div>
+        
         <div class="w-full p-6 md:w-1/2 lg:w-3/12">
           <div class="h-full">
             <h3 class="tracking-px mb-9 text-xs font-semibold uppercase text-gray-500">

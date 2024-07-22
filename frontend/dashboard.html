@@ -201,6 +201,93 @@
         </div>
       </div>
     </div>
+
+    <div id="yearly-chart-container" class="hidden mt-8 flex flex-col lg:flex-row w-full justify-center items-center lg:items-start">
+	<div class="w-full h-auto py-6 bg-white mx-4 rounded-xl border border-gray-200">
+            <div id="ty_chart"></div>
+            <script>
+
+             var options = {
+		 series: [
+                     {
+			 name: "Income",
+			 data: [10000, 11000, 15000, 18000, 14000, 14000, 15000]
+                  },
+                  {
+                      name: "Expense",
+                      data: [4000, 3500, 5000, 7000, 7500, 4500, 4500]
+                  },
+                  {
+                      name: "Balance",
+                      data: [6000, 7500, 10000, 12000, 6500, 9500, 10500]
+                  }
+              ],
+              chart: {
+                  height: 350,
+                  type: 'line',
+                  dropShadow: {
+                      enabled: true,
+                      color: '#000',
+                      top: 18,
+                      left: 7,
+                      blur: 10,
+                      opacity: 0.2
+                  },
+                  zoom: {
+                      enabled: false
+                  },
+                  toolbar: {
+                      show: false
+                  }
+              },
+              colors: ['#77B6EA', '#F00018', '#31EA2E'],
+              dataLabels: {
+                  enabled: true,
+              },
+              stroke: {
+                  curve: 'smooth'
+              },
+              title: {
+                  text: 'Yearly Income Expense',
+                  align: 'left'
+              },
+              grid: {
+                  borderColor: '#e7e7e7',
+                  row: {
+                      colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+                      opacity: 0.5
+                  },
+              },
+              markers: {
+                  size: 1
+              },
+              xaxis: {
+                  categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                  title: {
+                      text: 'Month'
+                  }
+              },
+              yaxis: {
+                  title: {
+                      text: 'Money(in Rs)'
+                  },
+                  min: 2000,
+                  max: 20000,
+              },
+              legend: {
+                  position: 'top',
+                  horizontalAlign: 'right',
+                  floating: true,
+                  offsetY: -25,
+                  offsetX: -5
+              }
+          };
+
+          var chart = new ApexCharts(document.querySelector("#ty_chart"), options);
+          chart.render();
+        </script>
+      </div>
+    </div>
   </div>
 
   <div id="lm" class="hidden">
