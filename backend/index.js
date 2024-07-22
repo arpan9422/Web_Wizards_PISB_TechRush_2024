@@ -68,7 +68,7 @@ function redirect_check_auth(req, res, url)
 
 connectDB();
 
-app.get('/favicon.ico', (req, res) => res.sendFile(path.join(__dirname, "../favicon.ico")));
+//app.get('/favicon.ico', (req, res) => res.sendFile(path.join(__dirname, "../favicon.ico")));
 
 app.use('/user', signupRouter);
 app.use('/user', loginRouter);
