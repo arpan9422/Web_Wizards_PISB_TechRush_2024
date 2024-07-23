@@ -150,18 +150,29 @@
                 </div>
             </header>
             <!-- Displaying Data with add expense/income -->
-            <div class="mt-8 flex flex-col md:flex-row w-full justify-center items-center">
+            <div id="trans-disp-month" class="mt-8 flex flex-col md:flex-row w-full justify-center items-center">
                 <div class=" w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
                     <h3 class="text-base text-gray-600 pl-1 font-medium">This Month</h3>
-                    <h1 class="text-3xl text-blue-600 pt-1 font-semibold">Rs. 3,502.45</h1>
+                    <h1 id="trans-this-month" class="text-3xl text-blue-600 pt-1 font-semibold">Rs. 3,502.45</h1>
                 </div>
                 <div class=" w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
                     <h3 class="text-base text-gray-600 pl-1 font-medium">Last Month</h3>
-                    <h1 class="text-3xl pt-1 font-semibold">Rs. 2,450.00</h1>
+                    <h1 id="trans-last-month" class="text-3xl pt-1 font-semibold">Rs. 2,450.00</h1>
                 </div>
                 <div class=" w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
                     <h3 class="text-base text-gray-600 pl-1 font-medium">This Year</h3>
-                    <h1 class="text-3xl pt-1 font-semibold">Rs. 10,450.00</h1>
+                    <h1 id="trans-this-year" class="text-3xl pt-1 font-semibold">Rs. 10,450.00</h1>
+                </div>
+            </div>
+	    
+	    <div id="trans-disp-year" class="hidden mt-8 flex flex-col md:flex-row w-full justify-center items-center">
+              <div class=" w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+                    <h3 class="text-base text-gray-600 pl-1 font-medium">This Year</h3>
+                    <h1 id="trans-this-year-2" class="text-blue-600 text-3xl pt-1 font-semibold">Rs. 2,450.00</h1>
+                </div>
+                <div class=" w-auto h-auto p-6 bg-white mx-4 rounded-xl border border-gray-200">
+                    <h3 class="text-base text-gray-600 pl-1 font-medium">Last Year</h3>
+                    <h1 id="trans-last-year" class="text-3xl pt-1 font-semibold">Rs. 10,450.00</h1>
                 </div>
             </div>
 

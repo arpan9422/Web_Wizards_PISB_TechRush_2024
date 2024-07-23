@@ -3,6 +3,9 @@ import {add_transaction,  refresh_transactions } from "./transactions.mjs";
 import { get_analytics } from "./analytics.mjs";
 import { create_donut_chart, update_chart } from "./charts.mjs";
 
+const selected_class = "text-lg text-center lg:text-left w-auto shadow font-medium bg-blue-50 py-1.5 px-4 rounded-s-md text-blue-800 border-r border-gray-200";
+const deselected_class = "text-lg text-center lg:text-left shadow font-medium hover:bg-blue-50 py-1.5 px-4 hover:text-blue-800 border-r border-gray-200";
+
 async function get_username()
 {
     let result =  await fetch("/user/fetchUserData", {
@@ -66,26 +69,63 @@ document.addEventListener("DOMContentLoaded", function () {
     let lm_button = document.getElementById("last-month-button");
     let ty_button = document.getElementById("this-year-button");
 
+    var btn_expense = document.getElementById("addExpensesBtn");
+    var btn_income = document.getElementById("add-income-button")
+    var btn_transfer = document.getElementById("addTransferBtn");
+
+    
+    
     tm_button.addEventListener("click", () => {
 	set_scope("month", new Date());
 	console.log("tm");
 	update_analytics(dashboard_scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
+
+	tm_button.classList = selected_class;
+	lm_button.classList = deselected_class;
+	ty_button.classList = deselected_class;
+
+	btn_expense.classList.remove("hidden");
+	btn_income.classList.remove("hidden");
+	btn_transfer.classList.remove("hidden");
+
+
     });
     
     lm_button.addEventListener("click", () => {
 	set_scope("month", (new Date()).setDate(0));
 	console.log("lm");
 	update_analytics(dashboard_scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
+
+	tm_button.classList = deselected_class;
+	lm_button.classList = selected_class;
+	ty_button.classList = deselected_class;
+	
+	btn_expense.classList.add("hidden");
+	btn_income.classList.add("hidden");
+	btn_transfer.classList.add("hidden");
+
+
+	
     });
 
     ty_button.addEventListener("click", () => {
 	set_scope("year", new Date());
 	console.log("ty");
 	update_analytics(dashboard_scope, chart, "this-month-balance", "this-month-income", "this-month-expense");
+
+	tm_button.classList = deselected_class;
+	lm_button.classList = deselected_class;
+	ty_button.classList = selected_class;
+			
+	btn_expense.classList.add("hidden");
+	btn_income.classList.add("hidden");
+	btn_transfer.classList.add("hidden");
+
+
     });
     
     var popup_expense = document.getElementById("addExpensesModal");
-    var btn_expense = document.getElementById("addExpensesBtn");
+
     var span_expense = document.getElementsByClassName("closeBtnExpenses")[0];
 
 
@@ -127,8 +167,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     // Add INCOME
-    var popup_income = document.getElementById("addIncomeModal")
-    var btn_income = document.getElementById("add-income-button")
+    var popup_income = document.getElementById("addIncomeModal");
+
     var span1 = document.getElementsByClassName("closeBtnIncome")[0];
 
     var income_form = document.getElementById("addIncomeForm");
@@ -167,8 +207,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    var popup_transfer = document.getElementById("addTransferModal")
-    var btn_transfer = document.getElementById("addTransferBtn")
+    var popup_transfer = document.getElementById("addTransferModal");
+
     var span2 = document.getElementsByClassName("closeBtnTransfer")[0];
 
     var transfer_form = document.getElementById("addTransferForm")

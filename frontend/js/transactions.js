@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     let analytics = await get_analytics(scope);
     update_chart(chart, analytics, "expense_fractions");
 
+    
+	
     let income_btn = document.getElementById("income-button");
     let expense_btn = document.getElementById("expense-button");
     let tm_btn = document.getElementById("this-month-button");
@@ -36,6 +38,33 @@ document.addEventListener("DOMContentLoaded", async function () {
     let monthly_graph_container = document.getElementById("monthly-graph-container");
     let transaction_view_container = document.getElementById("transactions-view-container");
 
+    let trans_tm = document.getElementById("trans-this-month");
+    let trans_lm = document.getElementById("trans-last-month");
+    let trans_ty = document.getElementById("trans-this-year");
+
+    let trans_ly = document.getElementById("trans-last-year");
+    let trans_ty_2 = document.getElementById("trans-this-year-2");
+
+    
+    var trans_disp_month = document.getElementById("trans-disp-month");
+    var trans_disp_year = document.getElementById("trans-disp-year");
+
+
+    {
+	let tm_analytics = await get_analytics({ "type":"month", "range":new Date() });
+	let lm_analytics = await get_analytics({ "type":"month", "range":new Date().setDate(0) });
+	let ty_analytics = await get_analytics({ "type":"year", "range":new Date() });
+
+	let tm_value = income_or_expense == "income_fractions" ? tm_analytics["income"] : tm_analytics["expense"];
+	let lm_value = income_or_expense == "income_fractions" ? lm_analytics["income"] : lm_analytics["expense"];
+	let ty_value = income_or_expense == "income_fractions" ? ty_analytics["income"] : ty_analytics["expense"];
+	
+	trans_tm.innerText = "Rs. " + tm_value;
+	trans_lm.innerText = "Rs. " + lm_value;
+	trans_ty.innerText = "Rs. " + ty_value;
+    }
+
+    
     income_btn.addEventListener("click", async () => {
 	
 	let analytics = await get_analytics(scope);
@@ -46,6 +75,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 	income_btn.className = selected_income_expense_button_class;
 	expense_btn.className = deselected_income_expense_button_class;
 
+	
+	let tm_analytics = await get_analytics({ "type":"month", "range":new Date() });
+	let lm_analytics = await get_analytics({ "type":"month", "range":new Date().setDate(0) });
+	let ty_analytics = await get_analytics({ "type":"year", "range":new Date() });
+
+	let tm_value = income_or_expense == "income_fractions" ? tm_analytics["income"] : tm_analytics["expense"];
+	let lm_value = income_or_expense == "income_fractions" ? lm_analytics["income"] : lm_analytics["expense"];
+	let ty_value = income_or_expense == "income_fractions" ? ty_analytics["income"] : ty_analytics["expense"];
+	
+	trans_tm.innerText = "Rs. " + tm_value;
+	trans_lm.innerText = "Rs. " + lm_value;
+	trans_ty.innerText = "Rs. " + ty_value;
     });
 
     expense_btn.addEventListener("click", async () => {
@@ -57,6 +98,18 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 	income_btn.className = deselected_income_expense_button_class;
 	expense_btn.className = selected_income_expense_button_class;
+
+	let tm_analytics = await get_analytics({ "type":"month", "range":new Date() });
+	let lm_analytics = await get_analytics({ "type":"month", "range":new Date().setDate(0) });
+	let ty_analytics = await get_analytics({ "type":"year", "range":new Date() });
+
+	let tm_value = income_or_expense == "income_fractions" ? tm_analytics["income"] : tm_analytics["expense"];
+	let lm_value = income_or_expense == "income_fractions" ? lm_analytics["income"] : lm_analytics["expense"];
+	let ty_value = income_or_expense == "income_fractions" ? ty_analytics["income"] : ty_analytics["expense"];
+	
+	trans_tm.innerText = "Rs. " + tm_value;
+	trans_lm.innerText = "Rs. " + lm_value;
+	trans_ty.innerText = "Rs. " + ty_value;
 
     });
 
@@ -73,6 +126,22 @@ document.addEventListener("DOMContentLoaded", async function () {
 	tm_btn.className = selected_scope_class;
 	lm_btn.className = deselected_scope_class;
 	ty_btn.className = deselected_scope_class;
+
+	trans_disp_month.classList.remove("hidden");
+	trans_disp_year.classList.add("hidden");
+
+	let tm_analytics = await get_analytics({ "type":"month", "range":new Date() });
+	let lm_analytics = await get_analytics({ "type":"month", "range":new Date().setDate(0) });
+	let ty_analytics = await get_analytics({ "type":"year", "range":new Date() });
+
+	let tm_value = income_or_expense == "income_fractions" ? tm_analytics["income"] : tm_analytics["expense"];
+	let lm_value = income_or_expense == "income_fractions" ? lm_analytics["income"] : lm_analytics["expense"];
+	let ty_value = income_or_expense == "income_fractions" ? ty_analytics["income"] : ty_analytics["expense"];
+	
+	trans_tm.innerText = "Rs. " + tm_value;
+	trans_lm.innerText = "Rs. " + lm_value;
+	trans_ty.innerText = "Rs. " + ty_value;
+	
     });
 
     lm_btn.addEventListener("click", async () => {
@@ -89,6 +158,22 @@ document.addEventListener("DOMContentLoaded", async function () {
 	tm_btn.className = deselected_scope_class;
 	lm_btn.className = selected_scope_class;
 	ty_btn.className = deselected_scope_class;
+
+	trans_disp_month.classList.remove("hidden");
+	trans_disp_year.classList.add("hidden");
+
+	let tm_analytics = await get_analytics({ "type":"month", "range":new Date() });
+	let lm_analytics = await get_analytics({ "type":"month", "range":new Date().setDate(0) });
+	let ty_analytics = await get_analytics({ "type":"year", "range":new Date() });
+
+	let tm_value = income_or_expense == "income_fractions" ? tm_analytics["income"] : tm_analytics["expense"];
+	let lm_value = income_or_expense == "income_fractions" ? lm_analytics["income"] : lm_analytics["expense"];
+	let ty_value = income_or_expense == "income_fractions" ? ty_analytics["income"] : ty_analytics["expense"];
+	
+	trans_tm.innerText = "Rs. " + tm_value;
+	trans_lm.innerText = "Rs. " + lm_value;
+	trans_ty.innerText = "Rs. " + ty_value;
+	
     });
 
     ty_btn.addEventListener("click", async () => {
@@ -105,6 +190,22 @@ document.addEventListener("DOMContentLoaded", async function () {
 	tm_btn.className = deselected_scope_class;
 	lm_btn.className = deselected_scope_class;
 	ty_btn.className = selected_scope_class;
+
+	trans_disp_month.classList.add("hidden");
+	trans_disp_year.classList.remove("hidden");
+
+	var d = new Date();
+	d.setFullYear(d.getFullYear() - 1);
+	
+	let ty_analytics = await get_analytics({ "type":"year", "range":new Date() });
+	let ly_analytics = await get_analytics({ "type":"year", "range": d });
+
+	let ty_value = income_or_expense == "income_fractions" ? ty_analytics["income"] : ty_analytics["expense"];
+	let ly_value = income_or_expense == "income_fractions" ? ly_analytics["income"] : ly_analytics["expense"];
+	
+	trans_ly.innerText = "Rs. " + ly_value;
+	trans_ty_2.innerText = "Rs. " + ty_value;
+	
     });
     
 });
