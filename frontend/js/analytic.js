@@ -314,19 +314,6 @@ chart5.render();
 
 
 
-function updateChart(data, max) {
-    chart2.updateOptions({
-	series: [{
-            data: data
-	}],
-	xaxis: {
-            min: 0,
-            max: max
-	}
-    });
-}
-
-
 
 
 

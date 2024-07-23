@@ -16,7 +16,7 @@ app.use(bodyparser.json());
 app.use(cors());
 app.use(cookieParser());
 
-app.use(express.static(process.cwd() + '/')); 
+app.use(express.static(process.cwd() + '/../frontend')); 
 
 const signupRouter = require('./signupController.js'); 
 const loginRouter = require('./LoginControler.js')
@@ -103,6 +103,7 @@ app.get('/signup', (req, res) => {
 });
 
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '../frontend/landing.html')));
+app.get('/goals', (req, res) => res.sendFile(path.join(__dirname, '../frontend/goals.html')));
 app.get('/dashboard', (req, res) => redirect_check_auth(req, res, '../frontend/dashboard.html'));
 app.get('/transactions', (req, res) => redirect_check_auth(req, res, '../frontend/Transactions.html'));
 app.get('/analytics', (req, res) => redirect_check_auth(req, res, '../frontend/analytics.html'));
