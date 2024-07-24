@@ -47,6 +47,9 @@ router.post('/schedule-reminder', async(req, res) => {
     cron.schedule(cronTime,async () => {
 	await sendReminder(Email, 'Dear User,<br> This is your daily reminder to update income, expense on <a href="https://backupwebwizards.onrender.com/">website</a>');
 	
+    }, {
+	scheduled: true,
+	timezone: "Asia/Kolkata"
     });
 
     console.log(`Reminder Email scheduled at ${time} for ${Email}`);
