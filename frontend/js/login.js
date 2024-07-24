@@ -1,13 +1,13 @@
 
+import { server_addr } from "./server.mjs";
+
 const form = document.getElementById("login-form");
 const username = document.getElementById("username");
 const pass = document.getElementById("password");
 
-const server_addr = "http://localhost:10000/user/Login"
-
 function post_login_request(user, pass)
 {
-    fetch(server_addr, {
+    fetch(server_addr + "/user/Login", {
 	method: "POST",
 	
 	headers: {

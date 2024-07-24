@@ -1,5 +1,4 @@
 
-const server_addr = "http://localhost:3000/user/Logout"
 
 var delete_cookie = function(name) {
     document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';

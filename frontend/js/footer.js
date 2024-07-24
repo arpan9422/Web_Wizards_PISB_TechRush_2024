@@ -38,7 +38,7 @@ document.getElementById("footer").innerHTML = `
               <li class="mb-4">
                 <a
                   class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="./dashboard.html"
+                  href="./dashboard"
                 >
                   Dashboard
                 </a>
@@ -46,7 +46,7 @@ document.getElementById("footer").innerHTML = `
               <li class="mb-4">
                 <a
                   class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="./Transactions.html"
+                  href="./Transactions"
                 >
                   Transactions
                 </a>
@@ -54,7 +54,7 @@ document.getElementById("footer").innerHTML = `
               <li class="mb-4">
                 <a
                   class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="./analytics.html"
+                  href="./analytics"
                 >
                   Analytics
                 </a>
@@ -62,7 +62,7 @@ document.getElementById("footer").innerHTML = `
               <li>
                 <a
                   class="text-base font-medium text-gray-900 hover:text-gray-700"
-                  href="./goals.html"
+                  href="./goals"
                 >
                   Goals
                 </a>

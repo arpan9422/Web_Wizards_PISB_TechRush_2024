@@ -1,3 +1,30 @@
+
+// ADD ACCOUNT
+document.getElementById('addReminder').addEventListener('click',function(){
+    var popupReminder = document.getElementById("addReminderModal");
+    var btnReminder = document.getElementById("addReminder");
+    var spanReminder = document.getElementsByClassName("closeBtnReminder")[0];
+
+    console.log(popupReminder);
+    console.log(btnReminder);
+    console.log(spanReminder);
+
+    btnReminder.onclick = function () {
+        popupReminder.classList.remove("hidden");
+    }
+
+    spanReminder.onclick = function () {
+        popupReminder.classList.add("hidden");
+    }
+
+    window.onclick = function (event) {
+        if (event.target == popupReminder) {
+            popupReminder.classList.add("hidden");
+        }
+    }
+});
+
+
 // ADD ACCOUNT
 document.getElementById('addAccount').addEventListener('click',function(){
     var popupAccount = document.getElementById("addAccountModal");
@@ -21,7 +48,8 @@ document.getElementById('addAccount').addEventListener('click',function(){
             popupAccount.classList.add("hidden");
         }
     }
-})
+});
+
 
 
 //LogoutBTN

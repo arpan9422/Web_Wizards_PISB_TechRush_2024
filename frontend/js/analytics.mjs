@@ -1,6 +1,8 @@
+import { server_addr } from "./server.mjs";
+
 export async function get_analytics(scope)
 {
-    let result =  await fetch("/user/fetchAnalytics", {
+    let result =  await fetch(server_addr + "/user/fetchAnalytics", {
 	method: "POST",
 	
 	headers: {

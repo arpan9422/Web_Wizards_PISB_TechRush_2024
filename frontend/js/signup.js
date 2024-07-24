@@ -1,16 +1,14 @@
 
+import { server_addr } from "./server.mjs";
+
 const form = document.getElementById("signup-form");
 const username = document.getElementById("username");
 const pass1 = document.getElementById("password");
 const pass2 = document.getElementById("password-confirm");
 
-const server_addr = "http://localhost:10000/user/signup"
-
-const server_addr_login = "http://localhost:10000/user/Login"
-
 function post_signup_request(user, pass)
 {
-    fetch(server_addr, {
+    fetch(server_addr + "/user/signup", {
 	method: "POST",
 	
 	headers: {

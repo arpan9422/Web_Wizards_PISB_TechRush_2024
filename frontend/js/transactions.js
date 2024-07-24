@@ -6,8 +6,8 @@ import { create_donut_chart, create_line_graph, update_chart, update_monthly_cha
 var income_or_expense = "expense_fractions";
 var scope = { "type":"month", "range":new Date() };;
 
-const selected_income_expense_button_class = "flex shadow justify-center w-6/12 p-4 border-r rounded-s-lg border-gray-200 bg-blue-50 text-blue-800";
-const deselected_income_expense_button_class = "flex justify-center w-6/12 p-4 hover:bg-slate-200 hover:text-blue-800";
+const selected_income_expense_button_class = "flex shadow justify-center w-5/12 p-4 border-r rounded-lg border-gray-200 bg-blue-50 text-blue-800";
+const deselected_income_expense_button_class = "flex justify-center w-5/12 p-4 hover:bg-slate-200 rounded-lg hover:text-blue-800 bg-white";
 
 const selected_scope_class = "text-lg text-center lg:text-left w-auto shadow font-medium bg-blue-50 py-1.5 px-4 rounded-s-md text-blue-800 border-gray-200";
 const deselected_scope_class = "text-lg text-center lg:text-left shadow font-medium hover:bg-blue-50 py-1.5 px-4 hover:text-blue-800 border-gray-200";
@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     let daily_expense_container = document.getElementById("daily-expense-container");
     let monthly_transactions = document.getElementById("monthly-transactions");
 
+    let chart_title = document.getElementById("chart-title");
+
 
     {
 	let tm_analytics = await get_analytics({ "type":"month", "range":new Date() });
@@ -86,10 +88,22 @@ document.addEventListener("DOMContentLoaded", async function () {
 	let tm_value = income_or_expense == "income_fractions" ? tm_analytics["income"] : tm_analytics["expense"];
 	let lm_value = income_or_expense == "income_fractions" ? lm_analytics["income"] : lm_analytics["expense"];
 	let ty_value = income_or_expense == "income_fractions" ? ty_analytics["income"] : ty_analytics["expense"];
+
+	var d = new Date();
+	d.setFullYear(d.getFullYear() - 1);
+	
+	let ly_analytics = await get_analytics({ "type":"year", "range": d });
+
+	let ly_value = income_or_expense == "income_fractions" ? ly_analytics["income"] : ly_analytics["expense"];
+	
+	trans_ly.innerText = "Rs. " + ly_value;
+	trans_ty_2.innerText = "Rs. " + ty_value;
 	
 	trans_tm.innerText = "Rs. " + tm_value;
 	trans_lm.innerText = "Rs. " + lm_value;
 	trans_ty.innerText = "Rs. " + ty_value;
+
+	chart_title.innerText = "Income by Category";
     });
 
     expense_btn.addEventListener("click", async () => {
@@ -109,10 +123,23 @@ document.addEventListener("DOMContentLoaded", async function () {
 	let tm_value = income_or_expense == "income_fractions" ? tm_analytics["income"] : tm_analytics["expense"];
 	let lm_value = income_or_expense == "income_fractions" ? lm_analytics["income"] : lm_analytics["expense"];
 	let ty_value = income_or_expense == "income_fractions" ? ty_analytics["income"] : ty_analytics["expense"];
+
+	var d = new Date();
+	d.setFullYear(d.getFullYear() - 1);
+	
+	let ly_analytics = await get_analytics({ "type":"year", "range": d });
+
+	let ly_value = income_or_expense == "income_fractions" ? ly_analytics["income"] : ly_analytics["expense"];
+	
+	trans_ly.innerText = "Rs. " + ly_value;
+	trans_ty_2.innerText = "Rs. " + ty_value;
+	
 	
 	trans_tm.innerText = "Rs. " + tm_value;
 	trans_lm.innerText = "Rs. " + lm_value;
 	trans_ty.innerText = "Rs. " + ty_value;
+
+	chart_title.innerText = "Expense by Category";
 
     });
 

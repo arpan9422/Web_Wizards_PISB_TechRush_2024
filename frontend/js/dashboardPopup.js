@@ -2,13 +2,14 @@
 import {add_transaction,  refresh_transactions } from "./transactions.mjs";
 import { get_analytics } from "./analytics.mjs";
 import { create_donut_chart, update_chart } from "./charts.mjs";
+import { server_addr } from "./server.mjs";
 
 const selected_class = "text-lg text-center lg:text-left w-auto shadow font-medium bg-blue-50 py-1.5 px-4 rounded-s-md text-blue-800 border-r border-gray-200";
 const deselected_class = "text-lg text-center lg:text-left shadow font-medium hover:bg-blue-50 py-1.5 px-4 hover:text-blue-800 border-r border-gray-200";
 
 async function get_username()
 {
-    let result =  await fetch("/user/fetchUserData", {
+    let result =  await fetch(server_addr + "/user/fetchUserData", {
 	method: "POST",
 	
 	headers: {
@@ -25,7 +26,9 @@ async function refresh_username()
     let username = await get_username();
     let username_greet = document.getElementById('username-greet');
 
-    username_greet.innerText = `Hello ${username}!`;
+    let username_cut = username.split("@")[0];
+
+    username_greet.innerText = `Hello ${username_cut}!`;
 }
 
 var dashboard_scope = { "type":"month", "range":new Date() }
@@ -44,9 +47,9 @@ async function update_analytics(scope, chart, balance_text, income_text, expense
 
     let analytics = await get_analytics(scope);
 
-    balance_elem.innerText = analytics["balance"];
-    income_elem.innerText = analytics["income"];
-    expense_elem.innerText = analytics["expense"];
+    balance_elem.innerText = "Rs. " + analytics["balance"];
+    income_elem.innerText = "Rs. " + analytics["income"];
+    expense_elem.innerText = "Rs. " + analytics["expense"];
 
     update_chart(chart, analytics, "expense_fractions");
     //chart.render();

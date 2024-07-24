@@ -1,6 +1,8 @@
+import { server_addr } from "./server.mjs";
+
 export async function get_transactions()
 {
-    let result =  await fetch("/user/fetchTransactions", {
+    let result =  await fetch(server_addr + "/user/fetchTransactions", {
 	method: "POST",
 	
 	headers: {
@@ -28,9 +30,9 @@ export function add_transaction_entry(parent_elem, transaction)
     let date_string = (new Date(date)).toLocaleDateString('en-GB');
     
     div_elem.innerHTML = `
-          <h3 class="w-5/12 text-base ">${name}</h3>
+          <h3 class="w-4/12 text-base ">${name}</h3>
           <h3 class="w-3/12 text-base  text-gray-600">${method}</h3>
-          <h3 class="w-2/12 text-base  text-gray-600">${date_string}</h3>
+          <h3 class="w-3/12 text-base  text-gray-600">${date_string}</h3>
           <h3 class="w-2/12 text-base ">₹${amt}</h3>`;
 
     parent_elem.appendChild(div_elem);
