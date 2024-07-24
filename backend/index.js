@@ -24,6 +24,7 @@ const transactionFetchRouter = require('./transactionFetchController.js')
 const transactionSetRouter = require('./transactionSetController.js')
 const userdataFetchRouter = require('./userDataController.js')
 const analyticsFetchRouter = require('./analyticsController.js')
+const remenderRoute = require('./remenderRoute.js'); 
 
 async function connectDB() {
     try {
@@ -76,6 +77,7 @@ app.use('/user', transactionFetchRouter);
 app.use('/user', transactionSetRouter);
 app.use('/user', userdataFetchRouter);
 app.use('/user', analyticsFetchRouter);
+app.use('/', remenderRoute);
 
 app.get('/login', (req, res) => {
     

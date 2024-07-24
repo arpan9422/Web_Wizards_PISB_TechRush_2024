@@ -21,6 +21,15 @@ const userSchema = new mongoose.Schema({
 	type: String,
 	required: true,
     },
+    time: {
+        type:String,
+        required:true
+    },
+    status: {
+        type: String,
+        enum: ['ON', 'OFF'],
+        default: 'OFF'
+    },
     transactions: [TransactionSchema]
 });
 

@@ -1,4 +1,40 @@
 
+import { server_addr } from "./server.mjs"
+
+async function get_username()
+{
+    let result =  await fetch(server_addr + "/user/fetchUserData", {
+	method: "POST",
+	
+	headers: {
+	    "Content-Type": "application/json"
+	},
+    });
+
+    let json_body = await result.json();
+    return json_body["name"];
+}
+
+async function schedule_reminder(email, time, status)
+{
+    let result =  await fetch(server_addr + "/schedule-reminder", {
+	method: "POST",
+	
+	headers: {
+	    "Content-Type": "application/json"
+	},
+	
+	body: JSON.stringify({
+	    "Email":email,
+	    "time":time,
+	    "status":status
+	})
+    });
+
+    let json_body = await result.json();
+    return json_body["name"];
+}
+
 // ADD ACCOUNT
 document.getElementById('addReminder').addEventListener('click',function(){
     var popupReminder = document.getElementById("addReminderModal");
@@ -50,6 +86,32 @@ document.getElementById('addAccount').addEventListener('click',function(){
     }
 });
 
+document.getElementById("addReminderForm").addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    let time_input = document.getElementById("reminder-time");
+    let reminder_popup = document.getElementById("addReminderModal");
+
+    var checkedValue = null; 
+    var inputElements = document.getElementsByClassName('checkbox');
+    for(var i=0; inputElements[i]; ++i){
+	if(inputElements[i].checked){
+            checkedValue = inputElements[i].value;
+            break;
+	}
+    }
+    
+    let username = await get_username();
+
+    let status = checkedValue ? "ON" : "OFF";
+
+    console.log(status);
+    
+    schedule_reminder(username, time_input.value, status);
+
+    reminder_popup.classList.add("hidden");
+    
+});
 
 
 //LogoutBTN

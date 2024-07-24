@@ -19,6 +19,8 @@
     "jsonwebtoken": "^9.0.2",
     "mogoose": "^0.0.1-security",
     "mongoose": "^8.5.1",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.14",
     "zod": "^3.23.8"
   }
 }
