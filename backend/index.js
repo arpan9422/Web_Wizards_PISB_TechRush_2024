@@ -115,7 +115,7 @@ app.get('/profile', (req, res) => redirect_check_auth(req, res, '../frontend/pro
 // redirect_check_auth('/profile', '../frontend/profile.html');
 
 // http://localhost:3000/user/signup
-app.listen(PORT, '192.168.1.53', () => {
+app.listen(PORT, 'localhost', () => {
     console.log(`Server is running on http://192.168.1.53:${PORT}`);
 });
 

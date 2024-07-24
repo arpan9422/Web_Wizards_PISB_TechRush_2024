@@ -1,2 +1,2 @@
 
-export const server_addr = "http://59.184.222.29:10000";
+export const server_addr = "https://backupwebwizards.onrender.com:10000";
