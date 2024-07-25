@@ -120,12 +120,12 @@ async function google_signin(req, res) {
 	//If not then create new user
 	
 	// Hash the password
-	const hashedPassword = await bcrypt.hash(password, saltRounds);
+	//const hashedPassword = await bcrypt.hash(password, saltRounds);
 
 	// Create the new user
 	const newUser = new User({
 	    email: email,
-	    password: hashedPassword,
+	    password: "",
 	});
 	
 	const userCreated = await newUser.save();
