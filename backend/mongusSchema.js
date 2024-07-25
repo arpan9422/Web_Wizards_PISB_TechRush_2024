@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     },
     time: {
         type:String,
-        required:true
+        required: false,
     },
     status: {
         type: String,
