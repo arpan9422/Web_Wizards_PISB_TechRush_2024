@@ -39,7 +39,7 @@
 
                 var maturity = amt * Math.pow((1 + ((rate / 100) / freq)), freq * year);
 		var fd_maturity = Math.floor(maturity);
-                document.getElementById("maturity").innerText = fd_maturity;
+                document.getElementById("maturity").innerText = maturity;
             } else if (depositType == "rd" && document.f1.freq.value.length != 0) {
                 var amt = parseFloat(document.f1.amt.value);
                 var rate = parseFloat(document.f1.rate.value);
@@ -201,21 +201,21 @@
             </a>
         </div>
     </div>
-    <div class="flex items-start justify-center xl:flex-row flex-col gap-7">
+    <div class="flex items-start justify-center min-[1286px]:flex-row flex-col gap-7">
         <div class="overflow-y-auto h-[100vh] p-5">
-            <div class=" xl:w-[60vw] min-[320px]:w-[90vw] xl:h-[189vh] min-[320px]:h-[170vh] relative overflow-hidden flex justify-center items-center ">
+            <div class=" lg:w-full xl:w-[60vw] min-[320px]:w-[90vw] min-[1600px]:w-[970px] lg:h-[1580px] min-[320px]:h-[1360px] relative overflow-hidden flex justify-center items-center ">
 
                 <iframe
-                    class="pointer-events-none xl:w-[60vw] min-[320px]:w-[95vw] h-[15000px]  shadow-lg absolute xl:top-[-500px] min-[320px]:top-[-620px]"
+                    class="pointer-events-none lg:w-full xl:w-[60vw] min-[1600px]:w-[970px] min-[320px]:w-[95vw] h-[15000px] shadow-lg absolute lg:top-[-500px] min-[320px]:top-[-650px]"
                     src="https://www.moneycontrol.com/fixed-deposit/fd-interest-rates/" frameborder="0"></iframe>
             </div>
             <div><i>iframe taken from <a href="https://www.moneycontrol.com/fixed-deposit/fd-interest-rates/">www.moneycontrol.com</a></i></div>
             <div><i>Disclamier : We do not support/suggest above investments. Please visit their respective websites for detailed information. </i></div>
         </div>
         <div class="p-0 m-0 flex justify-center items-center xl:w-[auto] min-[320px]:w-[98vw]">
-          <div class="w-auto flex justify-center items-center flex-col gap-3 xl:scale-[90%] min-[320px]:scale-[75%]">
-            <h2 class="text-2xl font-inter font-semibold">Calculate FD/RD</h2>
-            <form action="#" method="post" name="f1" class="border-2 p-3 rounded-md shadow-md ">
+            <div class="w-auto flex justify-center items-center flex-col gap-3 xl:scale-[90%] min-[320px]:scale-[75%]">
+                <h2 class="text-2xl font-inter font-semibold">Calculate FD/RD</h2>
+                <form action="#" method="post" name="f1" class="border-2 p-3 rounded-md shadow-md ">
                     <table class="flex  flex-col w-[390px]">
                         <tr class="flex flex-col p-3 bg-slate-300 rounded-sm m-3">
                             <td class="text-xl font-semibold mb-2">Type of deposit</td>
@@ -275,9 +275,9 @@
                         <tr class="flex justify-center">
                             <td></td>
                             <td class="flex gap-5"><input type="button" value="Calulate" onClick="cal()"
-                                    class="bg-black text-white cursor-pointer p-2 rounded-md hover:bg-slate-400 hover:text-gray-800 " />&nbsp;&nbsp;
+							  class="bg-black text-white cursor-pointer p-2 rounded-md hover:bg-slate-400 hover:text-gray-800 " />&nbsp;&nbsp;
                                 <input onClick="clearit()" id="clear" type="reset" value="Clear"
-                                    class="bg-black text-white cursor-pointer p-2 px-5 rounded-md hover:bg-slate-400 hover:text-gray-800  " />
+                                       class="bg-black text-white cursor-pointer p-2 px-5 rounded-md hover:bg-slate-400 hover:text-gray-800  " />
                             </td>
                         </tr>
 
