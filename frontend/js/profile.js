@@ -92,7 +92,7 @@ document.getElementById("addReminderForm").addEventListener('submit', async (e) 
 
     let time_input = document.getElementById("reminder-time");
     let reminder_popup = document.getElementById("addReminderModal");
-    var reminder_message = document.getElementById("large-text");
+    var reminder_message = document.getElementById("large-input");
 
     var checkedValue = null; 
     var inputElements = document.getElementsByClassName('checkbox');
