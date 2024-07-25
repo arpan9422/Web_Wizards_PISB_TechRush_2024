@@ -12,7 +12,7 @@ const SECRET = process.env.SECRETS;
 
 const loginRouter = express.Router();
 
-const TOKEN_VALID_MINS = 15;
+const TOKEN_VALID_MINS =  process.env.TOKEN_VALIDITY_MINS;
 
 // Connect to MongoDB
 

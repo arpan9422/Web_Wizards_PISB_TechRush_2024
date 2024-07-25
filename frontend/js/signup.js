@@ -6,6 +6,8 @@ const username = document.getElementById("username");
 const pass1 = document.getElementById("password");
 const pass2 = document.getElementById("password-confirm");
 
+const google_signup = document.getElementById("signup-with-google");
+
 function post_signup_request(user, pass)
 {
     fetch(server_addr + "/user/signup", {
@@ -33,6 +35,10 @@ function post_signup_request(user, pass)
 	    }
 	});
 }
+
+google_signup.addEventListener('click', () => {
+    window.location.href = "/google-oauth-url";
+});
 
 form.addEventListener('submit', (e) => {
     e.preventDefault(); // stops from reloading the page

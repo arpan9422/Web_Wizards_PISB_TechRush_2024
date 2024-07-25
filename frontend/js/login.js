@@ -5,6 +5,8 @@ const form = document.getElementById("login-form");
 const username = document.getElementById("username");
 const pass = document.getElementById("password");
 
+const google_signin = document.getElementById("sign-in-with-google");
+
 function post_login_request(user, pass)
 {
     fetch(server_addr + "/user/Login", {
@@ -46,6 +48,10 @@ function post_login_request(user, pass)
 	    }
 	});
 }
+
+google_signin.addEventListener('click', () => {
+    window.location.href = "/google-oauth-url";
+});
 
 form.addEventListener('submit', (e) => {
     e.preventDefault(); // stops from reloading the page

@@ -1,7 +1,15 @@
 
 const express = require('express');
 const querystring = require('querystring');
-const stream = require('node:stream');
+const { User } = require("./mongusSchema.js");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const saltRounds = 10;
+const SECRET = process.env.SECRETS;
+const TOKEN_VALID_MINS =  process.env.TOKEN_VALIDITY_MINS;
 
 const SERVER_ROOT_URI = "http://localhost:10000";//"https://backupwebwizards.onrender.com";
 const redirectURI = "google-oauth";
@@ -25,15 +33,6 @@ const getGoogleAuthURL = () => {
     };
 
     return `${rootUrl}?${querystring.stringify(options)}`;
-}
-
-function streamToString (str) {
-  const chunks = [];
-  return new Promise((resolve, reject) => {
-    str.on('data', (chunk) => chunks.push(Buffer.from(chunk)));
-    str.on('error', (err) => reject(err));
-    str.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-  });
 }
 
 
@@ -95,15 +94,53 @@ async function google_signin(req, res) {
 		Authorization: `Bearer ${id_token}`,
 	    },
 	})
-	  .then((res) => res.data)
+	  .then((res) => res.json())
 	  .catch((error) => {
 	      console.error(`Failed to fetch user`);
 	      throw new Error(error.message);
 	  });
 
-    console.log("user:" + googleUser);
+    let email = googleUser["email"];
 
-    res.send("Done");
+    try {
+
+	const user = await User.findOne({ email: email });
+	//check if user exists already, if so then sign in
+	if (user) {
+	    const user = await User.findOne({ email: email });
+
+	    // Generate JWT
+	    const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: TOKEN_VALID_MINS * 60 });
+
+	    // return successful reponse
+	    res.cookie('auth_tok', token);
+	    return res.redirect('dashboard');
+	}
+
+	//If not then create new user
+	
+	// Hash the password
+	const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+	// Create the new user
+	const newUser = new User({
+	    email: email,
+	    password: hashedPassword,
+	});
+	
+	const userCreated = await newUser.save();
+
+	// Generate JWT
+	const token = jwt.sign({ id: userCreated._id }, SECRET, { expiresIn: TOKEN_VALID_MINS * 60 });
+	res.cookie('auth_tok', token);
+
+	return res.redirect("/dashboard");
+    } catch (error) {
+	console.log('Error in signup:', error);
+	return res.json({ status:"error", Api_Response: 304, message: 'Error in signup backend' });
+    }
+
+    res.send(JSON.stringify(googleUser));
 }
 
 googleOAuthRouter.get('/google-oauth', google_signin);

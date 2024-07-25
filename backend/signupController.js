@@ -46,7 +46,8 @@ async function signup(req, res) {
 
 	// Generate JWT
 	const token = jwt.sign({ id: userCreated._id }, SECRET, { expiresIn: TOKEN_VALID_MINS * 60 });
-
+	res.cookie('auth_tok', token);
+	
 	return res.json({ status:"success", user_id: userCreated._id, token: token });
     } catch (error) {
 	console.log('Error in signup:', error);

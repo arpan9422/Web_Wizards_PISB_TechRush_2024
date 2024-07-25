@@ -83,12 +83,7 @@ app.use('/', remenderRoute);
 app.use('/', googleOAuthRouter);
 
 app.get('/google-oauth-url', (req, res) => {
-    res.send(getGoogleAuthURL());
-});
-
-app.get('/google-oauth', (req, res) => {
-    console.log(getGoogleAuthURL);
-    res.send(getGoogleAuthURL());
+    res.redirect(getGoogleAuthURL());
 });
 
 app.get('/login', (req, res) => {
