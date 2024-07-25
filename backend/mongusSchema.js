@@ -30,6 +30,10 @@ const userSchema = new mongoose.Schema({
         enum: ['ON', 'OFF'],
         default: 'OFF'
     },
+    reminderNote: {
+	type: String,
+	required: false
+    },
     transactions: [TransactionSchema]
 });
 

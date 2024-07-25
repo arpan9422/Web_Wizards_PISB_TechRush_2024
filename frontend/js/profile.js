@@ -15,7 +15,7 @@ async function get_username()
     return json_body["name"];
 }
 
-async function schedule_reminder(email, time, status)
+async function schedule_reminder(email, time, status, msg)
 {
     let result =  await fetch(server_addr + "/schedule-reminder", {
 	method: "POST",
@@ -27,7 +27,8 @@ async function schedule_reminder(email, time, status)
 	body: JSON.stringify({
 	    "Email":email,
 	    "time":time,
-	    "status":status
+	    "status":status,
+	    "msg":msg
 	})
     });
 
@@ -41,9 +42,9 @@ document.getElementById('addReminder').addEventListener('click',function(){
     var btnReminder = document.getElementById("addReminder");
     var spanReminder = document.getElementsByClassName("closeBtnReminder")[0];
 
-    console.log(popupReminder);
-    console.log(btnReminder);
-    console.log(spanReminder);
+    // console.log(popupReminder);
+    // console.log(btnReminder);
+    // console.log(spanReminder);
 
     btnReminder.onclick = function () {
         popupReminder.classList.remove("hidden");
@@ -91,6 +92,7 @@ document.getElementById("addReminderForm").addEventListener('submit', async (e) 
 
     let time_input = document.getElementById("reminder-time");
     let reminder_popup = document.getElementById("addReminderModal");
+    var reminder_message = document.getElementById("large-text");
 
     var checkedValue = null; 
     var inputElements = document.getElementsByClassName('checkbox');
@@ -105,9 +107,11 @@ document.getElementById("addReminderForm").addEventListener('submit', async (e) 
 
     let status = checkedValue ? "ON" : "OFF";
 
+    let msg = reminder_message.value;
+
     console.log(status);
     
-    schedule_reminder(username, time_input.value, status);
+    schedule_reminder(username, time_input.value, status, msg);
 
     reminder_popup.classList.add("hidden");
     

@@ -10,7 +10,7 @@ router.use(express.json());
 
 
 router.post('/schedule-reminder', async(req, res) => {
-    const { Email, time, status } = req.body;
+    const { Email, time, status, msg } = req.body;
 
     if (!Email || !time || !status) {
 	return res.status(400).json({ message: 'Email, time, and status are required' });
@@ -32,7 +32,7 @@ router.post('/schedule-reminder', async(req, res) => {
 
     await User.findOneAndUpdate(
 	{ "email": Email },
-	{ time, status },
+	{ time, status, msg },
 	{ upsert: true, new: true }
     );
 
@@ -45,7 +45,7 @@ router.post('/schedule-reminder', async(req, res) => {
     //await sendReminder(Email, "HI!");
     
     cron.schedule(cronTime,async () => {
-	await sendReminder(Email, 'Dear User,<br> This is your daily reminder to update income, expense on <a href="https://backupwebwizards.onrender.com/">website</a>');
+	await sendReminder(Email, `Dear User,<br> ${msg} <br> This is your daily reminder to update income, expense on <a href="https://backupwebwizards.onrender.com/">website</a>`);
 	
     }, {
 	scheduled: true,

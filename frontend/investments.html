@@ -38,7 +38,8 @@
                 var freq = parseInt(document.f1.freq.value);
 
                 var maturity = amt * Math.pow((1 + ((rate / 100) / freq)), freq * year);
-                document.getElementById("maturity").innerText = maturity;
+		var fd_maturity = Math.floor(maturity);
+                document.getElementById("maturity").innerText = fd_maturity;
             } else if (depositType == "rd" && document.f1.freq.value.length != 0) {
                 var amt = parseFloat(document.f1.amt.value);
                 var rate = parseFloat(document.f1.rate.value);
@@ -212,9 +213,9 @@
             <div><i>Disclamier : We do not support/suggest above investments. Please visit their respective websites for detailed information. </i></div>
         </div>
         <div class="p-0 m-0 flex justify-center items-center xl:w-[auto] min-[320px]:w-[98vw]">
-            <div class="w-auto flex justify-center items-center flex-col gap-3 xl:scale-[80%] min-[320px]:scale-[75%] h-[100vh]">
-                <h2 class="text-2xl font-inter font-semibold">Calculate FD/RD</h2>
-                <form action="#" method="post" name="f1" class="border-2 p-3 rounded-md shadow-md ">
+          <div class="w-auto flex justify-center items-center flex-col gap-3 xl:scale-[90%] min-[320px]:scale-[75%]">
+            <h2 class="text-2xl font-inter font-semibold">Calculate FD/RD</h2>
+            <form action="#" method="post" name="f1" class="border-2 p-3 rounded-md shadow-md ">
                     <table class="flex  flex-col w-[390px]">
                         <tr class="flex flex-col p-3 bg-slate-300 rounded-sm m-3">
                             <td class="text-xl font-semibold mb-2">Type of deposit</td>
