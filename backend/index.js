@@ -86,6 +86,11 @@ app.get('/google-oauth-url', (req, res) => {
     res.send(getGoogleAuthURL());
 });
 
+app.get('/google-oauth', (req, res) => {
+    console.log(getGoogleAuthURL);
+    res.send(getGoogleAuthURL());
+});
+
 app.get('/login', (req, res) => {
     
     // if already logged in, go to dashboard
