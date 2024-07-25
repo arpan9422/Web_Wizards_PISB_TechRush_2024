@@ -1,0 +1,292 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finatic-Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="./js/logout.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        // Add custom colors here
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        function cal() {
+            if (!checkAll())
+                return;
+
+            var depositType = document.f1.depositType.value;
+            if (depositType == "fd" && document.f1.freq.value.length != 0) {
+                var amt = parseFloat(document.f1.amt.value);
+                var rate = parseFloat(document.f1.rate.value);
+                var year = parseInt(document.f1.years.value);
+                var freq = parseInt(document.f1.freq.value);
+
+                var maturity = amt * Math.pow((1 + ((rate / 100) / freq)), freq * year);
+                document.getElementById("maturity").innerText = maturity;
+            } else if (depositType == "rd" && document.f1.freq.value.length != 0) {
+                var amt = parseFloat(document.f1.amt.value);
+                var rate = parseFloat(document.f1.rate.value);
+                var year = parseInt(document.f1.years.value);
+                var freq = parseInt(document.f1.freq.value);
+
+                var months = year * 12;
+                var maturity = 0;
+                for (var i = 1; i <= months; i++) {
+                    maturity += amt * Math.pow((1 + ((rate / 100) / freq)), freq * ((months - i + 1) / 12));
+                }
+                const finalMaturity = Math.floor(maturity)
+                document.getElementById("maturity").innerText = finalMaturity;
+            } else {
+                alert("Select all dropdowns");
+            }
+        }
+
+        function checkAll() {
+            if (checkType() && checkAmt() && checkYears() && checkRate() && checkFreq())
+                return true;
+            else
+                return false;
+        }
+        function checkType() {
+            if (document.f1.depositType.value.length == 0) {
+                document.getElementById("depositTypeErr").innerText = "Select a deposit type";
+                return false;
+            } else {
+                document.getElementById("depositTypeErr").innerText = "";
+                return true;
+            }
+        }
+
+        function checkAmt() {
+            if (isNaN(document.f1.amt.value) || document.f1.amt.value.length == 0) {
+                document.getElementById("amtErr").innerText = " * Amount required and should be a number";
+                return false;
+            } else {
+                document.getElementById("amtErr").innerText = "";
+                return true;
+            }
+        }
+
+        function checkYears() {
+            if (isNaN(document.f1.years.value) || document.f1.years.value.length == 0) {
+                document.getElementById("yearsErr").innerText = " * Year required and should be a number";
+                return false;
+            } else {
+                document.getElementById("yearsErr").innerText = "";
+                return true;
+            }
+        }
+
+        function checkRate() {
+            if (isNaN(document.f1.rate.value) || document.f1.rate.value.length == 0) {
+                document.getElementById("rateErr").innerText = " * Interest required and should be a number";
+                return false;
+            } else {
+                document.getElementById("rateErr").innerText = "";
+                return true;
+            }
+        }
+
+        function checkFreq() {
+            if (document.f1.freq.value.length == 0) {
+                document.getElementById("freqErr").innerText = " * Select a compounding freq.";
+                return false;
+            } else {
+                document.getElementById("freqErr").innerText = "";
+                return true;
+            }
+        }
+        function clearit() {
+            document.getElementById("clear").addEventListener('click', function (e) {
+                window.location.reload()
+            })
+        }
+    </script>
+</head>
+
+<body>
+  <nav class="flex justify-between bg-white w-full z-40 p-3 shadow-md md:px-10 sm:px-5 sticky top-0">
+    <div class="flex gap-1 items-center">
+            <img src="./img/Logo.png" alt="">
+            <h2 class="text-xl font-inter font-bold">Finatic</h2>
+        </div>
+        <div class="flex xl:gap-12 lg:gap-8">
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                Dashboard</h1>
+            <a href="./Transactions">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                    Transactions</h1>
+            </a>
+            <a href="./analytics">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                    Analytics</h1>
+            </a>
+            <a href="./goals">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                    Goals</h1>
+            </a>
+            <a href="./investments">
+                <h1
+                    class="text-md font-inter font-medium  bg-slate-200 p-3 rounded-md text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                    Investments</h1>
+            </a>
+            <a href="./profile">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                    Profile</h1>
+            </a>
+        </div>
+        <div class="flex items-center">
+            <a href="login"><button
+                    class="font-inter font-medium text-gray-600 bg-slate-200 p-2 px-6 rounded-md hover:bg-blue-500 hover:text-slate-100 md:block sm:hidden min-[320px]:hidden"
+                    onclick="logout()">Logout</button></a>
+            <img src="" alt="">
+            <button class="hamburger">
+                <img src="./img/hamburger.png" alt="" class="xl:hidden md:hidden sm:block min-[320px]:block h-6 px-4 ">
+            </button>
+        </div>
+    </nav>
+  <!-- dropdown -->
+    <div class="dropdown hidden sticky z-50 top-14">
+      <div
+        class="absolute top-10 right-1 bg-white w-auto p-4 flex flex-col items-center justify-center gap-3 rounded-md border-2 border-double border-slate-600">
+            <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                Dashboard</h1>
+            <a href="./Transactions">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                    Transactions</h1>
+            </a>
+            <a href="./analytics">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                    Analytics</h1>
+            </a>
+            <a href="./goals">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                    Goals</h1>
+            </a>
+            <a href="./investments">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                    Investments</h1>
+            </a>
+            <a href="./profile">
+                <h1
+                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                    Profile</h1>
+            </a>
+        </div>
+    </div>
+    <div class="flex items-start justify-center xl:flex-row flex-col gap-7">
+        <div class="overflow-y-auto h-[100vh] p-5">
+            <div class=" xl:w-[60vw] min-[320px]:w-[90vw] xl:h-[189vh] min-[320px]:h-[170vh] relative overflow-hidden flex justify-center items-center ">
+
+                <iframe
+                    class="pointer-events-none xl:w-[60vw] min-[320px]:w-[95vw] h-[15000px]  shadow-lg absolute xl:top-[-500px] min-[320px]:top-[-620px]"
+                    src="https://www.moneycontrol.com/fixed-deposit/fd-interest-rates/" frameborder="0"></iframe>
+            </div>
+            <div><i>iframe taken from <a href="https://www.moneycontrol.com/fixed-deposit/fd-interest-rates/">www.moneycontrol.com</a></i></div>
+            <div><i>Disclamier : We do not support/suggest above investments. Please visit their respective websites for detailed information. </i></div>
+        </div>
+        <div class="p-0 m-0 flex justify-center items-center xl:w-[auto] min-[320px]:w-[98vw]">
+            <div class="w-auto flex justify-center items-center flex-col gap-3 xl:scale-[80%] min-[320px]:scale-[75%] h-[100vh]">
+                <h2 class="text-2xl font-inter font-semibold">Calculate FD/RD</h2>
+                <form action="#" method="post" name="f1" class="border-2 p-3 rounded-md shadow-md ">
+                    <table class="flex  flex-col w-[390px]">
+                        <tr class="flex flex-col p-3 bg-slate-300 rounded-sm m-3">
+                            <td class="text-xl font-semibold mb-2">Type of deposit</td>
+                            <td class="flex justify-center flex-col gap-2">
+                                <div><input type="radio" name="depositType" value="fd"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                        onClick="checkType();"><span class="text-[18px] "> Fixed deposit</span></div>
+                                <div><input type="radio" name="depositType" value="rd" onClick="checkType();"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"><span
+                                        class="text-[18px] "> Recurring deposit</span></div>
+                                <span id="depositTypeErr" class="text-[14px] text-red-900"> * Select a type</span>
+                            </td>
+                        </tr>
+                        <tr class="bg-slate-300 flex justify-center flex-col w-[94%] p-3 ml-3 rounded-sm m-3">
+                            <td class="text-xl font-semibold mb-2">Principal Amount</td>
+                            <td><input type="text" name="amt" onKeyUp="checkAmt();" onChange="checkAmt();"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[90%] p-2.5 dark:bg-slate-400 dark:border-gray-400 dark:placeholder-slate-800  dark:text-black font-semibold font-[20px] dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2"
+                                    placeholder="Enter the amount here" required />
+                                <span id="amtErr" class="text-[13px] text-red-900"> * required</span>
+                            </td>
+                        </tr>
+
+                        <tr class="bg-slate-300 flex justify-center flex-col w-[94%] p-3 ml-3 rounded-sm m-3">
+                            <td class="text-xl font-semibold mb-2">No. of Years</td>
+                            <td><input type="text" name="years" onKeyUp="checkYears();" onChange="checkYears()"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[90%] p-2.5 dark:bg-slate-400 dark:border-gray-400 dark:placeholder-slate-800  dark:text-black font-semibold font-[20px] dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2"
+                                    placeholder="Enter no. of years" required />
+                                <span id="yearsErr" class="text-[13px] text-red-900"> * required</span>
+                            </td>
+                        </tr>
+                        <tr class="bg-slate-300 flex justify-center flex-col w-[94%] p-3 ml-3 rounded-sm mb-3">
+                            <td class="text-xl font-semibold mb-2">Interest</td>
+                            <td><input type="text" name="rate" onKeyUp="checkRate();" onChange="checkRate();"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[90%] p-2.5 dark:bg-slate-400 dark:border-gray-400 dark:placeholder-slate-800  dark:text-black font-semibold font-[20px] dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-2"
+                                    placeholder="Enter Interest (%)" required />
+                                <span id="rateErr" class="text-[13px] text-red-900">* required</span>
+                            </td>
+                        </tr>
+                        <tr class="bg-slate-300 flex justify-center flex-col w-[94%] p-3 ml-3 rounded-sm mb-3">
+                            <td class="text-xl font-semibold mb-2">Compounding freq.</td>
+                            <td>
+                                <select name="freq" onKeyUp="checkFreq();" onChange="checkFreq();"
+                                    class="bg-gray-50 border  text-gray-600 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[90%] p-2.5 dark:bg-slate-400 dark:border-slate-400 dark:placeholder-gray-400 dark:text-gray-900 font-semibold dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required>
+                                    <option value="" class="font-semibold">Select</option>
+                                    <option value=12 class="font-semibold">Monthly</option>
+                                    <option value=4 class="font-semibold">Quarterly</option>
+                                    <option value=2 class="font-semibold">Half yearly</option>
+                                    <option value=1 class="font-semibold">Yearly</option>
+                                </select><span id="freqErr"> * required</span>
+                            </td>
+                        </tr>
+                        <tr class="bg-slate-300 flex justify-center flex-col w-[94%] p-3 ml-3 rounded-sm mb-3">
+                            <td class="text-xl font-semibold mb-2">Maturity Amt.</td>
+                            <td><b>Rs. </b><b id="maturity"></b></td>
+                        </tr>
+                        <tr class="flex justify-center">
+                            <td></td>
+                            <td class="flex gap-5"><input type="button" value="Calulate" onClick="cal()"
+                                    class="bg-black text-white cursor-pointer p-2 rounded-md hover:bg-slate-400 hover:text-gray-800 " />&nbsp;&nbsp;
+                                <input onClick="clearit()" id="clear" type="reset" value="Clear"
+                                    class="bg-black text-white cursor-pointer p-2 px-5 rounded-md hover:bg-slate-400 hover:text-gray-800  " />
+                            </td>
+                        </tr>
+
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>

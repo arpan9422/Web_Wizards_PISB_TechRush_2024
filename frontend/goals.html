@@ -30,7 +30,7 @@
 
     <!-- navbar -->
 
-    <nav class="flex justify-between bg-white w-full  p-3 shadow-md md:px-10 sm:px-5 sticky top-0 z-50">
+    <nav class="flex justify-between bg-white w-full  p-3 shadow-md md:px-10 sm:px-5 sticky top-0 z-40">
         <div class="flex gap-1 items-center">
             <img src="./img/Logo.png" alt="">
             <a href="">
@@ -55,10 +55,15 @@
             </a>
             <h1
                 class="text-md font-inter font-medium  bg-slate-200 p-3 rounded-md text-blue-800 md:block sm:hidden min-[320px]:hidden cursor-pointer">
-                Goals</h1>
+              Goals</h1>
+	    <a href="/investments">
+              <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+                Investments</h1>
+            </a>
             <a href="/profile">
-                <h1
-                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
+              <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-3 rounded-md hover:text-blue-800 md:block sm:hidden min-[320px]:hidden">
                     Profile</h1>
             </a>
         </div>
@@ -74,7 +79,7 @@
 
     <!-- dropdown -->
 
-    <div class="dropdown hidden">
+    <div class="dropdown hidden sticky z-50 top-14">
         <div
             class="absolute top-10 right-1 bg-white w-auto p-4 flex flex-col items-center justify-center gap-3 rounded-md border-2 border-double border-slate-600">
             <a href="/dashboard">
@@ -96,10 +101,14 @@
             <h1
                 class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
                 Goals</h1>
-
+	    <a href="./investments">
+              <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+                Investments</h1>
+            </a>
             <a href="/profile">
-                <h1
-                    class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
+              <h1
+                class="text-md font-inter font-medium text-gray-600 hover:bg-slate-200 p-2 rounded-md hover:text-blue-800 ">
                     Profile</h1>
             </a>
         </div>

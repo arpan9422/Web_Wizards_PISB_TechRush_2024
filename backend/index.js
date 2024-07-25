@@ -117,6 +117,7 @@ app.get('/dashboard', (req, res) => redirect_check_auth(req, res, '../frontend/d
 app.get('/transactions', (req, res) => redirect_check_auth(req, res, '../frontend/Transactions.html'));
 app.get('/analytics', (req, res) => redirect_check_auth(req, res, '../frontend/analytics.html'));
 app.get('/profile', (req, res) => redirect_check_auth(req, res, '../frontend/profile.html'));
+app.get('/investments', (req, res) => redirect_check_auth(req, res, '../frontend/investments.html'));
 
 // redirect_check_auth('/dashboard', '../frontend/dashboard.html');
 // redirect_check_auth('/transactions', '../frontend/Transactions.html');

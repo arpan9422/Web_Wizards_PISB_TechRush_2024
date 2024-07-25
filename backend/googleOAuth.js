@@ -11,7 +11,7 @@ const saltRounds = 10;
 const SECRET = process.env.SECRETS;
 const TOKEN_VALID_MINS =  process.env.TOKEN_VALIDITY_MINS;
 
-const SERVER_ROOT_URI = "https://backupwebwizards.onrender.com";
+const SERVER_ROOT_URI = "http://117.215.16.96:10000";//"https://backupwebwizards.onrender.com";
 const redirectURI = "google-oauth";
 
 const GOOGLE_CLIENT_ID = "352698624117-sj4lk878plt78f1gpud67nprcb6m01o4.apps.googleusercontent.com";
