@@ -39,7 +39,7 @@
 
                 var maturity = amt * Math.pow((1 + ((rate / 100) / freq)), freq * year);
 		var fd_maturity = Math.floor(maturity);
-                document.getElementById("maturity").innerText = maturity;
+                document.getElementById("maturity").innerText = fd_maturity;
             } else if (depositType == "rd" && document.f1.freq.value.length != 0) {
                 var amt = parseFloat(document.f1.amt.value);
                 var rate = parseFloat(document.f1.rate.value);
