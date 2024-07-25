@@ -11,6 +11,8 @@ const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 
+const { googleOAuthRouter, getGoogleAuthURL } = require('./googleOAuth.js');
+
 dotenv.config();
 app.use(bodyparser.json());
 app.use(cors());
@@ -78,6 +80,11 @@ app.use('/user', transactionSetRouter);
 app.use('/user', userdataFetchRouter);
 app.use('/user', analyticsFetchRouter);
 app.use('/', remenderRoute);
+app.use('/', googleOAuthRouter);
+
+app.get('/google-oauth-url', (req, res) => {
+    res.send(getGoogleAuthURL());
+});
 
 app.get('/login', (req, res) => {
     
