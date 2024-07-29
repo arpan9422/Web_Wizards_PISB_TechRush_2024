@@ -96,6 +96,9 @@ async function get_data(user, scope)
 async function get_monthly_data(user, scope)
 {
     let result = {
+	"income":0,
+	"expense":0
+	"balance":0,
 	"Jan" : { income: 0, expense: 0, balance: 0},
 	"Feb" : { income: 0, expense: 0, balance: 0},
 	"Mar" : { income: 0, expense: 0, balance: 0},
@@ -116,14 +119,17 @@ async function get_monthly_data(user, scope)
 	{
 	    const month = transaction.date.toLocaleString('default', { month: 'short' });
 	    result[month].balance += transaction.delta;
+	    result["balance"] += transaction.delta;
 	    
 	    if (transaction.delta > 0)
 	    {
 		result[month].income += transaction.delta;
+		result["income"] += transaction.delta;
 	    }
 	    else
 	    {
 		result[month].expense -= transaction.delta;
+		result["expense"] += transaction.delta;
 	    }
 	}
     }
@@ -172,7 +178,6 @@ async function fetch_monthly_analytics(req, res) {
 	// see if user exists
 	const user = await User.findOne({ _id: userid });
 
-	// send email
 	let data = await get_monthly_data(user, req.body["scope"]);
 	
 	return res.status(200).json(data);

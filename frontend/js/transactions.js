@@ -125,8 +125,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 	let ty_value = income_or_expense == "income_fractions" ? ty_analytics["income"] : ty_analytics["expense"];
 
 	var d = new Date();
-	d.setFullYear(d.getFullYear() - 1);
-	
+	d.setFullYear(d.getFullYear() - 1);	
 	let ly_analytics = await get_analytics({ "type":"year", "range": d });
 
 	let ly_value = income_or_expense == "income_fractions" ? ly_analytics["income"] : ly_analytics["expense"];
