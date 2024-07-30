@@ -137,7 +137,7 @@ async function google_signin(req, res) {
 	return res.redirect("/dashboard");
     } catch (error) {
 	console.log('Error in signup:', error);
-	return res.json({ status:"error", Api_Response: 304, message: 'Error in signup backend' });
+	return res.redirect('dashboard');//res.json({ status:"error", Api_Response: 304, message: 'Error in signup backend' });
     }
 
     res.send(JSON.stringify(googleUser));
