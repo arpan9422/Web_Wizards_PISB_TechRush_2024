@@ -37,7 +37,12 @@
                 var year = parseInt(document.f1.years.value);
                 var freq = parseInt(document.f1.freq.value);
 
+		console.log(freq)
+
                 var maturity = amt * Math.pow((1 + ((rate / 100) / freq)), freq * year);
+
+		console.log(maturity);
+		
 		var fd_maturity = Math.floor(maturity);
                 document.getElementById("maturity").innerText = fd_maturity;
             } else if (depositType == "rd" && document.f1.freq.value.length != 0) {
@@ -286,6 +291,9 @@
             </div>
         </div>
     </div>
+    <div id="footer"></div>
+
+    <script src="./js/footer.js"></script>
     <script src="./js/nav.js"></script>
 </body>
 
