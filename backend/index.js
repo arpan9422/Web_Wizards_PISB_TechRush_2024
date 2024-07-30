@@ -65,7 +65,7 @@ function redirect_check_auth(req, res, url)
     }
     else
     {
-	res.sendFile(path.join(__dirname, '../frontend/login.html'));
+	res.redirect('login');
     }
 }
 
@@ -91,7 +91,7 @@ app.get('/login', (req, res) => {
     // if already logged in, go to dashboard
     if (check_auth_tok(req))
     {	
-	res.sendFile(path.join(__dirname, '../frontend/dashboard.html'));
+	res.redirect('dashboard');
 	return;
     }
     
@@ -104,7 +104,7 @@ app.get('/signup', (req, res) => {
     // if already logged in, goto to the dashboard
     if (check_auth_tok(req))
     {	
-	res.sendFile(path.join(__dirname, '../frontend/dashboard.html'));
+	res.redirect('dashboard');
 	return;
     }
     
