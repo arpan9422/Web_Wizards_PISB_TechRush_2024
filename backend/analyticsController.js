@@ -97,7 +97,7 @@ async function get_monthly_data(user, scope)
 {
     let result = {
 	"income":0,
-	"expense":0
+	"expense":0,
 	"balance":0,
 	"Jan" : { income: 0, expense: 0, balance: 0},
 	"Feb" : { income: 0, expense: 0, balance: 0},
