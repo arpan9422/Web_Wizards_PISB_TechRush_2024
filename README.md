@@ -38,6 +38,10 @@ Welcome to the **Personal Finance Dashboard** project! This application is desig
 
 
 
+https://github.com/user-attachments/assets/4eacecd7-72c0-49ad-b32b-154d1577eef4
+
+
+
 
 
 
